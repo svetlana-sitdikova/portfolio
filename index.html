@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Svetlana — Product Manager</title>
+
+<!-- Favicon: waving hand -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+
+<!-- ═══ GOOGLE ANALYTICS ═══════════════════════════════════════
+     Replace GA_MEASUREMENT_ID with your actual ID, then uncomment
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --yellow: #E6C200;
+  --bg: #F7F7F5;
+  --black: #0B0B0C;
+  --gray: #6B6B6B;
+  --gray-light: #EEECEA;
+  --gray-border: #E5E5E5;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --serif: 'DM Serif Display', Georgia, serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--black); font-size: 17px; line-height: 1.7; overflow-x: hidden; }
+
+/* WAVE */
+@keyframes wave {
+  0%,100%{transform:rotate(0deg)} 15%{transform:rotate(22deg)} 30%{transform:rotate(-10deg)} 45%{transform:rotate(20deg)} 60%{transform:rotate(-5deg)} 75%{transform:rotate(14deg)}
+}
+.wave { display:inline-block; animation:wave 2.6s ease-in-out infinite; transform-origin:70% 70%; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  background: rgba(247,247,245,0.82);
+  border-bottom: 1px solid var(--gray-border);
+  height: 64px; display: flex; align-items: center;
+  padding: 0 40px; transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.07); }
+.nav-logo { font-size: 26px; cursor: pointer; text-decoration: none; flex-shrink: 0; margin-right: auto; }
+.nav-links { display: flex; gap: 2px; margin-right: auto; }
+.nav-links a {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase;
+  text-decoration: none; color: var(--gray); padding: 7px 13px; border-radius: 7px; transition: all 0.18s;
+}
+.nav-links a:hover { background: var(--yellow); color: var(--black); }
+.lang-switcher { display: flex; gap: 4px; align-items: center; }
+.lang-btn {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+  border: none; background: none; cursor: pointer; color: var(--gray);
+  padding: 7px 10px; border-radius: 6px; border-bottom: 2px solid transparent; transition: all 0.18s;
+}
+.lang-btn.active { color: var(--black); border-bottom-color: var(--yellow); }
+.lang-btn:hover { color: var(--black); background: rgba(0,0,0,0.05); }
+.lang-sep { color: var(--gray-border); font-size: 12px; }
+/* Hamburger */
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; border:none; background:none; padding:8px; margin-left:12px; }
+.hamburger span { width:22px; height:2px; background:var(--black); border-radius:2px; display:block; transition:all 0.3s; }
+.mobile-menu {
+  display:none; position:fixed; top:64px; left:0; right:0;
+  background:rgba(247,247,245,0.97); backdrop-filter:blur(18px);
+  padding:20px 28px 28px; border-bottom:1px solid var(--gray-border); z-index:99;
+  flex-direction:column; gap:4px;
+}
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:16px; font-weight:500; text-decoration:none; color:var(--black); padding:13px 16px; border-radius:10px; transition:all 0.2s; }
+.mobile-menu a:hover { background:var(--yellow); }
+.mobile-menu-lang { display:flex; gap:12px; padding:13px 16px; }
+
+/* CONTAINER */
+.container { max-width:1200px; margin:0 auto; padding:0 48px; }
+.section-label { font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--gray); margin-bottom:16px; }
+
+/* HERO */
+#hero-section { background:linear-gradient(140deg,#EEF0ED 0%,var(--bg) 55%,#F0EDE8 100%); }
+#hero { min-height:calc(100vh - 64px); display:grid; grid-template-columns:55fr 45fr; align-items:center; gap:48px; padding:40px 48px; max-width:1200px; margin:0 auto; }
+.hero-left { display:flex; flex-direction:column; gap:0; }
+.hero-glass {
+  background:rgba(255,255,255,0.52); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,0.75); border-radius:24px;
+  padding:40px 44px; box-shadow:0 8px 40px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
+  display:flex; flex-direction:column; gap:24px;
+}
+.hero-label { font-size:16.5px; font-weight:500; letter-spacing:0.04em; color:var(--gray); }
+.hero-name { font-family:var(--serif); font-size:clamp(46px,6.5vw,82px); font-weight:400; line-height:1.0; letter-spacing:-0.02em; }
+.hero-bio { font-size:17px; color:var(--gray); line-height:1.7; max-width:460px; }
+.hero-actions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.btn-cv {
+  display:inline-flex; align-items:center; gap:9px;
+  background:var(--black); color:var(--bg);
+  font-family:var(--sans); font-size:13px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;
+  text-decoration:none; border:none; cursor:pointer; padding:0 26px; height:46px;
+  border-radius:10px; transition:all 0.2s;
+}
+.btn-cv:hover { background:var(--yellow); color:var(--black); }
+.social-icons { display:flex; gap:10px; }
+.social-icon {
+  display:flex; align-items:center; justify-content:center;
+  width:46px; height:46px; border-radius:50%;
+  border:1.5px solid var(--gray-border); color:var(--black);
+  text-decoration:none; transition:all 0.2s;
+}
+.social-icon svg { width:18px; height:18px; }
+.social-icon:hover { border-color:var(--yellow); background:var(--yellow); }
+
+/* PORTRAIT */
+.hero-right { display:flex; justify-content:center; align-items:center; }
+.portrait-wrap { width:78%; position:relative; }
+.portrait-img { width:100%; aspect-ratio:3/4; display:block; overflow:hidden; border-radius:4px; filter:grayscale(20%); transition:filter 0.5s; }
+.portrait-img:hover { filter:grayscale(0%); }
+.portrait-img svg { width:100%; height:100%; display:block; }
+
+/* TICKER */
+.ticker { background:var(--black); height:48px; overflow:hidden; display:flex; align-items:center; }
+.ticker-track { display:flex; white-space:nowrap; animation:ticker-scroll 65s linear infinite; }
+.ticker-item { font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--bg); padding:0 36px; }
+@keyframes ticker-scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* SECTIONS */
+.section { padding:60px 0; }
+
+/* EXPERIENCE */
+.experience-wrapper { display:grid; grid-template-columns:48px 1fr; margin-top:48px; }
+.timeline-nav { position:sticky; top:80px; height:fit-content; display:flex; flex-direction:column; align-items:center; padding-top:12px; }
+.tl-track { position:relative; display:flex; flex-direction:column; align-items:center; }
+.tl-line { width:1px; background:var(--gray-border); position:absolute; top:6px; bottom:6px; left:50%; transform:translateX(-50%); z-index:0; }
+.tl-dot { width:11px; height:11px; border-radius:50%; background:var(--bg); border:2px solid #C0C0C0; position:relative; z-index:1; cursor:pointer; transition:all 0.3s; flex-shrink:0; }
+.tl-dot.active { background:var(--yellow); border-color:var(--yellow); transform:scale(1.4); }
+.tl-segment { height:148px; width:1px; background:var(--gray-border); transition:background 0.3s; }
+.tl-segment.filled { background:var(--yellow); }
+.timeline { display:flex; flex-direction:column; }
+.timeline-item { display:grid; grid-template-columns:196px 1fr; gap:36px; padding:32px 0 32px 24px; border-top:1px solid var(--gray-border); }
+.timeline-item:last-child { border-bottom:1px solid var(--gray-border); }
+.timeline-years { font-family:var(--serif); font-size:28px; color:var(--gray); font-weight:400; line-height:1.1; padding-top:4px; }
+.timeline-role { font-size:21px; font-weight:500; line-height:1.2; margin-bottom:4px; }
+.timeline-company { font-size:12px; color:var(--gray); margin-bottom:12px; letter-spacing:0.07em; text-transform:uppercase; }
+.timeline-desc { font-size:15px; color:var(--gray); line-height:1.65; margin-bottom:16px; max-width:520px; display:-webkit-box; -webkit-line-clamp:5; -webkit-box-orient:vertical; overflow:hidden; }
+.tl-case-link { font-size:13px; font-weight:500; text-decoration:none; color:var(--black); padding-bottom:1px; border-bottom:1.5px solid var(--yellow); transition:all 0.2s; display:inline-flex; align-items:center; gap:5px; }
+.tl-case-link:hover { color:var(--gray); }
+
+/* CARDS SLIDER */
+.cards-slider-wrap { margin-top:48px; }
+.cards-track-outer { overflow:hidden; border-radius:14px; }
+.cards-track { display:flex; transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); gap:14px; padding:2px; }
+.why-card {
+  flex:0 0 calc(33.333% - 10px); min-width:calc(33.333% - 10px);
+  background:var(--black); border-radius:14px; padding:28px 28px 32px;
+  transition:all 0.3s; cursor:default;
+}
+.why-card:hover { background:var(--yellow); }
+.why-card .card-heading { font-size:17px; font-weight:500; margin-bottom:10px; color:var(--bg); transition:color 0.3s; line-height:1.3; }
+.why-card .card-body { font-size:14px; color:rgba(247,247,245,0.65); line-height:1.6; transition:color 0.3s; }
+.why-card:hover .card-heading { color:var(--black); }
+.why-card:hover .card-body { color:rgba(11,11,12,0.65); }
+.cards-controls { display:flex; align-items:center; gap:10px; margin-top:20px; }
+.cards-btn { width:40px; height:40px; border-radius:50%; border:1.5px solid var(--black); background:var(--black); color:var(--bg); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; }
+.cards-btn:hover:not(:disabled) { background:var(--yellow); border-color:var(--yellow); color:var(--black); }
+.cards-btn:disabled { opacity:0.28; cursor:default; }
+.cards-dots { display:flex; gap:6px; margin-left:4px; }
+.cards-dot { width:6px; height:6px; border-radius:50%; background:var(--gray-border); transition:all 0.25s; cursor:pointer; }
+.cards-dot.active { background:var(--black); }
+.cards-counter { font-size:12px; color:var(--gray); letter-spacing:0.06em; margin-left:auto; }
+
+/* FAQ 2-COLUMN */
+.faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 52px; margin-top:48px; }
+.faq-col {}
+.faq-item { border-bottom:1px solid var(--gray-border); }
+.faq-col .faq-item:first-child { border-top:1px solid var(--gray-border); }
+.faq-question { display:flex; justify-content:space-between; align-items:center; padding:26px 0; cursor:pointer; font-size:19px; font-weight:500; gap:20px; user-select:none; transition:color 0.2s; line-height:1.3; }
+.faq-question:hover { color:var(--gray); }
+.faq-icon { width:26px; height:26px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:300; color:var(--gray); transition:transform 0.3s; line-height:1; }
+.faq-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease; font-size:15px; color:var(--gray); line-height:1.7; }
+.faq-item.open .faq-answer { max-height:300px; padding-bottom:24px; }
+.faq-item.open .faq-icon { transform:rotate(45deg); color:var(--black); }
+
+/* FOOTER */
+footer { background:var(--black); color:var(--bg); padding:64px 0 0; }
+.footer-inner { max-width:1200px; margin:0 auto; padding:0 80px 64px; display:grid; grid-template-columns:1fr auto 1fr; gap:48px; align-items:start; border-bottom:1px solid #2A2A2C; margin-bottom:0; }
+.footer-left { display:flex; flex-direction:column; gap:20px; }
+.footer-h2 { font-family:var(--serif); font-size:44px; font-weight:400; line-height:1.1; }
+.footer-sub { font-size:15px; color:rgba(247,247,245,0.5); max-width:320px; line-height:1.6; }
+.footer-btns { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.btn-cv-footer {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--bg); color:var(--black);
+  font-family:var(--sans); font-size:12px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;
+  text-decoration:none; padding:0 20px; height:42px; border-radius:10px; transition:all 0.2s; border:none; cursor:pointer;
+}
+.btn-cv-footer:hover { background:var(--yellow); }
+.footer-social { display:flex; gap:10px; }
+.social-icon-dark {
+  display:flex; align-items:center; justify-content:center;
+  width:42px; height:42px; border-radius:50%;
+  border:1.5px solid rgba(247,247,245,0.2); color:var(--bg);
+  text-decoration:none; transition:all 0.2s;
+}
+.social-icon-dark svg { width:17px; height:17px; }
+.social-icon-dark:hover { border-color:var(--yellow); background:var(--yellow); color:var(--black); }
+/* Center image */
+.footer-center { display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding-top:8px; }
+.footer-image { font-size:88px; line-height:1; filter:grayscale(20%); }
+/* Right */
+.footer-right { display:flex; flex-direction:column; justify-content:flex-start; gap:16px; }
+.email-wrap { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.footer-email { font-family:var(--serif); font-size:clamp(22px,2.8vw,34px); font-weight:400; color:var(--bg); text-decoration:none; letter-spacing:-0.01em; transition:color 0.2s; line-height:1.2; }
+.footer-email:hover { color:var(--yellow); }
+.copy-btn {
+  display:flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:8px;
+  border:1px solid rgba(247,247,245,0.2); background:transparent; cursor:pointer;
+  color:rgba(247,247,245,0.5); transition:all 0.2s; flex-shrink:0; position:relative;
+}
+.copy-btn:hover { border-color:var(--yellow); color:var(--yellow); }
+.copy-tooltip {
+  position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%);
+  background:var(--yellow); color:var(--black); font-size:11px; font-weight:500;
+  padding:4px 10px; border-radius:6px; white-space:nowrap; opacity:0;
+  pointer-events:none; transition:opacity 0.2s; font-family:var(--sans);
+}
+.copy-tooltip.show { opacity:1; }
+.footer-note { font-size:13px; color:rgba(247,247,245,0.4); }
+/* Bottom bar */
+.footer-bottom {
+  max-width:1200px; margin:0 auto; padding:22px 80px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.footer-copy { font-size:12px; color:rgba(247,247,245,0.35); }
+.scroll-top-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:500; letter-spacing:0.07em; text-transform:uppercase;
+  background:none; border:1px solid rgba(247,247,245,0.2); color:rgba(247,247,245,0.5);
+  cursor:pointer; padding:8px 16px; border-radius:8px; font-family:var(--sans); transition:all 0.2s;
+}
+.scroll-top-btn:hover { border-color:var(--yellow); color:var(--yellow); }
+
+/* DETAIL PAGE */
+#detail-page { display:none; position:fixed; inset:0; background:var(--bg); z-index:200; overflow-y:auto; }
+#detail-page.open { display:block; }
+.detail-nav { position:sticky; top:0; backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); background:rgba(247,247,245,0.88); border-bottom:1px solid var(--gray-border); height:64px; display:flex; align-items:center; padding:0 48px; justify-content:space-between; z-index:10; }
+.detail-back { font-size:13px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--black); display:flex; align-items:center; gap:8px; border:none; background:none; cursor:pointer; transition:color 0.2s; }
+.detail-back:hover { color:var(--gray); }
+.detail-anchors { display:flex; gap:28px; }
+.detail-anchors a { font-size:12px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; color:var(--gray); transition:all 0.2s; padding-bottom:2px; border-bottom:2px solid transparent; }
+.detail-anchors a:hover { color:var(--black); border-bottom-color:var(--yellow); }
+.detail-hero { background:var(--black); color:var(--bg); padding:80px 48px 72px; }
+.detail-hero-inner { max-width:1200px; margin:0 auto; }
+.detail-years { font-family:var(--serif); font-size:100px; font-weight:400; color:rgba(247,247,245,0.1); line-height:1; margin-bottom:-40px; }
+.detail-role { font-family:var(--serif); font-size:clamp(36px,5vw,60px); font-weight:400; color:var(--bg); margin-bottom:12px; line-height:1.1; }
+.detail-company { font-size:16px; color:rgba(247,247,245,0.5); }
+.detail-content { max-width:1200px; margin:0 auto; padding:0 48px; }
+.detail-section { padding:64px 0; border-bottom:1px solid var(--gray-border); }
+.detail-section:last-child { border-bottom:none; }
+.detail-section h3 { font-family:var(--serif); font-size:32px; font-weight:400; margin-bottom:32px; }
+.detail-two-col { display:grid; grid-template-columns:1fr 1.5fr; gap:64px; align-items:start; }
+.pull-quote { font-family:var(--serif); font-size:26px; font-weight:400; line-height:1.4; font-style:italic; }
+.detail-body { font-size:16px; line-height:1.75; color:var(--gray); white-space:pre-line; }
+.detail-img-ph { width:100%; height:300px; background:var(--gray-light); display:flex; align-items:center; justify-content:center; margin-top:40px; }
+.detail-caption { font-size:12px; color:var(--gray); margin-top:10px; font-style:italic; }
+.achiev-list { display:flex; flex-direction:column; gap:1px; background:var(--gray-border); }
+.achiev-item { display:grid; grid-template-columns:48px 1fr; gap:24px; align-items:start; background:var(--bg); padding:24px 24px 24px 0; }
+.achiev-num { background:var(--black); color:var(--bg); width:48px; height:48px; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:500; flex-shrink:0; }
+.achiev-text { font-size:16px; line-height:1.6; padding-top:12px; }
+.tags-wrap { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+.tag { background:var(--black); color:var(--bg); font-size:12px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:8px 16px; border-radius:6px; }
+.detail-footer-nav { display:flex; justify-content:space-between; padding:40px 48px; max-width:1200px; margin:0 auto; }
+.detail-nav-link { font-size:14px; font-weight:500; text-decoration:none; color:var(--black); display:flex; align-items:center; gap:8px; border-bottom:1.5px solid var(--gray-border); padding-bottom:2px; transition:border-color 0.2s; }
+.detail-nav-link:hover { border-bottom-color:var(--yellow); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  #hero { grid-template-columns:1fr; gap:36px; padding:32px 24px; }
+  .hero-right { display:none; }
+  .hero-glass { padding:28px 28px; }
+  .experience-wrapper { grid-template-columns:1fr; }
+  .timeline-nav { display:none; }
+  .timeline-item { grid-template-columns:1fr; gap:8px; padding-left:0; }
+  .why-card { flex:0 0 88%; min-width:88%; }
+  .faq-grid { grid-template-columns:1fr; }
+  .faq-col .faq-item:first-child { border-top:none; }
+  .faq-col:first-child .faq-item:first-child { border-top:1px solid var(--gray-border); }
+  footer { padding:48px 0 0; }
+  .footer-inner { grid-template-columns:1fr; padding:0 28px 48px; gap:40px; }
+  .footer-bottom { padding:20px 28px; }
+  .container { padding:0 24px; }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  nav { padding:0 24px; }
+  #hero { min-height:auto; padding-top:40px; }
+}
+
+/* Mobile nav: hidden until scroll */
+@media (max-width: 960px) {
+  nav.nav-hidden { opacity:0; pointer-events:none; }
+  nav { transition:opacity 0.3s, box-shadow 0.3s; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav" class="nav-hidden">
+  <!-- Logo: replace emoji with your icon image later -->
+  <a href="#home" class="nav-logo">👋</a>
+  <div class="nav-links">
+    <a href="#home" data-en="Home" data-ru="Главная">Home</a>
+    <a href="#experience" data-en="Experience" data-ru="Опыт">Experience</a>
+    <a href="#about" data-en="About" data-ru="Обо мне">About</a>
+    <a href="#faq" data-en="FAQ" data-ru="Вопросы">FAQ</a>
+    <a href="#contacts" data-en="Contact" data-ru="Контакты">Contact</a>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">/</span>
+    <button class="lang-btn" onclick="setLang('ru')">RU</button>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#home" onclick="closeMobileMenu()" data-en="Home" data-ru="Главная">Home</a>
+  <a href="#experience" onclick="closeMobileMenu()" data-en="Experience" data-ru="Опыт">Experience</a>
+  <a href="#about" onclick="closeMobileMenu()" data-en="About" data-ru="Обо мне">About</a>
+  <a href="#faq" onclick="closeMobileMenu()" data-en="FAQ" data-ru="Вопросы">FAQ</a>
+  <a href="#contacts" onclick="closeMobileMenu()" data-en="Contact" data-ru="Контакты">Contact</a>
+  <div class="mobile-menu-lang">
+    <button class="lang-btn active" onclick="setLang('en');closeMobileMenu()">EN</button>
+    <span class="lang-sep">/</span>
+    <button class="lang-btn" onclick="setLang('ru');closeMobileMenu()">RU</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div id="hero">
+    <div class="hero-left">
+      <div class="hero-glass">
+        <p class="hero-label" data-en="Product Manager · Leader" data-ru="Продакт Менеджер · Лидер">Product Manager · Leader</p>
+        <h1 class="hero-name">
+          <span data-en="Hi! I'm" data-ru="Привет! Я">Hi! I'm</span><br>
+          Svetlana <span class="wave">👋</span>
+        </h1>
+        <p class="hero-bio" data-en="I build products from zero to scale — structuring chaos, connecting teams, and turning user insight into measurable business outcomes." data-ru="Строю продукты от нуля до масштаба — структурирую хаос, объединяю команды и превращаю инсайты пользователей в измеримые бизнес-результаты.">I build products from zero to scale — structuring chaos, connecting teams, and turning user insight into measurable business outcomes.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-cv" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-en="Download CV" data-ru="Скачать резюме">Download CV</span>
+          </a>
+          <div class="social-icons">
+            <a href="#" class="social-icon" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-icon" title="Telegram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="portrait-wrap">
+        <div class="portrait-img">
+          <!-- Generated portrait placeholder — replace src with your photo -->
+          <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="300" height="400" fill="#EAE6E0"/>
+            <!-- hair back -->
+            <ellipse cx="150" cy="155" rx="88" ry="98" fill="#2C2018"/>
+            <!-- body/shoulders -->
+            <path d="M0 400 Q60 300 105 278 Q128 268 150 265 Q172 268 195 278 Q240 300 300 400Z" fill="#D5CFC8"/>
+            <path d="M128 265 Q150 292 172 265" fill="#C0BAB3"/>
+            <!-- neck -->
+            <rect x="129" y="258" width="42" height="48" rx="7" fill="#D4A87A"/>
+            <!-- head -->
+            <ellipse cx="150" cy="208" rx="74" ry="84" fill="#D4A87A"/>
+            <!-- hair top/front -->
+            <path d="M76 188 Q82 95 150 75 Q218 95 224 188 Q205 138 185 128 Q162 98 150 100 Q138 98 115 128 Q95 138 76 188Z" fill="#2C2018"/>
+            <!-- hair sides -->
+            <path d="M76 188 Q70 228 80 268 Q72 238 76 188Z" fill="#2C2018"/>
+            <path d="M224 188 Q230 228 220 268 Q228 238 224 188Z" fill="#2C2018"/>
+            <!-- eyes white -->
+            <ellipse cx="120" cy="202" rx="13" ry="11" fill="white"/>
+            <ellipse cx="180" cy="202" rx="13" ry="11" fill="white"/>
+            <!-- pupils -->
+            <circle cx="122" cy="202" r="7.5" fill="#1A0C06"/>
+            <circle cx="182" cy="202" r="7.5" fill="#1A0C06"/>
+            <!-- eye shine -->
+            <circle cx="125" cy="199" r="2.5" fill="white"/>
+            <circle cx="185" cy="199" r="2.5" fill="white"/>
+            <!-- eyebrows -->
+            <path d="M105 185 Q118 178 135 182" stroke="#2C2018" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+            <path d="M165 182 Q182 178 195 185" stroke="#2C2018" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+            <!-- nose -->
+            <path d="M147 216 Q141 230 150 234 Q159 230 153 216" stroke="#B88A60" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- lips -->
+            <path d="M132 252 Q150 264 168 252" fill="#C06248"/>
+            <path d="M132 252 Q150 248 168 252" fill="#D47A68"/>
+            <!-- lip line -->
+            <path d="M132 252 Q150 256 168 252" stroke="#A84C34" stroke-width="0.8" fill="none"/>
+            <!-- blush -->
+            <ellipse cx="103" cy="226" rx="15" ry="9" fill="#D47A68" opacity="0.22"/>
+            <ellipse cx="197" cy="226" rx="15" ry="9" fill="#D47A68" opacity="0.22"/>
+            <!-- top clothes detail -->
+            <path d="M105 278 Q115 290 128 295 Q140 298 150 298 Q160 298 172 295 Q185 290 195 278" fill="#C0BAB3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">JIRA</span><span class="ticker-item">CONFLUENCE</span><span class="ticker-item">LEADERSHIP</span><span class="ticker-item">PRODUCT STRATEGY</span><span class="ticker-item">ROADMAPPING</span><span class="ticker-item">STAKEHOLDER MANAGEMENT</span><span class="ticker-item">AGILE</span><span class="ticker-item">SCRUM</span><span class="ticker-item">DATA ANALYSIS</span><span class="ticker-item">OKR</span><span class="ticker-item">A/B TESTING</span><span class="ticker-item">FIGMA</span><span class="ticker-item">JIRA</span><span class="ticker-item">CONFLUENCE</span><span class="ticker-item">LEADERSHIP</span><span class="ticker-item">PRODUCT STRATEGY</span><span class="ticker-item">ROADMAPPING</span><span class="ticker-item">STAKEHOLDER MANAGEMENT</span><span class="ticker-item">AGILE</span><span class="ticker-item">SCRUM</span><span class="ticker-item">DATA ANALYSIS</span><span class="ticker-item">OKR</span><span class="ticker-item">A/B TESTING</span><span class="ticker-item">FIGMA</span>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="container">
+    <p class="section-label" data-en="EXPERIENCE" data-ru="ОПЫТ">EXPERIENCE</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.1;" data-en="Career path" data-ru="Карьерный путь">Career path</h2>
+    <div class="experience-wrapper">
+      <div class="timeline-nav">
+        <div class="tl-track" id="tl-track">
+          <div class="tl-line"></div>
+          <div class="tl-dot active" onclick="scrollToItem(0)"></div>
+          <div class="tl-segment" id="seg0"></div>
+          <div class="tl-dot" onclick="scrollToItem(1)"></div>
+          <div class="tl-segment" id="seg1"></div>
+          <div class="tl-dot" onclick="scrollToItem(2)"></div>
+          <div class="tl-segment" id="seg2"></div>
+          <div class="tl-dot" onclick="scrollToItem(3)"></div>
+        </div>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item" data-index="0">
+          <div class="timeline-years">2022 — 2025</div>
+          <div>
+            <div class="timeline-role" data-en="Senior Product Manager" data-ru="Старший Продакт Менеджер">Senior Product Manager</div>
+            <div class="timeline-company" data-en="TechCorp · Moscow / Remote" data-ru="TechCorp · Москва / Удалённо">TechCorp · Moscow / Remote</div>
+            <p class="timeline-desc" data-en="Led end-to-end development of B2B SaaS platform from 0 to 50k MAU. Built and managed cross-functional team of 12 across product, engineering, and design. Ran 40+ customer interviews, defined MVP, secured €2.1M Series A. Reduced time-to-value from 21 to 4 days." data-ru="Руководил разработкой B2B SaaS-платформы с 0 до 50k MAU. Выстроил кросс-функциональную команду из 12 человек. Провёл 40+ интервью с клиентами, определил MVP, обеспечил привлечение €2.1M на Series A. Снизил time-to-value с 21 до 4 дней.">Led end-to-end development of B2B SaaS platform from 0 to 50k MAU. Built and managed cross-functional team of 12 across product, engineering, and design. Ran 40+ customer interviews, defined MVP, secured €2.1M Series A. Reduced time-to-value from 21 to 4 days.</p>
+            <a href="#" class="tl-case-link" onclick="openDetail(0);return false;" data-en="Full case →" data-ru="Полный кейс →">Full case →</a>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="1">
+          <div class="timeline-years">2020 — 2022</div>
+          <div>
+            <div class="timeline-role" data-en="Product Manager" data-ru="Продакт Менеджер">Product Manager</div>
+            <div class="timeline-company" data-en="Startup Labs · Saint-Petersburg" data-ru="Startup Labs · Санкт-Петербург">Startup Labs · Saint-Petersburg</div>
+            <p class="timeline-desc" data-en="Owned product roadmap for fintech mobile app. Reduced churn by 23% through discovery-driven redesign. Introduced Jobs-to-be-Done framework, ran bi-weekly usability tests. Shipped subscription model that increased ARPU by 18% in Q2 2021." data-ru="Управлял продуктовым роадмапом финтех-приложения. Снизил отток на 23% через дискавери-редизайн. Внедрил JTBD-фреймворк. Запустил подписочную модель, увеличившую ARPU на 18%.">Owned product roadmap for fintech mobile app. Reduced churn by 23% through discovery-driven redesign. Introduced Jobs-to-be-Done framework, ran bi-weekly usability tests. Shipped subscription model that increased ARPU by 18% in Q2 2021.</p>
+            <a href="#" class="tl-case-link" onclick="openDetail(1);return false;" data-en="Full case →" data-ru="Полный кейс →">Full case →</a>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="2">
+          <div class="timeline-years">2018 — 2020</div>
+          <div>
+            <div class="timeline-role" data-en="Business Analyst" data-ru="Бизнес-аналитик">Business Analyst</div>
+            <div class="timeline-company" data-en="Digital Agency · Moscow" data-ru="Digital Agency · Москва">Digital Agency · Moscow</div>
+            <p class="timeline-desc" data-en="Worked with 8 enterprise clients on digital transformation. Bridged business requirements and technical specs for teams of 30+. Delivered process audits and automation blueprints. Built requirements templates that cut BA onboarding time by 40%." data-ru="Работал с 8 корпоративными клиентами в рамках цифровой трансформации. Выступал связующим звеном между бизнесом и разработкой. Создал шаблоны требований, сократившие онбординг BA на 40%.">Worked with 8 enterprise clients on digital transformation. Bridged business requirements and technical specs for teams of 30+. Delivered process audits and automation blueprints. Built requirements templates that cut BA onboarding time by 40%.</p>
+            <a href="#" class="tl-case-link" onclick="openDetail(2);return false;" data-en="Full case →" data-ru="Полный кейс →">Full case →</a>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="3">
+          <div class="timeline-years">2016 — 2018</div>
+          <div>
+            <div class="timeline-role" data-en="Project Coordinator" data-ru="Координатор проектов">Project Coordinator</div>
+            <div class="timeline-company" data-en="Media Group · Moscow" data-ru="Media Group · Москва">Media Group · Moscow</div>
+            <p class="timeline-desc" data-en="Started as coordinator, grew into product ownership. Coordinated editorial planning across 4 content teams. Launched 3 internal tools reducing operational overhead by 35%. Replaced 60-step email workflows with 3-step digital forms." data-ru="Начал как координатор, вырос до владельца продукта. Координировал редакционное планирование в 4 командах. Запустил 3 внутренних инструмента, снизивших операционные расходы на 35%.">Started as coordinator, grew into product ownership. Coordinated editorial planning across 4 content teams. Launched 3 internal tools reducing operational overhead by 35%. Replaced 60-step email workflows with 3-step digital forms.</p>
+            <a href="#" class="tl-case-link" onclick="openDetail(3);return false;" data-en="Full case →" data-ru="Полный кейс →">Full case →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE — no gray bg, black cards -->
+<section id="about" class="section">
+  <div class="container">
+    <p class="section-label" data-en="VALUE PROPOSITION" data-ru="МОЯ ЦЕННОСТЬ">VALUE PROPOSITION</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.1;" data-en="Why work with me" data-ru="Почему стоит нанять">Why work with me</h2>
+    <div class="cards-slider-wrap">
+      <div class="cards-track-outer">
+        <div class="cards-track" id="cards-track">
+          <div class="why-card"><div class="card-heading" data-en="Systems thinking" data-ru="Системное мышление">Systems thinking</div><p class="card-body" data-en="I design products as interconnected systems, not isolated features. Every decision maps to a bigger structure." data-ru="Проектирую продукты как взаимосвязанные системы. Каждое решение вписано в общую структуру.">I design products as interconnected systems, not isolated features. Every decision maps to a bigger structure.</p></div>
+          <div class="why-card"><div class="card-heading" data-en="Cross-functional leadership" data-ru="Кросс-функциональное лидерство">Cross-functional leadership</div><p class="card-body" data-en="I align engineers, designers, and stakeholders without friction — creating shared understanding and direction." data-ru="Согласовываю разработчиков, дизайнеров и стейкхолдеров — создаю общее понимание и вектор.">I align engineers, designers, and stakeholders without friction.</p></div>
+          <div class="why-card"><div class="card-heading" data-en="Data-driven decisions" data-ru="Решения на основе данных">Data-driven decisions</div><p class="card-body" data-en="Intuition backed by metrics. I run structured experiments and let evidence guide prioritization." data-ru="Интуиция, подкреплённая метриками. Провожу эксперименты и даю данным определять приоритеты.">Intuition backed by metrics. I run structured experiments.</p></div>
+          <div class="why-card"><div class="card-heading" data-en="Clear communication" data-ru="Чёткая коммуникация">Clear communication</div><p class="card-body" data-en="Complex ideas in plain language. I write specs that get read and run meetings that matter." data-ru="Сложные идеи — понятным языком. Пишу спецификации, которые читают.">Complex ideas in plain language. Specs that get read.</p></div>
+          <div class="why-card"><div class="card-heading" data-en="Fast onboarding" data-ru="Быстрое погружение">Fast onboarding</div><p class="card-body" data-en="I map context quickly and become effective from week one — no long ramp-up needed." data-ru="Быстро схватываю контекст и выхожу на мощность с первой недели.">I map context quickly and become effective from week one.</p></div>
+          <div class="why-card"><div class="card-heading" data-en="Ownership mindset" data-ru="Мышление собственника">Ownership mindset</div><p class="card-body" data-en="I treat the product like it's mine. Accountability, initiative, and care for outcomes." data-ru="Отношусь к продукту как к своему. Ответственность, инициатива, фокус на результате.">Accountability, initiative, and care for outcomes.</p></div>
+          <div class="why-card"><div class="card-heading" data-en="Strategic vision" data-ru="Стратегическое видение">Strategic vision</div><p class="card-body" data-en="I connect daily decisions to long-term product positioning and company goals." data-ru="Связываю ежедневные решения с долгосрочным позиционированием и целями компании.">I connect daily decisions to long-term positioning.</p></div>
+          <div class="why-card"><div class="card-heading" data-en="User empathy" data-ru="Эмпатия к пользователю">User empathy</div><p class="card-body" data-en="200+ user interviews across my career. User pain is never abstract to me." data-ru="200+ интервью с пользователями за карьеру. Боль пользователя никогда не абстрактна.">200+ user interviews. Pain is never abstract to me.</p></div>
+        </div>
+      </div>
+      <div class="cards-controls">
+        <button class="cards-btn" id="cards-prev" onclick="slideCards(-1)" disabled>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        </button>
+        <button class="cards-btn" id="cards-next" onclick="slideCards(1)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+        </button>
+        <div class="cards-dots" id="cards-dots"></div>
+        <span class="cards-counter" id="cards-counter">1 / 3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ — 2 columns -->
+<section id="faq" class="section">
+  <div class="container">
+    <p class="section-label" data-en="FAQ" data-ru="ЧАСТЫЕ ВОПРОСЫ">FAQ</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.1;" data-en="Common questions" data-ru="Частые вопросы">Common questions</h2>
+    <div class="faq-grid">
+      <!-- Column 1 -->
+      <div class="faq-col">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span data-en="Are you open to relocation or full remote?" data-ru="Готовы к релокации или рассматриваете удалённый формат?">Are you open to relocation or full remote?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><span data-en="Yes to both. I've worked fully remote for 3+ years across distributed international teams. Open to relocation for the right opportunity." data-ru="Да на оба варианта. Работал удалённо более 3 лет в международных командах. Открыт к релокации при подходящем предложении.">Yes to both. I've worked fully remote for 3+ years across distributed international teams.</span></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span data-en="What domains have you worked in?" data-ru="В каких доменах у вас есть опыт?">What domains have you worked in?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><span data-en="B2B SaaS, fintech, media, and internal tooling. I adapt quickly — my core value is in the process, not domain-specific knowledge." data-ru="B2B SaaS, финтех, медиа и внутренние инструменты. Быстро адаптируюсь — ценность в подходе, а не в узкой экспертизе.">B2B SaaS, fintech, media, and internal tooling. I adapt quickly to new domains.</span></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span data-en="What team size have you managed?" data-ru="Командами какого размера вы управляли?">What team size have you managed?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><span data-en="Up to 12 directly — product, engineering, and design. Also IC PM in larger orgs with 40+ person teams." data-ru="До 12 человек напрямую — продукт, разработка и дизайн. Также IC PM в крупных организациях с командами 40+.">Up to 12 people directly. Also IC PM in larger orgs with 40+ person teams.</span></div>
+        </div>
+      </div>
+      <!-- Column 2 -->
+      <div class="faq-col">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span data-en="Do you do consulting or freelance projects?" data-ru="Вы занимаетесь консалтингом или фриланс-проектами?">Do you do consulting or freelance projects?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><span data-en="Selectively yes — for product audits, 0-to-1 launches, or team coaching. Reach out to discuss scope." data-ru="Да, избирательно — для продуктовых аудитов, запусков с нуля или коучинга. Свяжитесь, чтобы обсудить.">Selectively yes — for product audits, 0-to-1 launches, or team coaching.</span></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span data-en="What's your approach to prioritization?" data-ru="Как вы подходите к приоритизации?">What's your approach to prioritization?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><span data-en="Context-dependent. RICE or ICE for discovery, opportunity scoring for mature products, lean frameworks when speed matters." data-ru="Зависит от контекста. RICE или ICE на дискавери, opportunity scoring для зрелых продуктов, лёгкие фреймворки при высокой скорости.">Context-dependent. RICE or ICE for discovery, opportunity scoring for mature products.</span></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span data-en="Are you available right now?" data-ru="Вы сейчас доступны?">Are you available right now?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><span data-en="Open to conversations. Best via Telegram or LinkedIn — I usually respond within 24 hours." data-ru="Открыт к диалогу. Лучший способ — Telegram или LinkedIn. Отвечаю в течение 24 часов.">Open to conversations. Best via Telegram or LinkedIn — usually within 24 hours.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacts">
+  <div class="footer-inner">
+    <!-- Left -->
+    <div class="footer-left">
+      <h2 class="footer-h2" data-en="Let's connect" data-ru="Напишите мне">Let's connect</h2>
+      <p class="footer-sub" data-en="Open to full-time roles, consulting, and interesting conversations about product." data-ru="Открыта для постоянных позиций, консалтинга и интересных разговоров о продукте.">Open to full-time roles, consulting, and interesting conversations about product.</p>
+      <div class="footer-btns">
+        <a href="#" class="btn-cv-footer" download>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-en="Download CV" data-ru="Скачать резюме">Download CV</span>
+        </a>
+        <div class="footer-social">
+          <a href="#" class="social-icon-dark" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-icon-dark" title="Telegram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center image -->
+    <div class="footer-center">
+      <!-- Replace with your PNG: <img src="your-image.png" style="width:120px;height:auto"> -->
+      <div class="footer-image">👩‍💻</div>
+    </div>
+
+    <!-- Right: email -->
+    <div class="footer-right">
+      <div class="email-wrap">
+        <a href="mailto:hello@yourdomain.com" class="footer-email">hello@yourdomain.com</a>
+        <button class="copy-btn" onclick="copyEmail(this)" title="Copy email">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="copy-tooltip">Copied!</span>
+        </button>
+      </div>
+      <p class="footer-note" data-en="UTC+3 · Moscow · Available for remote" data-ru="UTC+3 · Москва · Удалённая работа">UTC+3 · Moscow · Available for remote</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy" data-en="© 2025 Svetlana" data-ru="© 2025 Светлана">© 2025 Svetlana</span>
+    <span class="footer-copy" data-en="Made with intention" data-ru="Сделано с умыслом">Made with intention</span>
+    <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span data-en="Back to top" data-ru="Наверх">Back to top</span>
+    </button>
+  </div>
+</footer>
+
+<!-- DETAIL PAGE -->
+<div id="detail-page">
+  <div class="detail-nav">
+    <button class="detail-back" onclick="closeDetail()">← <span data-en="Back" data-ru="Назад">Back</span></button>
+    <div class="detail-anchors">
+      <a href="#d-overview" data-en="Overview" data-ru="Обзор">Overview</a>
+      <a href="#d-context" data-en="Context" data-ru="Контекст">Context</a>
+      <a href="#d-results" data-en="Results" data-ru="Результаты">Results</a>
+      <a href="#d-tools" data-en="Stack" data-ru="Стек">Stack</a>
+    </div>
+  </div>
+  <div class="detail-hero">
+    <div class="detail-hero-inner">
+      <div class="detail-years" id="d-years">2022 — 2025</div>
+      <h1 class="detail-role" id="d-role">Senior Product Manager</h1>
+      <p class="detail-company" id="d-company">TechCorp · Moscow / Remote</p>
+    </div>
+  </div>
+  <div class="detail-content">
+    <div class="detail-section" id="d-overview">
+      <h3 data-en="Overview" data-ru="Обзор">Overview</h3>
+      <div class="detail-two-col">
+        <p class="pull-quote" data-en='"We shipped in eighteen months what most teams spend three years on."' data-ru='"Мы выпустили за восемнадцать месяцев то, на что большинство тратит три года."'>"We shipped in eighteen months what most teams spend three years on."</p>
+        <div class="detail-body" data-en="Joined as the founding PM to build a B2B SaaS platform for logistics management. Starting from a blank doc and three engineers, I led discovery, defined the MVP, and grew the product to 50,000 monthly active users.
+
+The core challenge: a fragmented market with no clear benchmark, and stakeholders who disagreed on what problem we were solving. I ran 40+ customer interviews in the first month and got alignment within six weeks." data-ru="Пришла как первый PM с задачей создать B2B SaaS-платформу. Начиная с чистого листа и трёх инженеров, провела дискавери, определила MVP и вырастила продукт до 50 000 MAU.
+
+Ключевой вызов: фрагментированный рынок и стейкхолдеры, расходившиеся во мнениях. В первый месяц провела 40+ интервью и добилась согласования за шесть недель.">Joined as the founding PM to build a B2B SaaS platform for logistics management.</div>
+      </div>
+    </div>
+    <div class="detail-section" id="d-context">
+      <h3 data-en="Context" data-ru="Контекст">Context</h3>
+      <div class="detail-body" style="max-width:680px;margin-bottom:32px;" data-en="The logistics SaaS space was dominated by legacy enterprise tools built in the 2000s. Our opportunity was in the mid-market: companies too complex for spreadsheets, too small for SAP." data-ru="Рынок SaaS для логистики был захвачен устаревшими инструментами 2000-х. Наша ниша — средний рынок: слишком сложно для таблиц, слишком мало для SAP.">The logistics SaaS space was dominated by legacy enterprise tools.</div>
+      <div class="detail-img-ph"><span data-en="Screenshot / diagram" data-ru="Скриншот / схема">Screenshot / diagram</span></div>
+      <p class="detail-caption" data-en="Product architecture diagram, Q3 2023." data-ru="Схема архитектуры, Q3 2023.">Product architecture diagram, Q3 2023.</p>
+    </div>
+    <div class="detail-section" id="d-results">
+      <h3 data-en="Key results" data-ru="Ключевые результаты">Key results</h3>
+      <div class="achiev-list">
+        <div class="achiev-item"><div class="achiev-num">01</div><div class="achiev-text" data-en="Grew MAU from 0 to 50,000 in 18 months through disciplined feature prioritization." data-ru="Вырастила MAU с 0 до 50 000 за 18 месяцев благодаря строгой приоритизации фич.">Grew MAU from 0 to 50,000 in 18 months.</div></div>
+        <div class="achiev-item"><div class="achiev-num">02</div><div class="achiev-text" data-en="Reduced time-to-value from 21 days to 4 days by redesigning onboarding with progressive disclosure." data-ru="Снизила time-to-value с 21 до 4 дней, переработав онбординг с прогрессивным раскрытием.">Reduced time-to-value from 21 days to 4 days.</div></div>
+        <div class="achiev-item"><div class="achiev-num">03</div><div class="achiev-text" data-en="Secured €2.1M Series A — retention metrics, NPS 68, 3 enterprise case studies." data-ru="Обеспечила €2.1M на Series A — метрики удержания, NPS 68 и 3 корпоративных кейса.">Secured €2.1M Series A fundraise.</div></div>
+        <div class="achiev-item"><div class="achiev-num">04</div><div class="achiev-text" data-en="Shipped 6 major releases with zero missed deadlines across 18 months." data-ru="Выпустила 6 крупных релизов без единого сорванного дедлайна за 18 месяцев.">6 major releases, zero missed deadlines.</div></div>
+      </div>
+    </div>
+    <div class="detail-section" id="d-tools">
+      <h3 data-en="Stack & methods" data-ru="Инструменты и методы">Stack & methods</h3>
+      <div class="tags-wrap">
+        <span class="tag">JIRA</span><span class="tag">CONFLUENCE</span><span class="tag">FIGMA</span><span class="tag">AMPLITUDE</span><span class="tag">NOTION</span><span class="tag">MIRO</span><span class="tag">SCRUM</span><span class="tag">OKR</span><span class="tag">JTBD</span><span class="tag">A/B TESTING</span><span class="tag">SQL</span>
+      </div>
+    </div>
+  </div>
+  <div class="detail-footer-nav">
+    <a href="#" class="detail-nav-link" onclick="closeDetail();return false;">← <span data-en="Back to main" data-ru="На главную">Back to main</span></a>
+    <a href="#" class="detail-nav-link" onclick="nextPeriod();return false;"><span data-en="Next period" data-ru="Следующий период">Next period</span> →</a>
+  </div>
+</div>
+
+<script>
+  let currentLang = 'en';
+  const periods = [
+    {years:'2022 — 2025',role_en:'Senior Product Manager',role_ru:'Старший Продакт Менеджер',company_en:'TechCorp · Moscow / Remote',company_ru:'TechCorp · Москва / Удалённо'},
+    {years:'2020 — 2022',role_en:'Product Manager',role_ru:'Продакт Менеджер',company_en:'Startup Labs · Saint-Petersburg',company_ru:'Startup Labs · Санкт-Петербург'},
+    {years:'2018 — 2020',role_en:'Business Analyst',role_ru:'Бизнес-аналитик',company_en:'Digital Agency · Moscow',company_ru:'Digital Agency · Москва'},
+    {years:'2016 — 2018',role_en:'Project Coordinator',role_ru:'Координатор проектов',company_en:'Media Group · Moscow',company_ru:'Media Group · Москва'}
+  ];
+  let currentPeriod = 0;
+
+  // LANG
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll(`.lang-btn[onclick*="setLang('${lang}')"]`).forEach(b => b.classList.add('active'));
+    document.querySelectorAll('[data-en]').forEach(el => { el.textContent = el.getAttribute('data-'+lang); });
+    updateDetailLang();
+  }
+  function updateDetailLang() {
+    const p = periods[currentPeriod];
+    document.getElementById('d-years').textContent = p.years;
+    document.getElementById('d-role').textContent = currentLang==='en' ? p.role_en : p.role_ru;
+    document.getElementById('d-company').textContent = currentLang==='en' ? p.company_en : p.company_ru;
+  }
+
+  // DETAIL
+  function openDetail(i) {
+    currentPeriod = i; updateDetailLang();
+    const dp = document.getElementById('detail-page');
+    dp.classList.add('open'); dp.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDetail() {
+    document.getElementById('detail-page').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function nextPeriod() { openDetail((currentPeriod+1)%periods.length); }
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  }
+
+  // TIMELINE DOTS
+  function updateDots() {
+    const items = document.querySelectorAll('.timeline-item');
+    const dots = document.querySelectorAll('.tl-dot');
+    const segs = ['seg0','seg1','seg2'].map(id => document.getElementById(id));
+    let active = 0;
+    const mid = window.scrollY + window.innerHeight * 0.42;
+    items.forEach((item,i) => {
+      if (window.scrollY + item.getBoundingClientRect().top <= mid) active = i;
+    });
+    dots.forEach((d,i) => d.classList.toggle('active', i===active));
+    segs.forEach((s,i) => { if(s) s.classList.toggle('filled', i<active); });
+  }
+  function scrollToItem(i) {
+    const items = document.querySelectorAll('.timeline-item');
+    if (items[i]) items[i].scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // CARDS SLIDER
+  const TOTAL=8, PER=3;
+  let offset=0;
+  function initDots() {
+    const el = document.getElementById('cards-dots');
+    el.innerHTML='';
+    const pages = Math.ceil(TOTAL/PER);
+    for (let i=0;i<pages;i++) {
+      const d = document.createElement('div');
+      d.className='cards-dot'+(i===0?' active':'');
+      d.onclick=()=>goPage(i);
+      el.appendChild(d);
+    }
+    refreshCounter();
+  }
+  function slideCards(dir) {
+    offset=Math.max(0,Math.min(offset+dir*PER,TOTAL-PER));
+    applySlide();
+  }
+  function goPage(p) { offset=p*PER; applySlide(); }
+  function applySlide() {
+    const track=document.getElementById('cards-track');
+    const card=track.querySelector('.why-card');
+    const w=card.offsetWidth+14;
+    track.style.transform=`translateX(-${offset*w}px)`;
+    document.getElementById('cards-prev').disabled=offset===0;
+    document.getElementById('cards-next').disabled=offset>=TOTAL-PER;
+    const p=Math.floor(offset/PER);
+    document.querySelectorAll('.cards-dot').forEach((d,i)=>d.classList.toggle('active',i===p));
+    refreshCounter();
+  }
+  function refreshCounter() {
+    const p=Math.floor(offset/PER)+1;
+    document.getElementById('cards-counter').textContent=p+' / '+Math.ceil(TOTAL/PER);
+  }
+
+  // EMAIL COPY
+  function copyEmail(btn) {
+    navigator.clipboard.writeText('hello@yourdomain.com').then(()=>{
+      const tip=btn.querySelector('.copy-tooltip');
+      tip.classList.add('show');
+      setTimeout(()=>tip.classList.remove('show'),2000);
+    });
+  }
+
+  // MOBILE MENU
+  function toggleMobileMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+  }
+
+  // NAV SCROLL BEHAVIOR
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('main-nav');
+    const isMobile = window.innerWidth <= 960;
+    // Always show on desktop; on mobile show after 60px
+    if (isMobile) {
+      if (window.scrollY > 60) {
+        nav.classList.remove('nav-hidden');
+      } else {
+        nav.classList.add('nav-hidden');
+        closeMobileMenu();
+      }
+    } else {
+      nav.classList.remove('nav-hidden');
+    }
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+    updateDots();
+  });
+
+  // On desktop: always show nav immediately
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 960) {
+      document.getElementById('main-nav').classList.remove('nav-hidden');
+    }
+  });
+  if (window.innerWidth > 960) {
+    document.getElementById('main-nav').classList.remove('nav-hidden');
+  }
+
+  document.addEventListener('keydown', e => { if (e.key==='Escape') closeDetail(); });
+  initDots();
+  updateDots();
+</script>
+</body>
+</html>
