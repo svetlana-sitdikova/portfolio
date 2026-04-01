@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience — Svetlana</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --yellow:#E6C200;
+  --white:#FFFFFF;
+  --black:#0B0B0C;
+  --gray:#6B6B6B;
+  --gray-light:#F4F4F2;
+  --gray-border:#E5E5E5;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --serif:'DM Serif Display',Georgia,serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--white);color:var(--black);font-size:17px;line-height:1.7;overflow-x:hidden;}
+
+/* TOP NAV */
+.top-nav{
+  position:sticky;top:0;z-index:200;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  background:rgba(255,255,255,0.9);
+  border-bottom:1px solid var(--gray-border);
+  height:60px;display:flex;align-items:center;padding:0 48px;
+}
+.top-nav-inner{max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;gap:16px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--black);padding:6px 12px;border-radius:7px;transition:all .18s;flex-shrink:0;}
+.back-link:hover{background:var(--yellow);}
+.nav-divider{width:1px;height:20px;background:var(--gray-border);flex-shrink:0;}
+.top-nav-actions{display:flex;align-items:center;gap:8px;margin-left:auto;}
+.nav-act-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:6px 12px;border-radius:7px;transition:all .18s;}
+.nav-act-link:hover{background:var(--yellow);color:var(--black);}
+.nav-act-link svg{width:15px;height:15px;}
+.copy-nav-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:none;border:none;color:var(--gray);padding:6px 12px;border-radius:7px;transition:all .18s;cursor:pointer;font-family:var(--sans);position:relative;}
+.copy-nav-btn:hover{background:var(--yellow);color:var(--black);}
+.copy-nav-tip{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--black);font-size:11px;font-weight:500;padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;font-family:var(--sans);}
+.copy-nav-tip.show{opacity:1;}
+
+/* HERO DARK */
+.exp-hero{background:var(--black);padding:40px 48px 36px;}
+.exp-hero-inner{max-width:1200px;margin:0 auto;}
+.exp-years-big{font-family:var(--serif);font-size:56px;font-weight:400;color:rgba(255,255,255,.12);line-height:1;margin-bottom:-20px;}
+.exp-title{font-family:var(--serif);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--white);line-height:1.1;margin-bottom:8px;}
+.exp-company{font-size:14px;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;}
+
+/* OVERVIEW */
+.exp-overview{max-width:1200px;margin:0 auto;padding:40px 48px 0;}
+.exp-overview p{font-size:17px;color:var(--gray);line-height:1.75;max-width:760px;}
+
+/* STICKY TABS */
+.tabs-sticky{
+  position:sticky;top:60px;z-index:100;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  background:rgba(255,255,255,0.9);
+  border-bottom:1px solid var(--gray-border);
+  padding:0 48px;
+}
+.tabs-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;height:52px;}
+.tab-btn{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:7px 14px;border-radius:7px;transition:all .18s;border:none;background:none;cursor:pointer;font-family:var(--sans);white-space:nowrap;}
+.tab-btn:hover,.tab-btn.active{background:var(--yellow);color:var(--black);}
+/* Progress bar inside tabs */
+.tab-prog-wrap{margin-left:auto;width:120px;display:flex;flex-direction:column;gap:4px;justify-content:center;}
+.tab-prog-lbl{font-size:10px;color:var(--gray);letter-spacing:.08em;text-align:right;}
+.tab-prog-bar{width:100%;height:3px;background:var(--gray-border);border-radius:2px;overflow:hidden;}
+.tab-prog-fill{height:100%;background:var(--yellow);border-radius:2px;transition:width .1s linear;width:0%;}
+
+/* CONTENT */
+.exp-content{max-width:1200px;margin:0 auto;padding:0 48px;}
+
+/* PROJECT BLOCK */
+.proj-block{padding:56px 0;border-bottom:1px solid var(--gray-border);}
+.proj-block:last-child{border-bottom:none;}
+.proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.proj-title{font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);font-weight:400;line-height:1.1;margin-bottom:20px;}
+.proj-desc{font-size:16px;color:var(--gray);line-height:1.75;max-width:680px;margin-bottom:32px;}
+
+/* RESPONSIBILITIES */
+.resp-section{margin-bottom:32px;}
+.resp-title{font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--black);margin-bottom:16px;}
+.resp-list{display:flex;flex-direction:column;gap:10px;}
+.resp-item{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--gray);line-height:1.6;}
+.resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);flex-shrink:0;margin-top:8px;}
+.resp-more{display:flex;flex-direction:column;gap:10px;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);}
+.resp-more.open{max-height:600px;}
+.show-more-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;background:none;border:none;cursor:pointer;color:var(--black);padding:0;font-family:var(--sans);margin-top:12px;border-bottom:1.5px solid var(--yellow);padding-bottom:1px;transition:color .2s;}
+.show-more-btn:hover{color:var(--gray);}
+.show-more-arrow{transition:transform .35s;display:inline-block;}
+.show-more-btn.open .show-more-arrow{transform:rotate(90deg);}
+
+/* GALLERY */
+.gallery-section{margin-top:8px;}
+.gallery-title{font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--black);margin-bottom:16px;}
+.gallery-thumbs{display:flex;gap:10px;flex-wrap:wrap;}
+.g-thumb{width:calc(20% - 8px);aspect-ratio:4/3;object-fit:cover;border-radius:8px;cursor:pointer;transition:all .2s;background:var(--gray-light);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+.g-thumb:hover{opacity:.85;transform:scale(1.02);}
+.g-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.g-thumb-ph{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);text-align:center;padding:8px;}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;inset:0;background:rgba(11,11,12,.94);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
+#lightbox.open{display:flex;}
+.lb-img-wrap{position:relative;max-width:90vw;max-height:80vh;display:flex;align-items:center;justify-content:center;}
+.lb-img-wrap img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:8px;}
+.lb-ph{width:min(600px,80vw);height:min(400px,60vh);background:#1A1A1C;border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
+.lb-close{position:fixed;top:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:20px;}
+.lb-close:hover{background:var(--yellow);color:var(--black);}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.lb-prev{left:24px;}.lb-next{right:24px;}
+.lb-prev:hover,.lb-next:hover{background:var(--yellow);color:var(--black);}
+.lb-counter{color:rgba(255,255,255,.5);font-size:13px;margin-top:16px;letter-spacing:.06em;}
+.lb-dots{display:flex;gap:6px;margin-top:12px;}
+.lb-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .2s;}
+.lb-dot.active{background:var(--yellow);}
+
+/* BOTTOM NAV */
+.bottom-nav{max-width:1200px;margin:0 auto;padding:48px 48px 64px;display:flex;justify-content:space-between;align-items:center;}
+.bt-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--black);padding:12px 24px;border-radius:10px;border:1.5px solid var(--gray-border);transition:all .2s;background:none;cursor:pointer;font-family:var(--sans);}
+.bt-btn:hover{background:var(--yellow);border-color:var(--yellow);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .top-nav,.tabs-sticky,.exp-hero,.exp-overview,.exp-content,.bottom-nav{padding-left:20px;padding-right:20px;}
+  .top-nav-actions .nav-act-link span,.copy-nav-btn span{display:none;}
+  .exp-years-big{font-size:36px;}
+  .g-thumb{width:calc(50% - 5px);}
+  .lb-prev{left:8px;}.lb-next{right:8px;}
+  .tab-prog-wrap{width:80px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
+      <span>Back</span>
+    </a>
+    <div class="nav-divider"></div>
+    <div class="top-nav-actions">
+      <a href="https://linkedin.com" class="nav-act-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://t.me/yourhandle" class="nav-act-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+        <span>Telegram</span>
+      </a>
+      <button class="copy-nav-btn" onclick="copyNavEmail(this)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>Copy email</span>
+        <span class="copy-nav-tip">Copied!</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO DARK -->
+<div class="exp-hero">
+  <div class="exp-hero-inner">
+    <div class="exp-years-big">2022 — 2025</div>
+    <h1 class="exp-title">Senior Product Manager</h1>
+    <p class="exp-company">TechCorp · Moscow / Remote</p>
+  </div>
+</div>
+
+<!-- OVERVIEW TEXT -->
+<div class="exp-overview">
+  <p>Joined as the founding PM to build a B2B SaaS platform for logistics management from scratch. Led a cross-functional team of 12, ran 40+ customer interviews in the first month, defined the MVP and shaped a product that grew to 50,000 monthly active users in 18 months. Secured €2.1M Series A by building an evidence-based growth story.</p>
+</div>
+
+<!-- STICKY TABS -->
+<div class="tabs-sticky" id="tabs-sticky">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-target="proj1" onclick="goToProj('proj1')">Project 1</button>
+    <button class="tab-btn" data-target="proj2" onclick="goToProj('proj2')">Project 2</button>
+    <button class="tab-btn" data-target="proj3" onclick="goToProj('proj3')">Project 3</button>
+    <div class="tab-prog-wrap">
+      <span class="tab-prog-lbl" id="prog-lbl">0%</span>
+      <div class="tab-prog-bar"><div class="tab-prog-fill" id="tab-prog-fill"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="exp-content">
+
+  <!-- PROJECT 1 -->
+  <div class="proj-block" id="proj1">
+    <p class="proj-num">Project 01</p>
+    <h2 class="proj-title">B2B Logistics SaaS Platform — 0 to Launch</h2>
+    <p class="proj-desc">Led the end-to-end product development of a logistics management SaaS platform targeting mid-market companies. Starting from a blank slate, I ran discovery, defined the product vision, built the team, and shipped the MVP in 6 months — reaching 50k MAU in 18 months.</p>
+
+    <div class="resp-section">
+      <p class="resp-title">Responsibilities & Skills</p>
+      <div class="resp-list">
+        <div class="resp-item"><div class="resp-dot"></div><span>Led product discovery: 40+ customer interviews, competitor analysis, and problem framing in month one</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Defined MVP scope and prioritization framework, reducing scope creep by 60% vs initial requests</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Managed cross-functional team of 12 (product, engineering, design, QA) with weekly sprint cadence</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Redesigned onboarding with progressive disclosure, reducing time-to-value from 21 to 4 days</span></div>
+      </div>
+      <div class="resp-more" id="more1">
+        <div class="resp-item"><div class="resp-dot"></div><span>Introduced OKR framework connecting sprint goals to company-level metrics and investor reporting</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Built evidence-based growth story (NPS 68, retention metrics, 3 enterprise case studies) that secured €2.1M Series A</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Established weekly product analytics reviews with Amplitude, driving data-informed roadmap decisions</span></div>
+      </div>
+      <button class="show-more-btn" id="morebtn1" onclick="toggleMore('more1','morebtn1')">
+        <span class="btn-lbl">Show more</span> <span class="show-more-arrow">›</span>
+      </button>
+    </div>
+
+    <div class="gallery-section">
+      <p class="gallery-title">Gallery</p>
+      <div class="gallery-thumbs" id="gallery1">
+        <div class="g-thumb" onclick="openLB(0,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+        <div class="g-thumb" onclick="openLB(0,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+        <div class="g-thumb" onclick="openLB(0,2)"><div class="g-thumb-ph">Dashboard</div></div>
+        <div class="g-thumb" onclick="openLB(0,3)"><div class="g-thumb-ph">Flow diagram</div></div>
+        <div class="g-thumb" onclick="openLB(0,4)"><div class="g-thumb-ph">Metrics</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="proj-block" id="proj2">
+    <p class="proj-num">Project 02</p>
+    <h2 class="proj-title">Onboarding Redesign — Time-to-Value ×4</h2>
+    <p class="proj-desc">Deep-dived into the onboarding funnel to identify where users dropped off and why. Through structured discovery and iterative design sprints, redesigned the entire first-run experience — reducing time-to-first-value from 21 days to just 4 days.</p>
+
+    <div class="resp-section">
+      <p class="resp-title">Responsibilities & Skills</p>
+      <div class="resp-list">
+        <div class="resp-item"><div class="resp-dot"></div><span>Conducted 20+ user interviews focused specifically on onboarding pain points and first-run experience</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Mapped full user journey from sign-up to first value moment, identifying 6 critical drop-off points</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Ran 4 A/B tests across onboarding flow variants, iterating based on completion rates and activation metrics</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Applied progressive disclosure UX pattern, hiding complexity behind "I need this" triggers</span></div>
+      </div>
+      <div class="resp-more" id="more2">
+        <div class="resp-item"><div class="resp-dot"></div><span>Collaborated with engineering on a no-code onboarding checklist that reduced dev dependency for future iterations</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Achieved 74% completion rate on new onboarding flow vs 31% on the previous version</span></div>
+      </div>
+      <button class="show-more-btn" id="morebtn2" onclick="toggleMore('more2','morebtn2')">
+        <span class="btn-lbl">Show more</span> <span class="show-more-arrow">›</span>
+      </button>
+    </div>
+
+    <div class="gallery-section">
+      <p class="gallery-title">Gallery</p>
+      <div class="gallery-thumbs" id="gallery2">
+        <div class="g-thumb" onclick="openLB(1,0)"><div class="g-thumb-ph">Before flow</div></div>
+        <div class="g-thumb" onclick="openLB(1,1)"><div class="g-thumb-ph">After flow</div></div>
+        <div class="g-thumb" onclick="openLB(1,2)"><div class="g-thumb-ph">A/B results</div></div>
+        <div class="g-thumb" onclick="openLB(1,3)"><div class="g-thumb-ph">Analytics</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="proj-block" id="proj3">
+    <p class="proj-num">Project 03</p>
+    <h2 class="proj-title">Series A Fundraise — Product Narrative & Metrics</h2>
+    <p class="proj-desc">Worked closely with the CEO and investors to build the product narrative for Series A. Translated 18 months of product work into a compelling, metrics-backed story that resulted in €2.1M raise. Responsible for the product deck, demo flow, and data room materials.</p>
+
+    <div class="resp-section">
+      <p class="resp-title">Responsibilities & Skills</p>
+      <div class="resp-list">
+        <div class="resp-item"><div class="resp-dot"></div><span>Built the product section of Series A deck — market sizing, product differentiation, and growth trajectory</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Prepared 3 enterprise case studies with quantified outcomes (efficiency gains, cost reduction, adoption speed)</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Compiled retention cohort analysis and NPS trend data (NPS 68) for investor data room</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Designed the live product demo flow for investor meetings — rehearsed with CEO 10+ times</span></div>
+      </div>
+      <div class="resp-more" id="more3">
+        <div class="resp-item"><div class="resp-dot"></div><span>Coordinated with legal and finance teams on data room structure and due diligence preparation</span></div>
+        <div class="resp-item"><div class="resp-dot"></div><span>Participated in 6 investor calls, answering product and roadmap questions directly</span></div>
+      </div>
+      <button class="show-more-btn" id="morebtn3" onclick="toggleMore('more3','morebtn3')">
+        <span class="btn-lbl">Show more</span> <span class="show-more-arrow">›</span>
+      </button>
+    </div>
+
+    <div class="gallery-section">
+      <p class="gallery-title">Gallery</p>
+      <div class="gallery-thumbs" id="gallery3">
+        <div class="g-thumb" onclick="openLB(2,0)"><div class="g-thumb-ph">Deck cover</div></div>
+        <div class="g-thumb" onclick="openLB(2,1)"><div class="g-thumb-ph">Metrics slide</div></div>
+        <div class="g-thumb" onclick="openLB(2,2)"><div class="g-thumb-ph">Roadmap</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <a href="index.html" class="bt-btn">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
+    Back to main
+  </a>
+  <button class="bt-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+    Back to top
+  </button>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+  </button>
+  <button class="lb-next" onclick="lbNav(1)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+  </button>
+  <div class="lb-img-wrap" id="lb-img-wrap">
+    <div class="lb-ph" id="lb-ph">Photo placeholder</div>
+  </div>
+  <span class="lb-counter" id="lb-counter">1 / 5</span>
+  <div class="lb-dots" id="lb-dots"></div>
+</div>
+
+<script>
+// Gallery data — replace labels with actual img src paths
+var galleries = [
+  ['Screenshot 1','Screenshot 2','Dashboard','Flow diagram','Metrics'],
+  ['Before flow','After flow','A/B results','Analytics'],
+  ['Deck cover','Metrics slide','Roadmap']
+];
+var lbGallery = 0, lbIdx = 0;
+
+function openLB(g, i) {
+  lbGallery = g; lbIdx = i;
+  renderLB();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbNav(dir) {
+  var imgs = galleries[lbGallery];
+  lbIdx = (lbIdx + dir + imgs.length) % imgs.length;
+  renderLB();
+}
+function renderLB() {
+  var imgs = galleries[lbGallery];
+  var ph = document.getElementById('lb-ph');
+  ph.textContent = imgs[lbIdx];
+  document.getElementById('lb-counter').textContent = (lbIdx+1) + ' / ' + imgs.length;
+  var dots = document.getElementById('lb-dots');
+  dots.innerHTML = '';
+  imgs.forEach(function(_,i){
+    var d = document.createElement('div');
+    d.className = 'lb-dot' + (i===lbIdx?' active':'');
+    (function(idx){ d.onclick = function(){ lbIdx=idx; renderLB(); }; })(i);
+    dots.appendChild(d);
+  });
+}
+
+// Show more toggle
+function toggleMore(moreId, btnId) {
+  var more = document.getElementById(moreId);
+  var btn = document.getElementById(btnId);
+  var open = more.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.querySelector('.btn-lbl').textContent = open ? 'Show less' : 'Show more';
+}
+
+// TABS — scroll to project
+function goToProj(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var tabsH = document.getElementById('tabs-sticky').offsetHeight;
+  var topNavH = document.querySelector('.top-nav').offsetHeight;
+  var top = el.getBoundingClientRect().top + window.scrollY - topNavH - tabsH - 16;
+  window.scrollTo({top: top, behavior: 'smooth'});
+}
+
+// Active tab + progress bar on scroll
+var projIds = ['proj1','proj2','proj3'];
+function updateTabs() {
+  var tabsEl = document.getElementById('tabs-sticky');
+  var topNavH = document.querySelector('.top-nav').offsetHeight;
+  var tabsH = tabsEl.offsetHeight;
+  var offset = topNavH + tabsH + 32;
+  var active = 0;
+  projIds.forEach(function(id, i) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (window.scrollY + offset >= el.offsetTop) active = i;
+  });
+  document.querySelectorAll('.tab-btn').forEach(function(btn, i){
+    btn.classList.toggle('active', i === active);
+  });
+
+  // Progress bar
+  var content = document.querySelector('.exp-content');
+  var bottomNav = document.querySelector('.bottom-nav');
+  if (content && bottomNav) {
+    var start = content.offsetTop;
+    var end = bottomNav.offsetTop;
+    var pct = Math.min(100, Math.max(0, (window.scrollY + topNavH + tabsH - start) / (end - start) * 100));
+    document.getElementById('tab-prog-fill').style.width = pct + '%';
+    document.getElementById('prog-lbl').textContent = Math.round(pct) + '%';
+  }
+}
+
+// Copy email
+function copyNavEmail(btn) {
+  navigator.clipboard.writeText('hello@yourdomain.com').then(function(){
+    var tip = btn.querySelector('.copy-nav-tip');
+    tip.classList.add('show');
+    setTimeout(function(){ tip.classList.remove('show'); }, 2000);
+  });
+}
+
+// Keyboard lightbox
+document.addEventListener('keydown', function(e){
+  if (document.getElementById('lightbox').classList.contains('open')) {
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') lbNav(-1);
+    if (e.key === 'ArrowRight') lbNav(1);
+  }
+});
+
+window.addEventListener('scroll', updateTabs, {passive:true});
+updateTabs();
+</script>
+</body>
+</html>
