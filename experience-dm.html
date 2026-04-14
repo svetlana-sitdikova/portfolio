@@ -3,102 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delivery Manager — Svetlana</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+<title>Delivery Manager — Svetlana Sitdikova</title>
+<link rel="icon" href="favicon.png">
+<!-- Google Analytics — replace GA_MEASUREMENT_ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--yellow:#E6C200;--white:#FFFFFF;--black:#0B0B0C;--gray:#6B6B6B;--gray-light:#F4F4F2;--gray-border:#E5E5E5;--sans:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;}
+:root{
+  --yellow:#E6C200;--white:#FFFFFF;--black:#0B0B0C;
+  --gray:#444;/* improved contrast */
+  --gray-light:#F4F4F2;--gray-border:#E5E5E5;
+  --sans:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;
+}
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--white);color:var(--black);font-size:17px;line-height:1.7;overflow-x:hidden;}
 
+/* PROGRESS BAR */
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--yellow);width:0%;z-index:9999;border-radius:0 2px 2px 0;transition:width .08s linear;}
+
 /* TOP NAV */
-.top-nav{position:sticky;top:0;z-index:200;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(255,255,255,0.9);border-bottom:1px solid var(--gray-border);height:60px;display:flex;align-items:center;padding:0 48px;}
-.top-nav-inner{max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;gap:16px;}
-.back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--black);padding:6px 12px;border-radius:7px;transition:all .18s;flex-shrink:0;}
+.top-nav{position:sticky;top:0;z-index:200;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,0.88);border-bottom:1px solid var(--gray-border);height:60px;display:flex;align-items:center;padding:0;}
+.top-nav-inner{max-width:1200px;width:100%;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:8px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--black);padding:7px 14px;border-radius:7px;transition:all .18s;flex-shrink:0;line-height:1;}
 .back-link:hover{background:var(--yellow);}
+.back-link svg{width:14px;height:14px;display:block;}
 .nav-divider{width:1px;height:20px;background:var(--gray-border);flex-shrink:0;}
-.top-nav-actions{display:flex;align-items:center;gap:8px;margin-left:auto;}
-.nav-act-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:6px 12px;border-radius:7px;transition:all .18s;}
+.top-nav-actions{display:flex;align-items:center;gap:6px;margin-left:auto;}
+.nav-act-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:7px 13px;border-radius:7px;transition:all .18s;}
 .nav-act-link:hover{background:var(--yellow);color:var(--black);}
 .nav-act-link svg{width:15px;height:15px;}
-.copy-nav-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:none;border:none;color:var(--gray);padding:6px 12px;border-radius:7px;transition:all .18s;cursor:pointer;font-family:var(--sans);position:relative;}
+.copy-nav-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:none;border:none;color:var(--gray);padding:7px 13px;border-radius:7px;transition:all .18s;cursor:pointer;font-family:var(--sans);position:relative;}
 .copy-nav-btn:hover{background:var(--yellow);color:var(--black);}
 .copy-nav-tip{position:absolute;top:calc(100%+6px);left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--black);font-size:11px;font-weight:500;padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;font-family:var(--sans);}
 .copy-nav-tip.show{opacity:1;}
-/* switch to PM page */
-.page-switch{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:6px 12px;border-radius:7px;border:1px solid var(--gray-border);transition:all .18s;margin-left:auto;}
-.page-switch:hover{background:var(--yellow);color:var(--black);border-color:var(--yellow);}
 
-/* HERO DARK */
-.exp-hero{background:var(--black);padding:44px 0 40px;}
-.exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;}
-.exp-years-big{font-family:var(--serif);font-size:56px;font-weight:400;color:rgba(255,255,255,.1);line-height:1;margin-bottom:-18px;}
-.exp-title{font-family:var(--serif);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--white);line-height:1.1;margin-bottom:8px;}
-.exp-company{font-size:14px;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;}
+/* HERO — redesigned with yellow accent + blur */
+.exp-hero{position:relative;overflow:hidden;background:var(--black);padding:56px 0 48px;}
+.exp-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:var(--yellow);border-radius:50%;opacity:.12;filter:blur(80px);pointer-events:none;}
+.exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:1;}
+.exp-role-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;}
+.exp-role-tag::before{content:'';display:block;width:20px;height:2px;background:var(--yellow);}
+.exp-title{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:12px;}
+.exp-company{font-size:15px;color:rgba(255,255,255,.5);letter-spacing:.03em;}
+.exp-period{display:inline-block;font-family:var(--serif);font-size:18px;color:rgba(255,255,255,.25);margin-top:20px;}
 
 /* OVERVIEW */
-.exp-overview{max-width:1200px;margin:0 auto;padding:40px 48px 0;}
-.exp-overview p{font-size:17px;color:var(--gray);line-height:1.75;max-width:760px;}
+.exp-overview{max-width:1200px;margin:0 auto;padding:56px 48px 0;}
+.exp-overview p{font-size:18px;color:var(--gray);line-height:1.75;max-width:760px;}
 .exp-overview p+p{margin-top:14px;}
 
-/* STICKY TABS */
-.tabs-sticky{position:sticky;top:60px;z-index:100;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(255,255,255,0.92);border-bottom:1px solid var(--gray-border);padding:0;}
+/* STICKY TABS — with blur */
+.tabs-sticky{position:sticky;top:60px;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,0.88);border-bottom:1px solid var(--gray-border);}
 .tabs-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;height:52px;padding:0 48px;}
 .tab-btn{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:7px 14px;border-radius:7px;transition:all .18s;border:none;background:none;cursor:pointer;font-family:var(--sans);white-space:nowrap;}
 .tab-btn:hover,.tab-btn.active{background:var(--yellow);color:var(--black);}
-.tab-prog-wrap{margin-left:auto;width:120px;display:flex;flex-direction:column;gap:4px;justify-content:center;}
-.tab-prog-lbl{font-size:10px;color:var(--gray);letter-spacing:.08em;text-align:right;}
-.tab-prog-bar{width:100%;height:3px;background:var(--gray-border);border-radius:2px;overflow:hidden;}
-.tab-prog-fill{height:100%;background:var(--yellow);border-radius:2px;transition:width .1s linear;width:0%;}
-#mob-prog-bar{display:none;height:3px;background:var(--gray-border);width:100%;position:sticky;top:calc(60px + 52px);z-index:99;}
+#mob-prog-bar{display:none;height:3px;background:var(--gray-border);width:100%;position:sticky;top:calc(60px+52px);z-index:99;}
 #mob-prog-fill{height:100%;background:var(--yellow);width:0%;transition:width .1s linear;border-radius:0 2px 2px 0;}
 
-/* CONTENT */
+/* CONTENT GRID — project body + stack sidebar */
 .exp-content{max-width:1200px;margin:0 auto;padding:0 48px;}
-
-/* PROJECT BLOCK */
-.proj-block{padding:56px 0;border-bottom:1px solid var(--gray-border);}
+.proj-block{padding:60px 0;border-bottom:1px solid var(--gray-border);}
 .proj-block:last-child{border-bottom:none;}
-.proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
-.proj-title{font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);font-weight:400;line-height:1.1;margin-bottom:16px;}
-.proj-url{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);text-decoration:none;letter-spacing:.04em;margin-bottom:20px;border-bottom:1px solid var(--gray-border);padding-bottom:1px;transition:color .2s;}
-.proj-url:hover{color:var(--black);}
-.proj-desc{font-size:16px;color:var(--gray);line-height:1.75;max-width:700px;margin-bottom:28px;}
 
-/* METRICS — max 3 */
-.metrics-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px;}
-.metric-item{background:var(--gray-light);border-radius:12px;padding:16px 22px;flex:1;min-width:140px;max-width:220px;}
-.metric-num{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1;margin-bottom:4px;}
-.metric-lbl{font-size:12px;color:var(--gray);line-height:1.4;}
+/* Two-column layout inside project */
+.proj-layout{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start;}
+.proj-main{}
+.proj-side{padding-top:4px;}
+
+.proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.proj-title{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:400;line-height:1.1;margin-bottom:14px;}
+.proj-url{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gray);text-decoration:none;margin-bottom:18px;border-bottom:1px solid var(--gray-border);padding-bottom:1px;transition:color .2s;}
+.proj-url:hover{color:var(--black);}
+.proj-desc{font-size:17px;color:var(--gray);line-height:1.75;margin-bottom:24px;}
+
+/* METRICS — fixed height cards, 1 large line + 2 lines label */
+.metrics-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px;}
+.metric-item{background:var(--gray-light);border-radius:12px;padding:16px 18px;flex:1;min-width:130px;max-width:190px;display:flex;flex-direction:column;justify-content:space-between;height:88px;}
+.metric-num{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.metric-lbl{font-size:12px;color:var(--gray);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 
 /* RESPONSIBILITIES */
-.resp-section{margin-bottom:28px;}
-.resp-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
-/* Align bullet list to same left edge as proj-desc */
-.resp-list{display:flex;flex-direction:column;gap:10px;max-width:700px;}
-.resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:15px;color:var(--gray);line-height:1.6;}
-.resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:8px;justify-self:center;}
-.resp-more{display:flex;flex-direction:column;gap:10px;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);max-width:700px;}
-.resp-more.open{max-height:900px;}
-.show-more-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;background:none;border:none;cursor:pointer;color:var(--black);font-family:var(--sans);margin-top:12px;border-bottom:1.5px solid var(--yellow);padding-bottom:1px;transition:color .2s;}
-.show-more-btn:hover{color:var(--gray);}
-.show-more-arrow svg{transition:transform .3s;}
-.show-more-btn.open .show-more-arrow svg{transform:rotate(180deg);}
+.resp-title{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
+.resp-list{display:flex;flex-direction:column;gap:12px;}
+.resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:16px;color:var(--gray);line-height:1.6;}
+.resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:9px;justify-self:center;}
 
-/* STACK */
-.stack-section{margin-top:28px;padding-top:24px;border-top:1px solid var(--gray-border);max-width:700px;}
-.stack-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
-.stack-grid{display:flex;flex-direction:column;gap:6px;}
-.stack-row{display:flex;align-items:baseline;gap:10px;font-size:13px;line-height:1.5;}
-.stack-cat{color:var(--black);font-weight:500;flex-shrink:0;min-width:88px;}
-.stack-vals{color:var(--gray);}
+/* STACK SIDEBAR */
+.stack-box{background:var(--gray-light);border-radius:14px;padding:20px 18px;}
+.stack-box-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.stack-rows{display:flex;flex-direction:column;gap:10px;}
+.stack-row{display:flex;flex-direction:column;gap:3px;}
+.stack-cat{font-size:11px;font-weight:600;color:var(--black);letter-spacing:.06em;text-transform:uppercase;}
+.stack-vals{font-size:13px;color:var(--gray);line-height:1.45;}
 
-/* CALLOUT */
-.callout{background:var(--gray-light);border-left:3px solid var(--yellow);border-radius:0 12px 12px 0;padding:18px 22px;margin:24px 0;max-width:700px;}
-.callout-lbl{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:8px;}
-.callout p{font-size:15px;color:var(--black);line-height:1.7;}
+/* MINI GALLERY */
+.gallery-row{display:flex;gap:8px;margin-top:24px;}
+.g-thumb{width:80px;height:60px;border-radius:8px;overflow:hidden;cursor:pointer;flex-shrink:0;background:var(--gray-light);transition:opacity .2s,transform .2s;}
+.g-thumb:hover{opacity:.8;transform:scale(1.04);}
+.g-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.g-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:6px;}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;inset:0;background:rgba(11,11,12,.94);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
+#lightbox.open{display:flex;}
+.lb-img-wrap{max-width:90vw;max-height:80vh;display:flex;align-items:center;justify-content:center;}
+.lb-img-wrap img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:8px;}
+.lb-ph{width:min(600px,80vw);height:min(400px,60vh);background:#1A1A1C;border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
+.lb-close{position:fixed;top:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:20px;}
+.lb-close:hover{background:var(--yellow);color:var(--black);}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.lb-prev{left:24px;}.lb-next{right:24px;}
+.lb-prev:hover,.lb-next:hover{background:var(--yellow);color:var(--black);}
+.lb-counter{color:rgba(255,255,255,.5);font-size:13px;margin-top:16px;}
 
 /* BOTTOM NAV */
 .bottom-nav{max-width:1200px;margin:0 auto;padding:48px 48px 64px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
@@ -106,41 +125,46 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .bt-btn:hover{background:var(--yellow);border-color:var(--yellow);}
 
 @media(max-width:768px){
-  .top-nav{padding:0 16px;}.top-nav-inner{gap:8px;}.top-nav-actions .nav-act-link span,.copy-nav-btn span{display:none;}
-  .exp-hero-inner,.exp-overview{padding-left:20px;padding-right:20px;}
-  .exp-content{padding-left:20px;padding-right:20px;}
-  .exp-years-big{font-size:32px;margin-bottom:-12px;}.exp-title{font-size:26px;}
+  .top-nav{padding:0;}.top-nav-inner{padding:0 16px;gap:4px;}
+  .copy-nav-btn span.copy-label{display:none;}
+  /* show "Email" label on mobile */
+  .copy-nav-btn .mob-email-lbl{display:inline;}
+  .exp-hero-inner,.exp-overview,.exp-content{padding-left:20px;padding-right:20px;}
+  .exp-overview{padding-top:36px;}
+  .exp-title{font-size:28px;}
   .tabs-inner{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;height:auto;padding:10px 16px 0;flex-wrap:nowrap;gap:4px;}
-  .tabs-inner::-webkit-scrollbar{display:none;}.tab-btn{flex-shrink:0;font-size:11px;padding:6px 12px;}.tab-prog-wrap{display:none;}
+  .tabs-inner::-webkit-scrollbar{display:none;}.tab-btn{flex-shrink:0;font-size:11px;padding:6px 12px;}
   #mob-prog-bar{display:block;}
+  /* Stack goes below on mobile */
+  .proj-layout{grid-template-columns:1fr;gap:32px;}
+  .proj-side{order:2;}
   .metrics-row{gap:10px;}.metric-item{min-width:calc(50% - 5px);max-width:none;}
   .bottom-nav{padding:32px 20px 48px;flex-direction:column;align-items:stretch;}.bt-btn{justify-content:center;}
-  .proj-block{padding:36px 0;}.page-switch{display:none;}
+  .proj-block{padding:36px 0;}
 }
 </style>
 </head>
 <body>
+<div id="prog"></div>
 
 <nav class="top-nav">
   <div class="top-nav-inner">
-    <a href="index.html" class="back-link">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
+    <a href="index.html" class="back-link" onclick="gtag('event','click_back_main_dm')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
       <span>Back</span>
     </a>
     <div class="nav-divider"></div>
     <div class="top-nav-actions">
-      <a href="https://linkedin.com" class="nav-act-link" target="_blank" rel="noopener">
+      <a href="https://www.linkedin.com/in/svetlana-sitdikova" class="nav-act-link" target="_blank" rel="noopener" onclick="gtag('event','click_linkedin_dm_nav')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         <span>LinkedIn</span>
       </a>
-      <button class="copy-nav-btn" onclick="copyNavEmail(this)">
+      <button class="copy-nav-btn" onclick="copyNavEmail(this);gtag('event','click_copy_email_dm_nav');">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        <span>Copy email</span>
+        <span class="copy-label">Copy email</span>
+        <span class="mob-email-lbl" style="display:none;">Email</span>
         <span class="copy-nav-tip">Copied!</span>
       </button>
-      <a href="experience-pm.html" class="page-switch">
-        Project Manager →
-      </a>
     </div>
   </div>
 </nav>
@@ -148,15 +172,16 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 <!-- HERO -->
 <div class="exp-hero">
   <div class="exp-hero-inner">
-    <div class="exp-years-big">2023 — 2025</div>
-    <h1 class="exp-title">Delivery Manager</h1>
-    <p class="exp-company">Samolet · Russia's largest residential real estate developer · Remote</p>
+    <div class="exp-role-tag">Delivery Manager</div>
+    <h1 class="exp-title">Samolet Digital<br>Ecosystem</h1>
+    <p class="exp-company">Russia's largest residential real estate developer · Remote</p>
+    <span class="exp-period">May 2023 — Jul 2025</span>
   </div>
 </div>
 
 <div class="exp-overview">
   <p>Samolet is one of Russia's largest residential real estate developers, with a fully custom digital ecosystem: a high-load public website (5M+ MAU), a customer account platform for online apartment purchases, several property microsite brands, and internal B2B and CMS tools — all deeply integrated with CRM, payment providers, and third-party services.</p>
-  <p>I joined as Delivery Manager to coordinate 6 distributed development teams and bring structure to a fast-growing, multi-vendor environment. Over 2+ years, I scaled the engineering org from 35 to 53 people, built release and incident management from the ground up, launched a no-code marketing tool, and led a site performance initiative that cut page load time from 7s to under 3s.</p>
+  <p>I joined as Delivery Manager to coordinate 6 distributed development teams and bring structure to a fast-growing, multi-vendor environment. Over 2+ years, I scaled the engineering org from 35 to 53 people, built release and incident management from the ground up, launched a no-code marketing tool, and led a performance initiative that cut page load time from 7s to under 3s.</p>
 </div>
 
 <div class="tabs-sticky" id="tabs-sticky">
@@ -164,10 +189,6 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
     <button class="tab-btn active" onclick="goToProj('proj1')">Samolet Ecosystem</button>
     <button class="tab-btn" onclick="goToProj('proj2')">No-Code Page Builder</button>
     <button class="tab-btn" onclick="goToProj('proj3')">Online Transaction Flow</button>
-    <div class="tab-prog-wrap">
-      <span class="tab-prog-lbl" id="prog-lbl">0%</span>
-      <div class="tab-prog-bar"><div class="tab-prog-fill" id="tab-prog-fill"></div></div>
-    </div>
   </div>
 </div>
 <div id="mob-prog-bar"><div id="mob-prog-fill"></div></div>
@@ -176,123 +197,127 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 
   <!-- PROJECT 1 -->
   <div class="proj-block" id="proj1">
-    <p class="proj-num">Project 01</p>
-    <h2 class="proj-title">Samolet Ecosystem — Multi-Team Program</h2>
-    <a href="https://samolet.ru/" class="proj-url" target="_blank" rel="noopener">samolet.ru ↗</a>
-    <p class="proj-desc">Delivery across the full Samolet digital ecosystem: high-load website (5M+ MAU), customer account with online property purchases, and internal B2B tools. My role was to make 53 engineers, designers, and PMs aligned, unblocked, and shipping — while the team and product were both growing rapidly.</p>
+    <div class="proj-layout">
+      <div class="proj-main">
+        <p class="proj-num">Project 01</p>
+        <h2 class="proj-title">Samolet Ecosystem — Multi-Team Program</h2>
+        <a href="https://samolet.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_samolet_site')">samolet.ru ↗</a>
+        <p class="proj-desc">Delivery across the full Samolet digital ecosystem: high-load website (5M+ MAU), customer account with online property purchases, and internal B2B tools. My role was to make 53 engineers, designers, and PMs aligned, unblocked, and shipping — while the team and product were both growing rapidly.</p>
 
-    <div class="metrics-row">
-      <div class="metric-item"><div class="metric-num">6</div><div class="metric-lbl">distributed teams coordinated simultaneously</div></div>
-      <div class="metric-item"><div class="metric-num">35 → 53</div><div class="metric-lbl">team members during my tenure</div></div>
-      <div class="metric-item"><div class="metric-num">2× / week</div><div class="metric-lbl">release cadence for the high-load website</div></div>
-    </div>
+        <div class="metrics-row">
+          <div class="metric-item"><div class="metric-num">6</div><div class="metric-lbl">distributed teams coordinated simultaneously</div></div>
+          <div class="metric-item"><div class="metric-num">35 → 53</div><div class="metric-lbl">team members during my tenure</div></div>
+          <div class="metric-item"><div class="metric-num">2× / wk</div><div class="metric-lbl">release cadence for the high-load website</div></div>
+        </div>
 
-    <div class="resp-section">
-      <p class="resp-title">What I did</p>
-      <div class="resp-list">
-        <div class="resp-item"><div class="resp-dot"></div><span>Coordinated all 6 teams within a Large-Scale Scrum (LeSS) framework — quarterly planning, cross-team dependency management, workload balancing, and priority alignment with the product direction</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Hired 5 project managers and acted as their direct manager: onboarding, mentoring, 1-to-1s, supporting them in building strong team processes independently</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Built release management from scratch: twice-weekly releases for the 5M MAU website, release calendar, clear guidelines, new roles, and expanded staging environments to reduce risk</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Overhauled incident management — classification, prioritization framework, Kanban for bug tracking, automated dashboards, and standardized resolution procedures. Result: CRM bugs dropped from ~400 to &lt;30/month, critical resolution time down to 1–2 days</span></div>
+        <p class="resp-title">What I did</p>
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-dot"></div><span>Coordinated all 6 teams within a Large-Scale Scrum (LeSS) framework — quarterly planning, cross-team dependency management, workload balancing, and priority alignment with the product direction</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Hired 5 project managers and acted as their direct manager: onboarding, mentoring, 1-to-1s, supporting them in building strong team processes independently</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Built release management from scratch: twice-weekly releases for the 5M MAU website, release calendar, clear guidelines, new roles, and expanded staging environments to reduce risk</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Overhauled incident management — classification, prioritization framework, Kanban for bug tracking, automated dashboards, and standardized resolution procedures. CRM bugs dropped from ~400 to &lt;30/month, critical resolution time down to 1–2 days</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Directly managed a team of 6 focused on technical initiatives — led site performance improvement from ~7s to &lt;3s via CDN, caching, backend optimization, and Vue 2 → Nuxt 3 migration</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Streamlined design processes: standardized review criteria, introduced a design lead role, implemented designer-driven test design before engineering handoff</span></div>
+        </div>
+
+        <div class="gallery-row">
+          <div class="g-thumb" onclick="openLB(0,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+          <div class="g-thumb" onclick="openLB(0,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+          <div class="g-thumb" onclick="openLB(0,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
+        </div>
       </div>
-      <div class="resp-more" id="more1">
-        <div class="resp-item"><div class="resp-dot"></div><span>Directly managed a team of 6 (tech lead, 4 engineers, QA) focused on technical initiatives — ran sprints, dailies, planning, and was their primary stakeholder contact alongside my program management duties</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Led site performance initiative: page load from ~7s to &lt;3s via CDN, backend caching, request optimization, and migration from Vue 2 to Nuxt 3</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Streamlined design processes: standardized review and acceptance criteria, introduced a design lead role, implemented designer-driven test design before engineering handoff</span></div>
-      </div>
-      <button class="show-more-btn" id="morebtn1" onclick="toggleMore('more1','morebtn1')">
-        <span class="btn-lbl">Show more</span>
-        <span class="show-more-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg></span>
-      </button>
-    </div>
-
-    <div class="stack-section">
-      <p class="stack-title">Stack</p>
-      <div class="stack-grid">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Figma, Draw.io, Productboard</span></div>
-        <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (monolith), REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js, Nuxt.js</span></div>
-        <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, Kubernetes, GitLab CI/CD, Nginx</span></div>
-        <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack, Grafana, Prometheus, Sentry</span></div>
+      <div class="proj-side">
+        <div class="stack-box">
+          <p class="stack-box-title">Stack</p>
+          <div class="stack-rows">
+            <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Figma, Draw.io, Productboard</span></div>
+            <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python, REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
+            <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js, Nuxt.js</span></div>
+            <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, Kubernetes, GitLab CI/CD, Nginx</span></div>
+            <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack, Grafana, Prometheus, Sentry</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- PROJECT 2 -->
   <div class="proj-block" id="proj2">
-    <p class="proj-num">Project 02</p>
-    <h2 class="proj-title">No-Code Landing Page Builder</h2>
-    <p class="proj-desc">An internal no-code platform enabling the marketing team to independently create and publish website landing pages without developer involvement. The goal: eliminate a 2–3 week development cycle for each new page and directly accelerate marketing campaigns. I identified this bottleneck, proposed the solution, got stakeholder buy-in, assembled the team, and delivered the product.</p>
+    <div class="proj-layout">
+      <div class="proj-main">
+        <p class="proj-num">Project 02</p>
+        <h2 class="proj-title">No-Code Landing Page Builder</h2>
+        <p class="proj-desc">An internal no-code platform enabling the marketing team to independently create and publish website landing pages without developer involvement. I identified this bottleneck, proposed the solution, got stakeholder buy-in, assembled the team from scratch, and delivered the product.</p>
 
-    <div class="metrics-row">
-      <div class="metric-item"><div class="metric-num">2–3 wk → 1 day</div><div class="metric-lbl">landing page launch time after launch</div></div>
-      <div class="metric-item"><div class="metric-num">Oct '24 – Jul '25</div><div class="metric-lbl">project timeline</div></div>
-    </div>
+        <div class="metrics-row">
+          <div class="metric-item"><div class="metric-num">2–3wk→1d</div><div class="metric-lbl">landing page launch time after delivery</div></div>
+          <div class="metric-item"><div class="metric-num">Oct '24–Jul '25</div><div class="metric-lbl">project timeline</div></div>
+        </div>
 
-    <div class="resp-section">
-      <p class="resp-title">What I did</p>
-      <div class="resp-list">
-        <div class="resp-item"><div class="resp-dot"></div><span>Initiated the project: identified the business need, proposed the no-code solution, and secured stakeholder approval — no one assigned this to me</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Assembled a dedicated development team from scratch: defined roles needed, recruited, onboarded</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed full delivery cycle: requirements gathering, estimation, sprint execution, release, and post-launch support</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Ran this project in parallel with Delivery Manager responsibilities across six other teams — required tight context-switching and personal prioritization</span></div>
+        <p class="resp-title">What I did</p>
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-dot"></div><span>Initiated the project myself — identified the bottleneck, proposed the no-code solution, and secured stakeholder approval</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Assembled a dedicated development team from scratch: defined roles, recruited, onboarded</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed full delivery cycle: requirements gathering, estimation, sprint execution, release, and post-launch support</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Ran this project in parallel with Delivery Manager responsibilities across six other teams — required tight context-switching and personal prioritization</span></div>
+        </div>
+
+        <div class="gallery-row">
+          <div class="g-thumb" onclick="openLB(1,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+          <div class="g-thumb" onclick="openLB(1,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+          <div class="g-thumb" onclick="openLB(1,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
+        </div>
       </div>
-    </div>
-
-    <div class="callout">
-      <div class="callout-lbl">Why this matters</div>
-      <p>This project shows proactive ownership — I didn't wait for someone to define the problem and assign it. I spotted the bottleneck, made the business case, and drove it end-to-end while holding a full program management role across 6 other teams.</p>
-    </div>
-
-    <div class="stack-section">
-      <p class="stack-title">Stack</p>
-      <div class="stack-grid">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Figma, Draw.io, Productboard</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Nuxt.js, Nuxt Layers, Storybook</span></div>
+      <div class="proj-side">
+        <div class="stack-box">
+          <p class="stack-box-title">Stack</p>
+          <div class="stack-rows">
+            <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Figma, Draw.io, Productboard</span></div>
+            <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Nuxt.js, Nuxt Layers, Storybook</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- PROJECT 3 -->
   <div class="proj-block" id="proj3">
-    <p class="proj-num">Project 03</p>
-    <h2 class="proj-title">Online Real Estate Transaction Flow</h2>
-    <p class="proj-desc">A complex multi-step flow enabling users to purchase an apartment entirely online: personal questionnaire, document generation, digital signing, file uploads, and payment — with deep CRM integration. The original plan was 6 months. When the CPO pushed back, I rebuilt the plan and delivered an MVP in 2.5 months.</p>
+    <div class="proj-layout">
+      <div class="proj-main">
+        <p class="proj-num">Project 03</p>
+        <h2 class="proj-title">Online Real Estate Transaction Flow</h2>
+        <p class="proj-desc">A complex multi-step flow enabling users to purchase an apartment entirely online: personal questionnaire, document generation, digital signing, file uploads, and payment — with deep CRM integration. The original plan was 6 months. When the CPO pushed back, I rebuilt the plan and delivered an MVP in 2.5 months.</p>
 
-    <div class="metrics-row">
-      <div class="metric-item"><div class="metric-num">6 mo → 2.5 mo</div><div class="metric-lbl">timeline compressed after scope negotiation</div></div>
-      <div class="metric-item"><div class="metric-num">Sep '23 – Apr '24</div><div class="metric-lbl">project timeline</div></div>
-    </div>
+        <div class="metrics-row">
+          <div class="metric-item"><div class="metric-num">6mo→2.5mo</div><div class="metric-lbl">timeline compressed after scope negotiation</div></div>
+          <div class="metric-item"><div class="metric-num">Sep '23–Apr '24</div><div class="metric-lbl">project timeline</div></div>
+        </div>
 
-    <div class="resp-section">
-      <p class="resp-title">What I did</p>
-      <div class="resp-list">
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed full delivery: scope definition, estimation, planning, team coordination, integration management, testing, release</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Renegotiated scope with CPO and product manager under executive pressure — removed non-critical functionality from the MVP to make the timeline realistic without cutting quality</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Scaled the team with additional engineers and QA to meet the compressed deadline</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Designed parallel workstreams carefully with tech leads — mapped dependencies in advance to prevent teams from blocking each other at critical points</span></div>
+        <p class="resp-title">What I did</p>
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed full delivery: scope definition, estimation, planning, team coordination, integration management, testing, release</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Renegotiated scope with CPO and product manager under executive pressure — removed non-critical functionality from MVP to make the timeline realistic without cutting quality</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Scaled the team with additional engineers and QA to meet the compressed deadline</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Designed parallel workstreams with tech leads — mapped dependencies in advance to prevent teams from blocking each other at critical points</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed the external CRM integration with a third-party team: embedded them into our workflow and coordinated their work directly — not at arm's length</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Hired a PM toward project end and executed a smooth handover — full context transfer, no disruption to delivery</span></div>
+        </div>
+
+        <div class="gallery-row">
+          <div class="g-thumb" onclick="openLB(2,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+          <div class="g-thumb" onclick="openLB(2,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+          <div class="g-thumb" onclick="openLB(2,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
+        </div>
       </div>
-      <div class="resp-more" id="more3">
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed the critical external CRM integration with a third-party team: embedded the CRM team into our workflow and coordinated their work directly — treating them as part of the team, not a vendor at arm's length</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Hired a PM toward project end and executed a smooth handover — full context transfer, no disruption to delivery</span></div>
-      </div>
-      <button class="show-more-btn" id="morebtn3" onclick="toggleMore('more3','morebtn3')">
-        <span class="btn-lbl">Show more</span>
-        <span class="show-more-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg></span>
-      </button>
-    </div>
-
-    <div class="callout">
-      <div class="callout-lbl">What I learned</div>
-      <p>We missed the deadline by about 1.5 weeks. But I made sure stakeholders could see an almost-complete version in staging throughout the final sprint — visible progress, not a black box. Since then I always build transparency into tight timelines: the finish line should never be a surprise.</p>
-    </div>
-
-    <div class="stack-section">
-      <p class="stack-title">Stack</p>
-      <div class="stack-grid">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Figma, Draw.io, Productboard</span></div>
-        <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (microservices), REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js</span></div>
+      <div class="proj-side">
+        <div class="stack-box">
+          <p class="stack-box-title">Stack</p>
+          <div class="stack-rows">
+            <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Figma, Draw.io, Productboard</span></div>
+            <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (microservices), REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
+            <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -300,21 +325,65 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 </div>
 
 <div class="bottom-nav">
-  <a href="index.html" class="bt-btn">
+  <a href="index.html" class="bt-btn" onclick="gtag('event','click_back_main_dm_bottom')">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
     Back to main
   </a>
-  <a href="experience-pm.html" class="bt-btn">
+  <a href="experience-pm.html" class="bt-btn" onclick="gtag('event','click_to_pm_page')">
     Project Manager experience →
   </a>
 </div>
 
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg></button>
+  <button class="lb-next" onclick="lbNav(1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></button>
+  <div class="lb-img-wrap" id="lb-img-wrap"><div class="lb-ph" id="lb-ph">Photo placeholder</div></div>
+  <span class="lb-counter" id="lb-counter">1 / 3</span>
+</div>
+
 <script>
+var EMAIL='svetlanasitdikova.nl@gmail.com';
+
+/* Galleries — replace strings with actual image paths when ready */
+var galleries=[
+  ['proj1-1.png','proj1-2.png','proj1-3.png'],
+  ['proj2-1.png','proj2-2.png','proj2-3.png'],
+  ['proj3-1.png','proj3-2.png','proj3-3.png']
+];
+var lbGallery=0,lbIdx=0;
+function openLB(g,i){lbGallery=g;lbIdx=i;renderLB();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function lbNav(dir){var imgs=galleries[lbGallery];lbIdx=(lbIdx+dir+imgs.length)%imgs.length;renderLB();}
+function renderLB(){
+  var imgs=galleries[lbGallery],wrap=document.getElementById('lb-img-wrap'),ph=document.getElementById('lb-ph');
+  wrap.innerHTML='';
+  /* Try to load as image; fallback to placeholder */
+  var img=new Image();
+  img.onload=function(){wrap.innerHTML='';img.style.cssText='max-width:90vw;max-height:80vh;object-fit:contain;border-radius:8px;';wrap.appendChild(img);};
+  img.onerror=function(){wrap.innerHTML='<div class="lb-ph">'+imgs[lbIdx]+'</div>';};
+  img.src=imgs[lbIdx];
+  document.getElementById('lb-counter').textContent=(lbIdx+1)+' / '+imgs.length;
+}
+document.addEventListener('keydown',function(e){if(document.getElementById('lightbox').classList.contains('open')){if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);}});
+
+/* Tabs + progress */
 var projIds=['proj1','proj2','proj3'];
 function goToProj(id){var el=document.getElementById(id);if(!el)return;var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight;window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-topH-tabH-16,behavior:'smooth'});}
-function updateTabs(){var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight,offset=topH+tabH+32,active=0;projIds.forEach(function(id,i){var el=document.getElementById(id);if(el&&window.scrollY+offset>=el.offsetTop)active=i;});document.querySelectorAll('.tab-btn').forEach(function(btn,i){btn.classList.toggle('active',i===active);});var content=document.querySelector('.exp-content'),bottomNav=document.querySelector('.bottom-nav');if(content&&bottomNav){var start=content.offsetTop,end=bottomNav.offsetTop,pct=Math.min(100,Math.max(0,(window.scrollY+topH+tabH-start)/(end-start)*100));var fill=document.getElementById('tab-prog-fill'),lbl=document.getElementById('prog-lbl'),mobFill=document.getElementById('mob-prog-fill');if(fill)fill.style.width=pct+'%';if(lbl)lbl.textContent=Math.round(pct)+'%';if(mobFill)mobFill.style.width=pct+'%';}}
-function toggleMore(moreId,btnId){var more=document.getElementById(moreId),btn=document.getElementById(btnId),open=more.classList.toggle('open');btn.classList.toggle('open',open);btn.querySelector('.btn-lbl').textContent=open?'Show less':'Show more';}
-function copyNavEmail(btn){navigator.clipboard.writeText('hello@yourdomain.com').then(function(){var tip=btn.querySelector('.copy-nav-tip');tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},2000);});}
+function updateTabs(){
+  var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight,offset=topH+tabH+32,active=0;
+  projIds.forEach(function(id,i){var el=document.getElementById(id);if(el&&window.scrollY+offset>=el.offsetTop)active=i;});
+  document.querySelectorAll('.tab-btn').forEach(function(btn,i){btn.classList.toggle('active',i===active);});
+  /* progress bar on fixed header */
+  var content=document.querySelector('.exp-content'),bottomNav=document.querySelector('.bottom-nav');
+  if(content&&bottomNav){
+    var start=content.offsetTop,end=bottomNav.offsetTop,pct=Math.min(100,Math.max(0,(window.scrollY+topH+tabH-start)/(end-start)*100));
+    var mobFill=document.getElementById('mob-prog-fill');if(mobFill)mobFill.style.width=pct+'%';
+    var bar=document.getElementById('prog');if(bar)bar.style.width=pct+'%';
+  }
+}
+function copyNavEmail(btn){navigator.clipboard.writeText(EMAIL).then(function(){var tip=btn.querySelector('.copy-nav-tip');tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},2000);});}
 window.addEventListener('scroll',updateTabs,{passive:true});
 updateTabs();
 </script>

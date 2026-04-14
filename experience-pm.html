@@ -3,130 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Manager — Svetlana</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+<title>Project Manager — Svetlana Sitdikova</title>
+<link rel="icon" href="favicon.png">
+<!-- Google Analytics — replace GA_MEASUREMENT_ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--yellow:#E6C200;--white:#FFFFFF;--black:#0B0B0C;--gray:#6B6B6B;--gray-light:#F4F4F2;--gray-border:#E5E5E5;--sans:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;}
+:root{--yellow:#E6C200;--white:#FFFFFF;--black:#0B0B0C;--gray:#444;--gray-light:#F4F4F2;--gray-border:#E5E5E5;--sans:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--white);color:var(--black);font-size:17px;line-height:1.7;overflow-x:hidden;}
-.top-nav{position:sticky;top:0;z-index:200;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(255,255,255,0.9);border-bottom:1px solid var(--gray-border);height:60px;display:flex;align-items:center;padding:0 48px;}
-.top-nav-inner{max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;gap:16px;}
-.back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--black);padding:6px 12px;border-radius:7px;transition:all .18s;flex-shrink:0;}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--yellow);width:0%;z-index:9999;border-radius:0 2px 2px 0;transition:width .08s linear;}
+.top-nav{position:sticky;top:0;z-index:200;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,0.88);border-bottom:1px solid var(--gray-border);height:60px;display:flex;align-items:center;padding:0;}
+.top-nav-inner{max-width:1200px;width:100%;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:8px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--black);padding:7px 14px;border-radius:7px;transition:all .18s;flex-shrink:0;line-height:1;}
 .back-link:hover{background:var(--yellow);}
+.back-link svg{width:14px;height:14px;display:block;}
 .nav-divider{width:1px;height:20px;background:var(--gray-border);flex-shrink:0;}
-.top-nav-actions{display:flex;align-items:center;gap:8px;margin-left:auto;}
-.nav-act-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:6px 12px;border-radius:7px;transition:all .18s;}
+.top-nav-actions{display:flex;align-items:center;gap:6px;margin-left:auto;}
+.nav-act-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:7px 13px;border-radius:7px;transition:all .18s;}
 .nav-act-link:hover{background:var(--yellow);color:var(--black);}
 .nav-act-link svg{width:15px;height:15px;}
-.copy-nav-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:none;border:none;color:var(--gray);padding:6px 12px;border-radius:7px;transition:all .18s;cursor:pointer;font-family:var(--sans);position:relative;}
+.copy-nav-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:none;border:none;color:var(--gray);padding:7px 13px;border-radius:7px;transition:all .18s;cursor:pointer;font-family:var(--sans);position:relative;}
 .copy-nav-btn:hover{background:var(--yellow);color:var(--black);}
 .copy-nav-tip{position:absolute;top:calc(100%+6px);left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--black);font-size:11px;font-weight:500;padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;font-family:var(--sans);}
 .copy-nav-tip.show{opacity:1;}
-.page-switch{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:6px 12px;border-radius:7px;border:1px solid var(--gray-border);transition:all .18s;margin-left:auto;}
-.page-switch:hover{background:var(--yellow);color:var(--black);border-color:var(--yellow);}
-.exp-hero{background:var(--black);padding:44px 0 40px;}
-.exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;}
-.exp-years-big{font-family:var(--serif);font-size:56px;font-weight:400;color:rgba(255,255,255,.1);line-height:1;margin-bottom:-18px;}
-.exp-title{font-family:var(--serif);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--white);line-height:1.1;margin-bottom:8px;}
-.exp-company{font-size:14px;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;}
-.exp-overview{max-width:1200px;margin:0 auto;padding:40px 48px 0;}
-.exp-overview p{font-size:17px;color:var(--gray);line-height:1.75;max-width:760px;}
+/* HERO */
+.exp-hero{position:relative;overflow:hidden;background:var(--black);padding:56px 0 48px;}
+.exp-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:var(--yellow);border-radius:50%;opacity:.12;filter:blur(80px);pointer-events:none;}
+.exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:1;}
+.exp-role-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;}
+.exp-role-tag::before{content:'';display:block;width:20px;height:2px;background:var(--yellow);}
+.exp-title{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:12px;}
+.exp-company{font-size:15px;color:rgba(255,255,255,.5);letter-spacing:.03em;}
+.exp-period{display:inline-block;font-family:var(--serif);font-size:18px;color:rgba(255,255,255,.25);margin-top:20px;}
+.exp-overview{max-width:1200px;margin:0 auto;padding:56px 48px 0;}
+.exp-overview p{font-size:18px;color:var(--gray);line-height:1.75;max-width:760px;}
 .exp-overview p+p{margin-top:14px;}
-.tabs-sticky{position:sticky;top:60px;z-index:100;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(255,255,255,0.92);border-bottom:1px solid var(--gray-border);}
+/* TABS */
+.tabs-sticky{position:sticky;top:60px;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,0.88);border-bottom:1px solid var(--gray-border);}
 .tabs-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;height:52px;padding:0 48px;}
-.tab-btn{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:7px 14px;border-radius:7px;transition:all .18s;border:none;background:none;cursor:pointer;font-family:var(--sans);white-space:nowrap;}
+.tab-btn{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gray);padding:7px 14px;border-radius:7px;transition:all .18s;border:none;background:none;cursor:pointer;font-family:var(--sans);white-space:nowrap;}
 .tab-btn:hover,.tab-btn.active{background:var(--yellow);color:var(--black);}
-.tab-prog-wrap{margin-left:auto;width:120px;display:flex;flex-direction:column;gap:4px;justify-content:center;}
-.tab-prog-lbl{font-size:10px;color:var(--gray);letter-spacing:.08em;text-align:right;}
-.tab-prog-bar{width:100%;height:3px;background:var(--gray-border);border-radius:2px;overflow:hidden;}
-.tab-prog-fill{height:100%;background:var(--yellow);border-radius:2px;transition:width .1s linear;width:0%;}
 #mob-prog-bar{display:none;height:3px;background:var(--gray-border);width:100%;position:sticky;top:calc(60px+52px);z-index:99;}
 #mob-prog-fill{height:100%;background:var(--yellow);width:0%;transition:width .1s linear;border-radius:0 2px 2px 0;}
+/* CONTENT */
 .exp-content{max-width:1200px;margin:0 auto;padding:0 48px;}
-.proj-block{padding:56px 0;border-bottom:1px solid var(--gray-border);}
+.proj-block{padding:60px 0;border-bottom:1px solid var(--gray-border);}
 .proj-block:last-child{border-bottom:none;}
+.proj-layout{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start;}
 .proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
-.proj-title{font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);font-weight:400;line-height:1.1;margin-bottom:16px;}
-.proj-url{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);text-decoration:none;letter-spacing:.04em;margin-bottom:20px;border-bottom:1px solid var(--gray-border);padding-bottom:1px;transition:color .2s;}
+.proj-title{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:400;line-height:1.1;margin-bottom:14px;}
+.proj-url{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gray);text-decoration:none;margin-bottom:18px;border-bottom:1px solid var(--gray-border);padding-bottom:1px;transition:color .2s;}
 .proj-url:hover{color:var(--black);}
-.proj-desc{font-size:16px;color:var(--gray);line-height:1.75;max-width:700px;margin-bottom:28px;}
-.metrics-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px;}
-.metric-item{background:var(--gray-light);border-radius:12px;padding:16px 22px;flex:1;min-width:140px;max-width:220px;}
-.metric-num{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1;margin-bottom:4px;}
-.metric-lbl{font-size:12px;color:var(--gray);line-height:1.4;}
-.resp-section{margin-bottom:28px;}
-.resp-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
-.resp-list{display:flex;flex-direction:column;gap:10px;max-width:700px;}
-.resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:15px;color:var(--gray);line-height:1.6;}
-.resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:8px;justify-self:center;}
-.resp-more{display:flex;flex-direction:column;gap:10px;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);max-width:700px;}
-.resp-more.open{max-height:900px;}
-.show-more-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;background:none;border:none;cursor:pointer;color:var(--black);font-family:var(--sans);margin-top:12px;border-bottom:1.5px solid var(--yellow);padding-bottom:1px;transition:color .2s;}
-.show-more-btn:hover{color:var(--gray);}
-.show-more-arrow svg{transition:transform .3s;}
-.show-more-btn.open .show-more-arrow svg{transform:rotate(180deg);}
-.stack-section{margin-top:28px;padding-top:24px;border-top:1px solid var(--gray-border);max-width:700px;}
-.stack-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
-.stack-grid{display:flex;flex-direction:column;gap:6px;}
-.stack-row{display:flex;align-items:baseline;gap:10px;font-size:13px;line-height:1.5;}
-.stack-cat{color:var(--black);font-weight:500;flex-shrink:0;min-width:88px;}
-.stack-vals{color:var(--gray);}
-.callout{background:var(--gray-light);border-left:3px solid var(--yellow);border-radius:0 12px 12px 0;padding:18px 22px;margin:24px 0;max-width:700px;}
-.callout-lbl{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:8px;}
-.callout p{font-size:15px;color:var(--black);line-height:1.7;}
+.proj-desc{font-size:17px;color:var(--gray);line-height:1.75;margin-bottom:24px;}
+/* Metrics — uniform fixed height */
+.metrics-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px;}
+.metric-item{background:var(--gray-light);border-radius:12px;padding:16px 18px;flex:1;min-width:130px;max-width:190px;display:flex;flex-direction:column;justify-content:space-between;height:88px;}
+.metric-num{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.metric-lbl{font-size:12px;color:var(--gray);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.resp-title{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
+.resp-list{display:flex;flex-direction:column;gap:12px;}
+.resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:16px;color:var(--gray);line-height:1.6;}
+.resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:9px;justify-self:center;}
+.stack-box{background:var(--gray-light);border-radius:14px;padding:20px 18px;}
+.stack-box-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.stack-rows{display:flex;flex-direction:column;gap:10px;}
+.stack-row{display:flex;flex-direction:column;gap:3px;}
+.stack-cat{font-size:11px;font-weight:600;color:var(--black);letter-spacing:.06em;text-transform:uppercase;}
+.stack-vals{font-size:13px;color:var(--gray);line-height:1.45;}
+.gallery-row{display:flex;gap:8px;margin-top:24px;}
+.g-thumb{width:80px;height:60px;border-radius:8px;overflow:hidden;cursor:pointer;flex-shrink:0;background:var(--gray-light);transition:opacity .2s,transform .2s;}
+.g-thumb:hover{opacity:.8;transform:scale(1.04);}
+.g-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.g-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:6px;}
+#lightbox{display:none;position:fixed;inset:0;background:rgba(11,11,12,.94);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
+#lightbox.open{display:flex;}
+.lb-img-wrap{max-width:90vw;max-height:80vh;display:flex;align-items:center;justify-content:center;}
+.lb-img-wrap img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:8px;}
+.lb-ph{width:min(600px,80vw);height:min(400px,60vh);background:#1A1A1C;border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
+.lb-close{position:fixed;top:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:20px;}
+.lb-close:hover{background:var(--yellow);color:var(--black);}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.lb-prev{left:24px;}.lb-next{right:24px;}
+.lb-prev:hover,.lb-next:hover{background:var(--yellow);color:var(--black);}
+.lb-counter{color:rgba(255,255,255,.5);font-size:13px;margin-top:16px;}
 .bottom-nav{max-width:1200px;margin:0 auto;padding:48px 48px 64px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
 .bt-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--black);padding:12px 24px;border-radius:10px;border:1.5px solid var(--gray-border);transition:all .2s;background:none;cursor:pointer;font-family:var(--sans);}
 .bt-btn:hover{background:var(--yellow);border-color:var(--yellow);}
 @media(max-width:768px){
-  .top-nav{padding:0 16px;}.top-nav-inner{gap:8px;}.top-nav-actions .nav-act-link span,.copy-nav-btn span{display:none;}
+  .top-nav{padding:0;}.top-nav-inner{padding:0 16px;gap:4px;}
+  .copy-nav-btn .copy-label{display:none;}
   .exp-hero-inner,.exp-overview,.exp-content{padding-left:20px;padding-right:20px;}
-  .exp-years-big{font-size:32px;margin-bottom:-12px;}.exp-title{font-size:26px;}
+  .exp-overview{padding-top:36px;}
+  .exp-title{font-size:28px;}
   .tabs-inner{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;height:auto;padding:10px 16px 0;flex-wrap:nowrap;gap:4px;}
-  .tabs-inner::-webkit-scrollbar{display:none;}.tab-btn{flex-shrink:0;font-size:11px;padding:6px 12px;}.tab-prog-wrap{display:none;}
-  #mob-prog-bar{display:block;}.metrics-row{gap:10px;}.metric-item{min-width:calc(50% - 5px);max-width:none;}
+  .tabs-inner::-webkit-scrollbar{display:none;}.tab-btn{flex-shrink:0;font-size:11px;padding:6px 12px;}
+  #mob-prog-bar{display:block;}
+  .proj-layout{grid-template-columns:1fr;gap:32px;}.proj-side{order:2;}
+  .metrics-row{gap:10px;}.metric-item{min-width:calc(50% - 5px);max-width:none;}
   .bottom-nav{padding:32px 20px 48px;flex-direction:column;align-items:stretch;}.bt-btn{justify-content:center;}
-  .proj-block{padding:36px 0;}.page-switch{display:none;}
+  .proj-block{padding:36px 0;}
 }
 </style>
 </head>
 <body>
+<div id="prog"></div>
 
 <nav class="top-nav">
   <div class="top-nav-inner">
-    <a href="index.html" class="back-link">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
+    <a href="index.html" class="back-link" onclick="gtag('event','click_back_main_pm')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
       <span>Back</span>
     </a>
     <div class="nav-divider"></div>
     <div class="top-nav-actions">
-      <a href="https://linkedin.com" class="nav-act-link" target="_blank" rel="noopener">
+      <a href="https://www.linkedin.com/in/svetlana-sitdikova" class="nav-act-link" target="_blank" rel="noopener" onclick="gtag('event','click_linkedin_pm_nav')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         <span>LinkedIn</span>
       </a>
-      <button class="copy-nav-btn" onclick="copyNavEmail(this)">
+      <button class="copy-nav-btn" onclick="copyNavEmail(this);gtag('event','click_copy_email_pm_nav');">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        <span>Copy email</span>
+        <span class="copy-label">Copy email</span>
         <span class="copy-nav-tip">Copied!</span>
       </button>
-      <a href="experience-dm.html" class="page-switch">← Delivery Manager</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <div class="exp-hero">
   <div class="exp-hero-inner">
-    <div class="exp-years-big">2021 — 2023</div>
-    <h1 class="exp-title">Project Manager</h1>
-    <p class="exp-company">IDA Project · Digital Agency · Moscow</p>
+    <div class="exp-role-tag">Project Manager</div>
+    <h1 class="exp-title">IDA Project<br>Digital Agency</h1>
+    <p class="exp-company">200-person agency specializing in real estate tech · Moscow</p>
+    <span class="exp-period">Jun 2021 — Apr 2023</span>
   </div>
 </div>
 
 <div class="exp-overview">
   <p>IDA Project is a 200-person digital agency specializing in real estate technology — providing outsourcing and outstaffing services with end-to-end delivery from business analysis and UX research through development and optimization.</p>
-  <p>Over nearly 2 years, I managed 1–3 engineering teams (up to 23 people), acted as the primary client contact across all projects, delivered 7 full-cycle web products, and maintained an 8.7/10 client satisfaction rating. I also worked closely with product managers on backlog management, UX research, and A/B testing — not just delivery.</p>
+  <p>Over nearly 2 years, I managed 1–3 engineering teams (up to 23 people), acted as the primary client contact across all projects, delivered 7 full-cycle web products, and maintained an 8.7/10 client satisfaction rating. I also worked closely with product managers on backlog management, UX research, and A/B testing.</p>
 </div>
 
 <div class="tabs-sticky" id="tabs-sticky">
@@ -136,204 +155,206 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
     <button class="tab-btn" onclick="goToProj('proj3')">A101 Platform</button>
     <button class="tab-btn" onclick="goToProj('proj4')">A101 Map</button>
     <button class="tab-btn" onclick="goToProj('proj5')">Beregovoy Kvartal</button>
-    <div class="tab-prog-wrap">
-      <span class="tab-prog-lbl" id="prog-lbl">0%</span>
-      <div class="tab-prog-bar"><div class="tab-prog-fill" id="tab-prog-fill"></div></div>
-    </div>
   </div>
 </div>
 <div id="mob-prog-bar"><div id="mob-prog-fill"></div></div>
 
 <div class="exp-content">
 
-  <!-- PROJECT 1 -->
+  <!-- P1 -->
   <div class="proj-block" id="proj1">
-    <p class="proj-num">Project 01</p>
-    <h2 class="proj-title">Samolet Plus — Secondary Real Estate Marketplace</h2>
-    <a href="https://samoletplus.ru/" class="proj-url" target="_blank" rel="noopener">samoletplus.ru ↗</a>
-    <p class="proj-desc">A nationwide marketplace for secondary real estate listings submitted by independent agents across Russian cities. The platform aggregated listings from agents, displayed them on a public-facing website, and was deeply integrated with an external CRM as the primary data source. I inherited this project in crisis — deadlines missed, previous PM gone, stakeholders unhappy — and took it through to production.</p>
-
-    <div class="metrics-row">
-      <div class="metric-item"><div class="metric-num">20–25</div><div class="metric-lbl">cross-functional team members managed</div></div>
-      <div class="metric-item"><div class="metric-num">Apr '22 – Apr '23</div><div class="metric-lbl">project timeline</div></div>
-    </div>
-
-    <div class="resp-section">
-      <p class="resp-title">What I did</p>
-      <div class="resp-list">
-        <div class="resp-item"><div class="resp-dot"></div><span>Joined a distressed project and took full ownership immediately — ran team dailies on day 2, managed client communication within days, held full project context within a week</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Diagnosed the root cause of missed deadlines: an external CRM integration left until the end, with inconsistent and unclean data that the website couldn't display properly</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Created a comprehensive issue list, presented it to stakeholders and the external CRM team, and drove agreement on responsibility splits — what each side would fix, process, or accept as-is</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Established structured collaboration with the external CRM team: embedded them into the project workflow and coordinated their work directly, not at arm's length</span></div>
+    <div class="proj-layout">
+      <div class="proj-main">
+        <p class="proj-num">Project 01</p>
+        <h2 class="proj-title">Samolet Plus — Secondary Real Estate Marketplace</h2>
+        <a href="https://samoletplus.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_samoletplus')">samoletplus.ru ↗</a>
+        <p class="proj-desc">A nationwide marketplace for secondary real estate listings submitted by independent agents across Russian cities, deeply integrated with an external CRM. I inherited this project in crisis — deadlines missed, previous PM gone, stakeholders unhappy — and took it through to production.</p>
+        <div class="metrics-row">
+          <div class="metric-item"><div class="metric-num">20–25</div><div class="metric-lbl">cross-functional team members managed</div></div>
+          <div class="metric-item"><div class="metric-num">Apr '22–Apr '23</div><div class="metric-lbl">project timeline</div></div>
+        </div>
+        <p class="resp-title">What I did</p>
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-dot"></div><span>Joined a distressed project and took full ownership immediately — ran team dailies on day 2, managed client communication within days, held full project context within a week</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Diagnosed the root cause: an external CRM integration left until the end, with inconsistent and unclean data. Created a comprehensive issue list, presented it to stakeholders and the CRM team, and drove agreement on responsibility splits</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Established structured collaboration with the external CRM team: embedded them into the project workflow and coordinated their work directly</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed a cross-functional team of 20–25 (engineers, designers, BA/SA, QA) and coordinated 10+ adjacent product teams and external vendors</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Led the first production release, then transitioned the project into ongoing support and continuous development</span></div>
+        </div>
+        <div class="gallery-row">
+          <div class="g-thumb" onclick="openLB(0,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+          <div class="g-thumb" onclick="openLB(0,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+          <div class="g-thumb" onclick="openLB(0,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
+        </div>
       </div>
-      <div class="resp-more" id="more1">
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed a cross-functional team of 20–25 (engineers, designers, BA/SA, QA) and coordinated 10+ adjacent product teams and external vendors</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Led the first production release, then transitioned the project into ongoing support and continuous development</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Worked within a large PMO structure — actively contributed to shared processes and standards across the program</span></div>
-      </div>
-      <button class="show-more-btn" id="morebtn1" onclick="toggleMore('more1','morebtn1')">
-        <span class="btn-lbl">Show more</span>
-        <span class="show-more-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg></span>
-      </button>
-    </div>
-
-    <div class="callout">
-      <div class="callout-lbl">Key lesson</div>
-      <p>External integrations must be started early and validated with real data — before the interface is built. The root cause of the missed deadlines was that CRM integration was left until the end. When the data turned out to be inconsistent, it required weeks of tedious coordination to fix. I now treat external dependencies as the highest-risk items in any project plan.</p>
-    </div>
-
-    <div class="stack-section">
-      <p class="stack-title">Stack</p>
-      <div class="stack-grid">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Miro, Figma, Draw.io, Smartsheet</span></div>
-        <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (microservices), REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Nuxt.js, TypeScript</span></div>
-        <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, Kubernetes, GitLab CI/CD, Nginx, Keycloak</span></div>
-        <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack, Grafana, Prometheus, Sentry</span></div>
+      <div class="proj-side">
+        <div class="stack-box">
+          <p class="stack-box-title">Stack</p>
+          <div class="stack-rows">
+            <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Miro, Figma, Draw.io, Smartsheet</span></div>
+            <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (microservices), REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
+            <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Nuxt.js, TypeScript</span></div>
+            <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, Kubernetes, GitLab CI/CD, Nginx, Keycloak</span></div>
+            <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack, Grafana, Prometheus, Sentry</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 2 -->
+  <!-- P2 -->
   <div class="proj-block" id="proj2">
-    <p class="proj-num">Project 02</p>
-    <h2 class="proj-title">Samolet Plus — Authentication & SMS Notification Service</h2>
-    <p class="proj-desc">An internal cross-product service built to unify identity management and SMS notifications across multiple Samolet digital platforms — customer account, agent portal, and others. Built on Keycloak, it handled authentication, authorization, and centralized OTP delivery. A cross-team dependency project: multiple platforms and teams depended on it shipping correctly.</p>
-
-    <div class="metrics-row">
-      <div class="metric-item"><div class="metric-num">Jul – Dec '22</div><div class="metric-lbl">project timeline</div></div>
-      <div class="metric-item"><div class="metric-num">Multi-platform</div><div class="metric-lbl">service used across all Samolet products</div></div>
-    </div>
-
-    <div class="resp-section">
-      <p class="resp-title">What I did</p>
-      <div class="resp-list">
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed delivery of a cross-product internal service with dependencies across multiple teams and platforms — coordination and timing were critical</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Coordinated the integration of the auth service with existing products and drove consistent adoption across teams on different timelines</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed integration with two SMS providers — ensured seamless traffic switching and reliable OTP delivery across all platforms with no service disruption</span></div>
+    <div class="proj-layout">
+      <div class="proj-main">
+        <p class="proj-num">Project 02</p>
+        <h2 class="proj-title">Samolet Plus — Authentication & SMS Notification Service</h2>
+        <p class="proj-desc">An internal cross-product service built to unify identity management and SMS notifications across multiple Samolet digital platforms. Built on Keycloak, handling authentication, authorization, and centralized OTP delivery across the customer account, agent portal, and internal tools.</p>
+        <div class="metrics-row">
+          <div class="metric-item"><div class="metric-num">Jul–Dec '22</div><div class="metric-lbl">project timeline</div></div>
+          <div class="metric-item"><div class="metric-num">Multi-platform</div><div class="metric-lbl">service adopted across all Samolet products</div></div>
+        </div>
+        <p class="resp-title">What I did</p>
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed delivery of a cross-product internal service with dependencies across multiple teams and platforms — coordination and timing were critical</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Coordinated the integration of the auth service with existing products and drove consistent adoption across teams on different timelines</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed integration with two SMS providers — ensured seamless traffic switching and reliable OTP delivery across all platforms with no service disruption</span></div>
+        </div>
+        <div class="gallery-row">
+          <div class="g-thumb" onclick="openLB(1,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+          <div class="g-thumb" onclick="openLB(1,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+          <div class="g-thumb" onclick="openLB(1,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
+        </div>
       </div>
-    </div>
-
-    <div class="stack-section">
-      <p class="stack-title">Stack</p>
-      <div class="stack-grid">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Miro, Figma, Draw.io, Smartsheet</span></div>
-        <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (microservices), REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Nuxt.js, TypeScript</span></div>
-        <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, Kubernetes, GitLab CI/CD, Nginx, Keycloak</span></div>
-        <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack, Grafana, Prometheus, Sentry</span></div>
+      <div class="proj-side">
+        <div class="stack-box">
+          <p class="stack-box-title">Stack</p>
+          <div class="stack-rows">
+            <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Miro, Figma, Smartsheet</span></div>
+            <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (microservices), REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
+            <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Nuxt.js, TypeScript</span></div>
+            <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, Kubernetes, GitLab CI/CD, Nginx, Keycloak</span></div>
+            <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack, Grafana, Prometheus, Sentry</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 3 -->
+  <!-- P3 -->
   <div class="proj-block" id="proj3">
-    <p class="proj-num">Project 03</p>
-    <h2 class="proj-title">A101 — Real Estate Digital Platform</h2>
-    <a href="https://a101.ru/" class="proj-url" target="_blank" rel="noopener">a101.ru ↗</a>
-    <p class="proj-desc">A101 is one of Russia's largest residential real estate developers. I managed long-term support and development of their digital marketplace — feature rollouts, performance improvements, UX redesigns, and CRM integrations — for a distributed outsourcing team of 15. Acted as the primary point of contact between the client and the engineering team.</p>
-
-    <div class="metrics-row">
-      <div class="metric-item"><div class="metric-num">15</div><div class="metric-lbl">distributed team members</div></div>
-      <div class="metric-item"><div class="metric-num">Nov '20 – Mar '22</div><div class="metric-lbl">project timeline</div></div>
-      <div class="metric-item"><div class="metric-num">+30%</div><div class="metric-lbl">profitability after billing revision</div></div>
-    </div>
-
-    <div class="resp-section">
-      <p class="resp-title">What I did</p>
-      <div class="resp-list">
-        <div class="resp-item"><div class="resp-dot"></div><span>Organized workflows for a distributed team of 15: sprint planning, backlog management, blocker resolution, and stakeholder updates</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Built a backlog prioritization framework to align delivery with business goals across different stakeholder types — product, marketing, SEO, sales — often with conflicting priorities</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Created an Excel-based sprint capacity planning tool to forecast team workload, balance tasks, and improve resource allocation</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Collaborated closely with the product manager on backlog refinement, hypothesis evaluation, UX research, and A/B testing</span></div>
+    <div class="proj-layout">
+      <div class="proj-main">
+        <p class="proj-num">Project 03</p>
+        <h2 class="proj-title">A101 — Real Estate Digital Platform</h2>
+        <a href="https://a101.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_a101')">a101.ru ↗</a>
+        <p class="proj-desc">A101 is one of Russia's largest residential real estate developers. I managed long-term support and development of their digital marketplace — feature rollouts, performance improvements, UX redesigns, and CRM integrations — for a distributed outsourcing team of 15.</p>
+        <div class="metrics-row">
+          <div class="metric-item"><div class="metric-num">15</div><div class="metric-lbl">distributed team members</div></div>
+          <div class="metric-item"><div class="metric-num">Nov '20–Mar '22</div><div class="metric-lbl">project timeline</div></div>
+          <div class="metric-item"><div class="metric-num">+30%</div><div class="metric-lbl">profitability after billing revision</div></div>
+        </div>
+        <p class="resp-title">What I did</p>
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-dot"></div><span>Organized workflows for a distributed team of 15: sprint planning, backlog management, blocker resolution, and stakeholder updates</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Built a backlog prioritization framework to align delivery with business goals across stakeholder types — product, marketing, SEO, sales</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Created a sprint capacity planning tool (Excel) to forecast team workload and balance tasks</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Collaborated with the product manager on backlog refinement, hypothesis evaluation, UX research, and A/B testing</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed project financials: monthly reports, payment tracking, profitability monitoring. Revised billing approach and increased profitability by 30%</span></div>
+        </div>
+        <div class="gallery-row">
+          <div class="g-thumb" onclick="openLB(2,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+          <div class="g-thumb" onclick="openLB(2,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+          <div class="g-thumb" onclick="openLB(2,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
+        </div>
       </div>
-      <div class="resp-more" id="more3">
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed project financials: monthly reports, payment tracking, profitability monitoring (hourly rates vs. team salaries). Revised the billing approach and increased profitability by 30%</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Worked with analytics tools (Google Analytics, GTM, Yandex Metrica) to evaluate product decisions alongside the product manager</span></div>
-      </div>
-      <button class="show-more-btn" id="morebtn3" onclick="toggleMore('more3','morebtn3')">
-        <span class="btn-lbl">Show more</span>
-        <span class="show-more-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg></span>
-      </button>
-    </div>
-
-    <div class="stack-section">
-      <p class="stack-title">Stack</p>
-      <div class="stack-grid">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">ActiveCollab, Google Workspace, Notion, Miro, Figma</span></div>
-        <div class="stack-row"><span class="stack-cat">Analytics</span><span class="stack-vals">Google Analytics, Google Tag Manager, Yandex Metrica</span></div>
-        <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (monolith), REST API, GraphQL, PostgreSQL, Redis</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js</span></div>
-        <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, GitLab CI/CD, Nginx</span></div>
-        <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack</span></div>
+      <div class="proj-side">
+        <div class="stack-box">
+          <p class="stack-box-title">Stack</p>
+          <div class="stack-rows">
+            <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">ActiveCollab, Google Workspace, Notion, Miro, Figma</span></div>
+            <div class="stack-row"><span class="stack-cat">Analytics</span><span class="stack-vals">Google Analytics, GTM, Yandex Metrica</span></div>
+            <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (monolith), REST API, GraphQL, PostgreSQL, Redis</span></div>
+            <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js</span></div>
+            <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, GitLab CI/CD, Nginx</span></div>
+            <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 4 -->
+  <!-- P4 -->
   <div class="proj-block" id="proj4">
-    <p class="proj-num">Project 04</p>
-    <h2 class="proj-title">A101 — Interactive Commercial Real Estate Map</h2>
-    <a href="https://a101.ru/commercial/map/" class="proj-url" target="_blank" rel="noopener">a101.ru/commercial/map ↗</a>
-    <p class="proj-desc">A fully custom interactive map for browsing and selecting commercial spaces (retail, office, restaurant units) in A101 developments — properties that were still under construction at the time. There was no standard mapping solution. Designers hand-drew every map layer from architectural plans; the backend sliced them into image tiles with unit outlines and infrastructure points overlaid on top.</p>
-
-    <div class="metrics-row">
-      <div class="metric-item"><div class="metric-num">Built from scratch</div><div class="metric-lbl">no off-the-shelf mapping solution used</div></div>
-      <div class="metric-item"><div class="metric-num">~2021</div><div class="metric-lbl">delivery timeline</div></div>
-    </div>
-
-    <div class="resp-section">
-      <p class="resp-title">What I did</p>
-      <div class="resp-list">
-        <div class="resp-item"><div class="resp-dot"></div><span>Coordinated the full custom map pipeline: designers → tile slicing (backend) → unit outline overlay → interactive frontend with filtering by type, size, price, floor, and delivery date</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Designed and maintained an update process to keep the map in sync with shifting construction timelines, unit reconfigurations, and new development phases — serving as the ongoing point of contact between business and engineering for all map changes</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Led a full redesign of the map interface, managing the design and development cycle while ensuring continuity of the live product</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Ensured premium design and UX quality — the map itself was the sales tool, so the quality bar was genuinely high</span></div>
+    <div class="proj-layout">
+      <div class="proj-main">
+        <p class="proj-num">Project 04</p>
+        <h2 class="proj-title">A101 — Interactive Commercial Real Estate Map</h2>
+        <a href="https://a101.ru/commercial/map/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_a101_map')">a101.ru/commercial/map ↗</a>
+        <p class="proj-desc">A fully custom interactive map for browsing and selecting commercial spaces in A101 developments — properties still under construction. Designers hand-drew every map layer from architectural plans; the backend sliced them into image tiles with unit outlines and infrastructure points overlaid on top. No off-the-shelf mapping solution was used.</p>
+        <div class="metrics-row">
+          <div class="metric-item"><div class="metric-num">From scratch</div><div class="metric-lbl">no off-the-shelf mapping solution</div></div>
+          <div class="metric-item"><div class="metric-num">~2021</div><div class="metric-lbl">delivery timeline</div></div>
+        </div>
+        <p class="resp-title">What I did</p>
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-dot"></div><span>Coordinated the full custom map pipeline: designers → tile slicing (backend) → unit outline overlay → interactive frontend with filtering by type, size, price, floor, and delivery date</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Designed and maintained an update process to keep the map in sync with shifting construction timelines, unit reconfigurations, and new development phases</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Led a full redesign of the map interface while ensuring continuity of the live product</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Ensured premium design and UX quality — the map itself was the sales tool, so the quality bar was genuinely high</span></div>
+        </div>
+        <div class="gallery-row">
+          <div class="g-thumb" onclick="openLB(3,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+          <div class="g-thumb" onclick="openLB(3,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+          <div class="g-thumb" onclick="openLB(3,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
+        </div>
       </div>
-    </div>
-
-    <div class="callout">
-      <div class="callout-lbl">Why this stands out</div>
-      <p>There was no playbook here — the technical approach, data model, and operational update process all had to be invented together. It required close collaboration with designers and engineers from day one, not just coordination after decisions were made. And the ongoing challenge of keeping a visual product in sync with physical construction made this one of the most interesting process design problems I've worked on.</p>
-    </div>
-
-    <div class="stack-section">
-      <p class="stack-title">Stack</p>
-      <div class="stack-grid">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">ActiveCollab, Google Workspace, Notion, Miro, Figma</span></div>
-        <div class="stack-row"><span class="stack-cat">Analytics</span><span class="stack-vals">Google Analytics, Google Tag Manager, Yandex Metrica</span></div>
-        <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (monolith), REST API, GraphQL, PostgreSQL, Redis</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js</span></div>
-        <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, GitLab CI/CD, Nginx</span></div>
+      <div class="proj-side">
+        <div class="stack-box">
+          <p class="stack-box-title">Stack</p>
+          <div class="stack-rows">
+            <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">ActiveCollab, Google Workspace, Notion, Miro, Figma</span></div>
+            <div class="stack-row"><span class="stack-cat">Analytics</span><span class="stack-vals">Google Analytics, GTM, Yandex Metrica</span></div>
+            <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (monolith), REST API, GraphQL, PostgreSQL, Redis</span></div>
+            <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js</span></div>
+            <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, GitLab CI/CD, Nginx</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 5 -->
+  <!-- P5 -->
   <div class="proj-block" id="proj5">
-    <p class="proj-num">Project 05</p>
-    <h2 class="proj-title">Beregovoy Kvartal — Premium Residential Website</h2>
-    <a href="https://beregovoy-kvartal.ru/" class="proj-url" target="_blank" rel="noopener">beregovoy-kvartal.ru ↗</a>
-    <p class="proj-desc">A marketing website for a premium residential complex, focused on lead generation and showcasing property offerings. The premium segment demanded a higher quality bar for design and UX than standard real estate platforms — every detail needed to feel considered, not just functional.</p>
-
-    <div class="resp-section">
-      <p class="resp-title">What I did</p>
-      <div class="resp-list">
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed end-to-end delivery: apartment catalog, filtering, mortgage tools, and resident personal account</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Coordinated frontend and backend teams and managed stakeholder communication with the client</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Maintained elevated design and UX quality standards appropriate to the premium segment — worked closely with designers on review and acceptance before any client presentation</span></div>
-        <div class="resp-item"><div class="resp-dot"></div><span>Managed CRM and analytics integrations with third-party systems</span></div>
+    <div class="proj-layout">
+      <div class="proj-main">
+        <p class="proj-num">Project 05</p>
+        <h2 class="proj-title">Beregovoy Kvartal — Premium Residential Website</h2>
+        <a href="https://beregovoy-kvartal.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_beregovoy')">beregovoy-kvartal.ru ↗</a>
+        <p class="proj-desc">A marketing website for a premium residential complex, focused on lead generation and showcasing property offerings. The premium segment demanded a higher design and UX bar than standard real estate platforms — every detail needed to feel considered, not just functional.</p>
+        <p class="resp-title">What I did</p>
+        <div class="resp-list">
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed end-to-end delivery: apartment catalog, filtering, mortgage tools, and resident personal account</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Coordinated frontend and backend teams and managed stakeholder communication with the client</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Maintained elevated design and UX quality standards — worked closely with designers on review and acceptance before any client presentation</span></div>
+          <div class="resp-item"><div class="resp-dot"></div><span>Managed CRM and analytics integrations with third-party systems</span></div>
+        </div>
+        <div class="gallery-row">
+          <div class="g-thumb" onclick="openLB(4,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
+          <div class="g-thumb" onclick="openLB(4,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
+          <div class="g-thumb" onclick="openLB(4,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
+        </div>
       </div>
-    </div>
-
-    <div class="stack-section">
-      <p class="stack-title">Stack</p>
-      <div class="stack-grid">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">ActiveCollab, Google Workspace, Notion, Miro, Figma</span></div>
-        <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (monolith), REST API, GraphQL, PostgreSQL, Redis</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js</span></div>
-        <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, GitLab CI/CD, Nginx</span></div>
-        <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack</span></div>
+      <div class="proj-side">
+        <div class="stack-box">
+          <p class="stack-box-title">Stack</p>
+          <div class="stack-rows">
+            <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">ActiveCollab, Google Workspace, Notion, Miro, Figma</span></div>
+            <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python (monolith), REST API, GraphQL, PostgreSQL, Redis</span></div>
+            <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js</span></div>
+            <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, GitLab CI/CD, Nginx</span></div>
+            <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -341,21 +362,61 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 </div>
 
 <div class="bottom-nav">
-  <a href="index.html" class="bt-btn">
+  <a href="index.html" class="bt-btn" onclick="gtag('event','click_back_main_pm_bottom')">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
     Back to main
   </a>
-  <a href="experience-dm.html" class="bt-btn">
+  <a href="experience-dm.html" class="bt-btn" onclick="gtag('event','click_to_dm_page')">
     ← Delivery Manager experience
   </a>
 </div>
 
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg></button>
+  <button class="lb-next" onclick="lbNav(1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></button>
+  <div class="lb-img-wrap" id="lb-img-wrap"><div class="lb-ph" id="lb-ph">Photo placeholder</div></div>
+  <span class="lb-counter" id="lb-counter">1 / 3</span>
+</div>
+
 <script>
+var EMAIL='svetlanasitdikova.nl@gmail.com';
+var galleries=[
+  ['pm-p1-1.png','pm-p1-2.png','pm-p1-3.png'],
+  ['pm-p2-1.png','pm-p2-2.png','pm-p2-3.png'],
+  ['pm-p3-1.png','pm-p3-2.png','pm-p3-3.png'],
+  ['pm-p4-1.png','pm-p4-2.png','pm-p4-3.png'],
+  ['pm-p5-1.png','pm-p5-2.png','pm-p5-3.png']
+];
+var lbGallery=0,lbIdx=0;
+function openLB(g,i){lbGallery=g;lbIdx=i;renderLB();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function lbNav(dir){var imgs=galleries[lbGallery];lbIdx=(lbIdx+dir+imgs.length)%imgs.length;renderLB();}
+function renderLB(){
+  var imgs=galleries[lbGallery],wrap=document.getElementById('lb-img-wrap');
+  wrap.innerHTML='';
+  var img=new Image();
+  img.onload=function(){img.style.cssText='max-width:90vw;max-height:80vh;object-fit:contain;border-radius:8px;';wrap.appendChild(img);};
+  img.onerror=function(){wrap.innerHTML='<div class="lb-ph">'+imgs[lbIdx]+'</div>';};
+  img.src=imgs[lbIdx];
+  document.getElementById('lb-counter').textContent=(lbIdx+1)+' / '+imgs.length;
+}
+document.addEventListener('keydown',function(e){if(document.getElementById('lightbox').classList.contains('open')){if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);}});
 var projIds=['proj1','proj2','proj3','proj4','proj5'];
 function goToProj(id){var el=document.getElementById(id);if(!el)return;var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight;window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-topH-tabH-16,behavior:'smooth'});}
-function updateTabs(){var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight,offset=topH+tabH+32,active=0;projIds.forEach(function(id,i){var el=document.getElementById(id);if(el&&window.scrollY+offset>=el.offsetTop)active=i;});document.querySelectorAll('.tab-btn').forEach(function(btn,i){btn.classList.toggle('active',i===active);});var content=document.querySelector('.exp-content'),bottomNav=document.querySelector('.bottom-nav');if(content&&bottomNav){var start=content.offsetTop,end=bottomNav.offsetTop,pct=Math.min(100,Math.max(0,(window.scrollY+topH+tabH-start)/(end-start)*100));var fill=document.getElementById('tab-prog-fill'),lbl=document.getElementById('prog-lbl'),mobFill=document.getElementById('mob-prog-fill');if(fill)fill.style.width=pct+'%';if(lbl)lbl.textContent=Math.round(pct)+'%';if(mobFill)mobFill.style.width=pct+'%';}}
-function toggleMore(moreId,btnId){var more=document.getElementById(moreId),btn=document.getElementById(btnId),open=more.classList.toggle('open');btn.classList.toggle('open',open);btn.querySelector('.btn-lbl').textContent=open?'Show less':'Show more';}
-function copyNavEmail(btn){navigator.clipboard.writeText('hello@yourdomain.com').then(function(){var tip=btn.querySelector('.copy-nav-tip');tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},2000);});}
+function updateTabs(){
+  var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight,offset=topH+tabH+32,active=0;
+  projIds.forEach(function(id,i){var el=document.getElementById(id);if(el&&window.scrollY+offset>=el.offsetTop)active=i;});
+  document.querySelectorAll('.tab-btn').forEach(function(btn,i){btn.classList.toggle('active',i===active);});
+  var content=document.querySelector('.exp-content'),bottomNav=document.querySelector('.bottom-nav');
+  if(content&&bottomNav){
+    var start=content.offsetTop,end=bottomNav.offsetTop,pct=Math.min(100,Math.max(0,(window.scrollY+topH+tabH-start)/(end-start)*100));
+    var mobFill=document.getElementById('mob-prog-fill');if(mobFill)mobFill.style.width=pct+'%';
+    var bar=document.getElementById('prog');if(bar)bar.style.width=pct+'%';
+  }
+}
+function copyNavEmail(btn){navigator.clipboard.writeText(EMAIL).then(function(){var tip=btn.querySelector('.copy-nav-tip');tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},2000);});}
 window.addEventListener('scroll',updateTabs,{passive:true});
 updateTabs();
 </script>
