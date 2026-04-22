@@ -3,18 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Svetlana — Project Manager</title>
+<title>Svetlana Sitdikova — Project Manager</title>
+<!-- noindex: accessible only via direct link -->
+<meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="favicon.png">
 <!-- Google Analytics — replace GA_MEASUREMENT_ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
+<!-- Clean URL: remove index.html from browser address bar -->
+<script>
+if(window.location.pathname.endsWith('/index.html')){
+  var clean=window.location.pathname.replace('/index.html','/');
+  window.history.replaceState(null,'',clean+window.location.search+window.location.hash);
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --yellow:#E6C200;--white:#FFFFFF;--black:#0B0B0C;
-  --gray:#444;/* darker gray for better contrast */
+  --gray:#5a5a5a;/* balanced contrast — readable but not too dark */
   --gray-light:#F4F4F2;--gray-border:#E5E5E5;
   --sans:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--ct:1200px;
 }
@@ -27,7 +36,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .rv.show{opacity:1;transform:translateY(0);}
 .rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}
 
-/* NAV */
+/* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(255,255,255,0.88);border-bottom:1px solid var(--gray-border);height:64px;display:flex;align-items:center;transition:box-shadow .3s;}
 nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .nav-inner{max-width:var(--ct);width:100%;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:4px;}
@@ -36,23 +45,30 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .nav-links{display:flex;gap:2px;flex:1;}
 .nav-links a{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--gray);padding:7px 13px;border-radius:7px;transition:all .18s;}
 .nav-links a:hover{background:var(--yellow);color:var(--black);}
-/* Nav email copy */
-.nav-copy-email{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--gray);padding:7px 13px;border-radius:7px;font-family:var(--sans);position:relative;transition:all .18s;margin-left:auto;}
+
+/* nav copy email — full cover on success */
+.nav-copy-email{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--gray);padding:7px 13px;border-radius:7px;font-family:var(--sans);position:relative;transition:background .18s,color .18s;margin-left:auto;overflow:hidden;}
 .nav-copy-email:hover{background:var(--yellow);color:var(--black);}
-.nav-copy-email svg{width:14px;height:14px;flex-shrink:0;}
-.nav-copy-tip{position:absolute;top:calc(100%+6px);left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--black);font-size:11px;font-weight:500;padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;font-family:var(--sans);}
-.nav-copy-tip.show{opacity:1;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:8px;margin-left:8px;}
+.nav-copy-email .nav-copy-inner{display:inline-flex;align-items:center;gap:6px;position:relative;z-index:1;}
+.nav-copy-email .nav-copy-inner svg{width:14px;height:14px;flex-shrink:0;}
+.nav-copy-email .nav-copy-success{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--black);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:0;transition:opacity .18s;border-radius:7px;z-index:2;}
+.nav-copy-email.copied .nav-copy-success{opacity:1;}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:8px;margin-left:8px;flex-shrink:0;}
 .hamburger span{width:22px;height:2px;background:var(--black);border-radius:2px;display:block;}
-.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);padding:16px 24px 24px;border-bottom:1px solid var(--gray-border);z-index:99;flex-direction:column;gap:4px;}
+
+/* mob menu — solid bg, right-aligned hamburger */
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--gray-border);z-index:99;flex-direction:column;gap:4px;padding:16px 24px 24px;}
 .mob-menu.open{display:flex;}
 .mob-menu a,.mob-menu button.mob-email{font-size:16px;font-weight:500;text-decoration:none;color:var(--black);padding:12px 16px;border-radius:10px;transition:all .2s;display:flex;align-items:center;gap:10px;background:none;border:none;font-family:var(--sans);cursor:pointer;width:100%;text-align:left;}
 .mob-menu a:hover,.mob-menu button.mob-email:hover{background:var(--yellow);}
+.mob-overlay{display:none;position:fixed;inset:0;top:64px;z-index:98;}
+.mob-overlay.open{display:block;}
 
 .ct{max-width:var(--ct);margin:0 auto;padding:0 48px;}
 .sec-lbl{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:16px;}
 
-/* HERO */
+/* ── HERO ── */
 #hero{display:grid;grid-template-columns:55fr 45fr;align-items:center;gap:48px;padding:48px 48px 64px;max-width:var(--ct);margin:0 auto;}
 .hero-left{display:flex;flex-direction:column;gap:22px;}
 .hero-label{font-size:15px;font-weight:500;letter-spacing:.04em;color:var(--gray);}
@@ -70,23 +86,24 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .photo-img{width:100%;aspect-ratio:3/4;display:block;overflow:hidden;border-radius:16px;}
 .photo-img img{width:100%;height:100%;object-fit:cover;display:block;}
 
-/* TICKER */
+/* ── TICKER ── */
 .ticker{background:var(--black);height:48px;overflow:hidden;display:flex;align-items:center;}
 .ticker-track{display:flex;white-space:nowrap;animation:tick 65s linear infinite;}
 .ticker-item{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--white);padding:0 18px;}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* STATS CARDS */
-.stats-band{padding:48px 0;}
+/* ── STATS ── */
+.stats-band{padding:20px 0 20px;} /* ~1.5× less gap before EXPERIENCE */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--ct);margin:0 auto;padding:0 48px;}
 .stat-card{background:var(--gray-light);border-radius:16px;padding:28px 24px 24px;display:flex;flex-direction:column;gap:8px;}
 .stat-num{font-family:var(--serif);font-size:clamp(36px,4vw,52px);font-weight:400;line-height:1;}
+/* label: force "I" to next line by using word with no-break then br opportunity */
 .stat-lbl{font-size:15px;color:var(--gray);line-height:1.4;}
 
-.section{padding:64px 0;}
+.section{padding:48px 0;} /* reduced top padding for EXPERIENCE section */
 
-/* TIMELINE */
-.exp-wrap{display:grid;grid-template-columns:48px 1fr;margin-top:48px;}
+/* ── TIMELINE ── */
+.exp-wrap{display:grid;grid-template-columns:48px 1fr;margin-top:24px;} /* halved margin-top = less gap under heading */
 .tl-nav{position:sticky;top:80px;height:fit-content;display:flex;flex-direction:column;align-items:center;padding-top:12px;}
 .tl-track{position:relative;display:flex;flex-direction:column;align-items:center;}
 .tl-line{width:1px;background:var(--gray-border);position:absolute;top:6px;bottom:6px;left:50%;transform:translateX(-50%);z-index:0;}
@@ -95,27 +112,20 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .tl-seg{height:148px;width:1px;background:var(--gray-border);transition:background .3s;}
 .tl-seg.filled{background:var(--yellow);}
 .timeline{display:flex;flex-direction:column;}
-
-/* Full items */
 .tl-item{display:grid;grid-template-columns:196px 1fr;gap:36px;padding:36px 0 36px 24px;border-bottom:1px solid var(--gray-border);}
 .tl-item:first-child{border-top:none;}
 .tl-years{font-family:var(--serif);font-size:28px;color:var(--gray);font-weight:400;line-height:1.1;padding-top:4px;}
 .tl-role{font-size:21px;font-weight:500;line-height:1.2;margin-bottom:4px;}
 .tl-company{font-size:13px;color:var(--gray);margin-bottom:12px;letter-spacing:.07em;text-transform:uppercase;}
 .tl-desc{font-size:16px;color:var(--gray);line-height:1.65;margin-bottom:14px;max-width:520px;}
-
-/* Achievements — no bullets, just stacked lines */
 .tl-achievements{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;max-width:520px;}
 .tl-ach{font-size:15px;line-height:1.5;color:var(--gray);}
-.tl-ach em{font-style:normal;font-weight:600;color:var(--black);}
-
-/* PROMINENT project link */
-.tl-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;background:var(--yellow);color:var(--black);padding:10px 20px;border-radius:9px;transition:all .2s;border:none;cursor:pointer;}
+.tl-ach em{font-style:normal;font-weight:500;color:var(--black);}
+/* Projects in detail button — lighter weight for Safari rendering */
+.tl-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;background:var(--yellow);color:var(--black);padding:10px 20px;border-radius:9px;transition:all .2s;border:none;cursor:pointer;}
 .tl-link:hover{background:var(--black);color:var(--white);}
 .tl-link svg{width:14px;height:14px;transition:transform .2s;}
 .tl-link:hover svg{transform:translateX(3px);}
-
-/* Compact items */
 .tl-item-compact{display:grid;grid-template-columns:196px 1fr;gap:36px;padding:22px 0 22px 24px;border-bottom:1px solid var(--gray-border);}
 .tl-compact-year{font-family:var(--serif);font-size:22px;color:var(--gray);font-weight:400;line-height:1.2;padding-top:3px;}
 .tl-compact-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
@@ -123,11 +133,10 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .tl-compact-company{font-size:12px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;}
 .tl-compact-note{font-size:15px;color:var(--gray);line-height:1.55;max-width:520px;}
 
-/* VALUE PROP CARDS — touch/drag slider */
+/* ── VALUE PROP CARDS — 6 cards, drag slider ── */
 .cards-section{padding:64px 0;background:var(--gray-light);}
 .cards-section .ct-inner{max-width:var(--ct);margin:0 auto;padding:0 48px;}
 .cards-wrap{margin-top:48px;position:relative;}
-/* Outer clips, inner allows drag overflow */
 .cards-outer{overflow:hidden;cursor:grab;user-select:none;}
 .cards-outer:active{cursor:grabbing;}
 .cards-track{display:flex;gap:14px;padding:4px 2px;transition:transform .35s cubic-bezier(.25,.46,.45,.94);}
@@ -135,7 +144,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .w-card{flex:0 0 calc(33.333% - 10px);min-width:calc(33.333% - 10px);background:var(--black);border-radius:14px;padding:28px 28px 32px;transition:background .3s;}
 .w-card:hover{background:#1a1a1c;}
 .w-card .c-head{font-size:18px;font-weight:500;margin-bottom:10px;color:var(--white);line-height:1.3;}
-.w-card .c-body{font-size:15px;color:rgba(255,255,255,.65);line-height:1.6;}
+.w-card .c-body{font-size:15px;color:rgba(255,255,255,.9);line-height:1.6;}
 .cards-ctrl{display:flex;align-items:center;gap:10px;margin-top:20px;}
 .c-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--black);background:var(--black);color:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .c-btn:hover:not(:disabled){background:var(--yellow);border-color:var(--yellow);color:var(--black);}
@@ -144,12 +153,12 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .c-dot{width:7px;height:7px;border-radius:50%;background:var(--gray-border);transition:all .25s;cursor:pointer;border:none;}
 .c-dot.active{background:var(--black);transform:scale(1.25);}
 
-/* FOOTER */
+/* ── FOOTER ── */
 footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 .ft-inner{max-width:var(--ct);margin:0 auto;padding:0 48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:64px;border-bottom:1px solid #1E1E20;}
-.ft-title-row{display:flex;align-items:center;gap:16px;margin-bottom:20px;} /* align-items:center for vertical alignment */
+.ft-title-row{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
 .ft-h2{font-family:var(--serif);font-size:44px;font-weight:400;line-height:1;}
-.ft-avatar{height:56px;width:auto;display:block;filter:drop-shadow(0 4px 16px rgba(0,0,0,.4));}
+.ft-avatar{height:112px;width:auto;display:block;filter:drop-shadow(0 4px 16px rgba(0,0,0,.4));}
 .ft-sub{font-size:16px;color:rgba(255,255,255,.5);max-width:360px;line-height:1.6;margin-bottom:20px;}
 .ft-btns{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
 .btn-cv-ft{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--black);font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:0 20px;height:42px;border-radius:10px;transition:all .2s;border:none;cursor:pointer;}
@@ -158,58 +167,72 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 .soc-dark svg{width:17px;height:17px;}
 .soc-dark:hover{border-color:var(--yellow);background:var(--yellow);color:var(--black);}
 .ft-right{display:flex;flex-direction:column;justify-content:flex-end;gap:12px;}
+.ft-location{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:4px;}
 .email-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .ft-email{font-family:var(--serif);font-size:clamp(20px,2.6vw,32px);font-weight:400;color:var(--white);text-decoration:none;transition:color .2s;line-height:1.2;}
 .ft-email:hover{color:var(--yellow);}
-.copy-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:none;background:transparent;cursor:pointer;color:rgba(255,255,255,.4);transition:all .2s;position:relative;flex-shrink:0;}
-.copy-btn:hover{color:var(--yellow);}
-.copy-tip{position:absolute;bottom:calc(100%+6px);left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--black);font-size:11px;font-weight:500;padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;font-family:var(--sans);}
-.copy-tip.show{opacity:1;}
-.ft-note{font-size:14px;color:rgba(255,255,255,.35);}
+/* footer copy button — full cover on success */
+.copy-btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border:1.5px solid rgba(255,255,255,.2);background:transparent;cursor:pointer;color:rgba(255,255,255,.5);transition:all .2s;position:relative;flex-shrink:0;border-radius:8px;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.05em;overflow:hidden;}
+.copy-btn:hover{border-color:var(--yellow);color:var(--yellow);}
+.copy-btn .copy-btn-inner{display:inline-flex;align-items:center;gap:6px;position:relative;z-index:1;}
+.copy-btn .copy-btn-inner svg{width:14px;height:14px;}
+.copy-btn .copy-success{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--black);font-size:12px;font-weight:600;letter-spacing:.05em;opacity:0;transition:opacity .18s;z-index:2;border-radius:7px;}
+.copy-btn.copied .copy-success{opacity:1;}
 .ft-bottom{max-width:var(--ct);margin:0 auto;padding:20px 48px;display:flex;justify-content:flex-start;align-items:center;gap:12px;}
 .ft-copy{font-size:12px;color:rgba(255,255,255,.25);}
 .top-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4);cursor:pointer;padding:8px 16px;border-radius:8px;font-family:var(--sans);transition:all .2s;margin-left:auto;}
 .top-btn:hover{border-color:var(--yellow);color:var(--yellow);}
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ── */
 @media(max-width:960px){
   nav{padding:0;}.nav-inner{padding:0 20px;}
-  .nav-links{display:none;}.nav-copy-email{display:none;}
-  .hamburger{display:flex;}
-  /* Hero — photo right of greeting on mobile */
+  .nav-links,.nav-copy-email{display:none;}
+  /* hamburger always right-aligned */
+  .hamburger{display:flex;margin-left:auto;}
+
+  /* HERO — photo right of name/label */
   #hero{
     display:grid;
     grid-template-columns:1fr auto;
-    grid-template-rows:auto auto;
-    gap:16px 20px;
+    gap:0 16px;
     padding:24px 20px 40px;
     align-items:start;
   }
-  .hero-left{order:1;gap:14px;grid-column:1;grid-row:1 / 3;}
-  .hero-right{order:2;grid-column:2;grid-row:1;align-items:flex-start;justify-content:flex-end;}
-  .photo-wrap{width:110px;}
-  .hero-actions{grid-column:1 / 3;grid-row:3;order:3;}
+  /* hero-left spans full left column, including actions */
+  .hero-left{grid-column:1;grid-row:1;gap:14px;}
+  /* bio: full width of its column — not constrained */
+  .hero-bio{max-width:100%;}
+  /* photo: right column, top-aligned */
+  .hero-right{grid-column:2;grid-row:1;align-items:flex-start;justify-content:flex-end;align-self:start;}
+  .photo-wrap{width:100px;}
 
   .stats-grid{grid-template-columns:repeat(2,1fr);padding:0 20px;gap:12px;}
   .stat-card{padding:20px 18px 18px;}
 
+  /* Experience section */
+  #experience.section{padding-top:24px;}
+  /* Career path heading — half margin below on mobile */
+  .exp-wrap{margin-top:12px;}
+
   .exp-wrap{grid-template-columns:1fr;}.tl-nav{display:none;}
-  .tl-item,.tl-item-compact{grid-template-columns:1fr;gap:4px;padding-left:0;}
+  /* Timeline items: generous vertical breathing room */
+  .tl-item{grid-template-columns:1fr;gap:8px;padding-left:0;padding-top:32px;padding-bottom:32px;}
+  .tl-item-compact{grid-template-columns:1fr;gap:4px;padding-left:0;}
   .tl-compact-head{flex-direction:column;gap:2px;}
 
-  /* Career path heading spacing */
-  #experience.section{padding-top:32px;}
-
-  /* Cards full width on mobile, swipe */
-  .w-card{flex:0 0 85%;min-width:85%;}
+  /* Cards: exactly 1 card, no trailing gap on mobile */
+  .w-card{flex:0 0 100%;min-width:100%;}
+  .cards-track{gap:0;padding:4px 0;}
   .cards-section .ct-inner{padding:0 20px;}
-
-  /* What I bring title — same size as Career path */
   #about .sec-lbl ~ h2{font-size:clamp(32px,4vw,48px) !important;}
 
-  .ft-inner{grid-template-columns:1fr;gap:36px;padding:0 20px 48px;}.ft-h2{font-size:32px;}.ft-avatar{height:40px;}
-  .ft-bottom{padding:20px 20px;}.ct{padding:0 20px;}.section{padding:48px 0;}
+  /* Footer mobile — avatar 3× (96px) */
+  .ft-inner{grid-template-columns:1fr;gap:36px;padding:0 20px 48px;}
+  .ft-h2{font-size:32px;}
+  .ft-avatar{height:96px;}
+  .ft-bottom{padding:20px;}.ct{padding:0 20px;}.section{padding:40px 0;}
 }
+
 </style>
 </head>
 <body>
@@ -217,20 +240,25 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#home" class="nav-logo" onclick="gtag('event','click_nav_logo')"><img src="logo_avatar.png" alt="Svetlana"></a>
+    <a href="." class="nav-logo" onclick="gtag('event','click_nav_logo')"><img src="logo_avatar.png" alt="Svetlana"></a>
     <div class="nav-links">
       <a href="#experience" onclick="gtag('event','click_nav_experience')">Experience</a>
       <a href="#about" onclick="gtag('event','click_nav_about')">About</a>
       <a href="#contacts" onclick="gtag('event','click_nav_contact')">Contact</a>
     </div>
-    <button class="nav-copy-email" onclick="copyNavEmail(this);gtag('event','click_nav_copy_email');" title="Copy email">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-      Copy email
-      <span class="nav-copy-tip">Copied!</span>
+    <button class="nav-copy-email" id="navCopyBtn" onclick="copyNavEmail();gtag('event','click_nav_copy_email');" title="Copy email">
+      <span class="nav-copy-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy email
+      </span>
+      <span class="nav-copy-success">Copied!</span>
     </button>
-    <button class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<!-- invisible overlay closes mob menu on tap outside -->
+<div class="mob-overlay" id="mob-overlay" onclick="closeMob()"></div>
 
 <div class="mob-menu" id="mob-menu">
   <a href="#experience" onclick="closeMob();gtag('event','click_mob_experience')">Experience</a>
@@ -247,37 +275,48 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
     <div class="hero-left">
       <p class="hero-label rv">Project Manager · Delivery Manager</p>
       <h1 class="hero-name rv d1">Hi! I'm<br>Svetlana <span class="wave">👋</span></h1>
-      <p class="hero-bio rv d2">I keep engineering teams focused, delivery on track, and stakeholders in the loop — across complex web platforms, multi-team programs, and high-load production systems.</p>
+      <p class="hero-bio rv d2">I manage delivery across complex systems with external integrations and multi-team environments — keeping processes clear, releases predictable, and stakeholders aligned.</p>
+      <div class="hero-actions rv d3">
+        <a href="CV_PM_Sitdikova_Svetlana.pdf" class="btn-cv" target="_blank" rel="noopener" onclick="gtag('event','click_download_cv')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+        <div class="soc-icons">
+          <a href="https://www.linkedin.com/in/svetlana-sitdikova" class="soc-icon" title="LinkedIn" target="_blank" rel="noopener" onclick="gtag('event','click_linkedin_hero')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://t.me/Svetllana_s" class="soc-icon" title="Telegram" target="_blank" rel="noopener" onclick="gtag('event','click_telegram_hero')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg></a>
+        </div>
+      </div>
     </div>
     <div class="hero-right rv">
       <div class="photo-wrap"><div class="photo-img"><img src="portrait.png" alt="Svetlana"></div></div>
-    </div>
-    <div class="hero-actions rv d3">
-      <a href="CV_PM_Sitdikova_Svetlana.pdf" class="btn-cv" target="_blank" rel="noopener" onclick="gtag('event','click_download_cv')">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download CV
-      </a>
-      <div class="soc-icons">
-        <a href="https://www.linkedin.com/in/svetlana-sitdikova" class="soc-icon" title="LinkedIn" target="_blank" rel="noopener" onclick="gtag('event','click_linkedin_hero')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="https://t.me/Svetllana_s" class="soc-icon" title="Telegram" target="_blank" rel="noopener" onclick="gtag('event','click_telegram_hero')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg></a>
-      </div>
     </div>
   </div>
 </section>
 
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ticker-item">JIRA</span><span class="ticker-item">CONFLUENCE</span><span class="ticker-item">SCRUM</span><span class="ticker-item">KANBAN</span><span class="ticker-item">LeSS</span><span class="ticker-item">STAKEHOLDER MANAGEMENT</span><span class="ticker-item">RELEASE MANAGEMENT</span><span class="ticker-item">INCIDENT MANAGEMENT</span><span class="ticker-item">PEOPLE MANAGEMENT</span><span class="ticker-item">AGILE</span><span class="ticker-item">RISK MANAGEMENT</span><span class="ticker-item">FIGMA</span><span class="ticker-item">MIRO</span><span class="ticker-item">PROGRAM MANAGEMENT</span><span class="ticker-item">JIRA</span><span class="ticker-item">CONFLUENCE</span><span class="ticker-item">SCRUM</span><span class="ticker-item">KANBAN</span><span class="ticker-item">LeSS</span><span class="ticker-item">STAKEHOLDER MANAGEMENT</span><span class="ticker-item">RELEASE MANAGEMENT</span><span class="ticker-item">INCIDENT MANAGEMENT</span><span class="ticker-item">PEOPLE MANAGEMENT</span><span class="ticker-item">AGILE</span><span class="ticker-item">RISK MANAGEMENT</span><span class="ticker-item">FIGMA</span><span class="ticker-item">MIRO</span><span class="ticker-item">PROGRAM MANAGEMENT</span>
+    <span class="ticker-item">AGILE · SCRUM · KANBAN · LeSS · SAFe</span><span class="ticker-item">WATERFALL</span><span class="ticker-item">WEB DEVELOPMENT</span><span class="ticker-item">PROJECT DELIVERY</span><span class="ticker-item">INCIDENT MANAGEMENT</span><span class="ticker-item">RELEASE MANAGEMENT</span><span class="ticker-item">STAKEHOLDER MANAGEMENT</span><span class="ticker-item">RISK MANAGEMENT</span><span class="ticker-item">PEOPLE MANAGEMENT</span><span class="ticker-item">MENTORSHIP</span><span class="ticker-item">AGILE · SCRUM · KANBAN · LeSS · SAFe</span><span class="ticker-item">WATERFALL</span><span class="ticker-item">WEB DEVELOPMENT</span><span class="ticker-item">PROJECT DELIVERY</span><span class="ticker-item">INCIDENT MANAGEMENT</span><span class="ticker-item">RELEASE MANAGEMENT</span><span class="ticker-item">STAKEHOLDER MANAGEMENT</span><span class="ticker-item">RISK MANAGEMENT</span><span class="ticker-item">PEOPLE MANAGEMENT</span><span class="ticker-item">MENTORSHIP</span>
   </div>
 </div>
 
-<!-- STATS CARDS -->
 <div class="stats-band">
   <div class="stats-grid rv">
-    <div class="stat-card"><div class="stat-num">4.5+</div><div class="stat-lbl">Years in IT project management</div></div>
-    <div class="stat-card"><div class="stat-num">53</div><div class="stat-lbl">Engineers in the largest team I coordinated</div></div>
-    <div class="stat-card"><div class="stat-num">7</div><div class="stat-lbl">Full-cycle web projects delivered end to end</div></div>
-    <div class="stat-card"><div class="stat-num">5M</div><div class="stat-lbl">MAU on the platform I managed delivery for</div></div>
+    <div class="stat-card">
+      <div class="stat-num">5</div>
+      <div class="stat-lbl">Years in IT project management</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">53</div>
+      <div class="stat-lbl">Engineers in the largest team<br>I coordinated</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">10+</div>
+      <div class="stat-lbl">Full-cycle projects delivered end to end</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5M</div>
+      <div class="stat-lbl">MAU on the platform<br>I managed delivery for</div>
+    </div>
   </div>
 </div>
 
@@ -304,12 +343,12 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
           <div class="tl-years">2023 — 2025</div>
           <div>
             <div class="tl-role">Delivery Manager</div>
-            <div class="tl-company">Samolet · Real Estate Developer · Remote</div>
-            <p class="tl-desc">Coordinated 6 distributed engineering teams (53 specialists) building and maintaining one of Russia's largest real estate digital ecosystems — a 5M MAU website, customer account platform, and internal B2B tools. Scaled the team from 35 to 53, hired and mentored 5 PMs, built release and incident management from scratch.</p>
+            <div class="tl-company">Samolet · Real Estate Developer</div>
+            <p class="tl-desc">Coordinated 6 distributed engineering teams (53 specialists) building and maintaining one of Russia's largest real estate digital ecosystems — a 5M MAU website, customer account platform, and internal B2B tools. It was a multi-vendor environment with an outstaff team.</p>
             <div class="tl-achievements">
-              <div class="tl-ach"><em>35 → 53</em> team members — scaled org and onboarded 5 PMs as their direct manager</div>
-              <div class="tl-ach"><em>7s → &lt;3s</em> page load time via CDN, caching, and Vue 2 → Nuxt 3 migration</div>
-              <div class="tl-ach"><em>~400 → &lt;30</em> CRM-related bugs/month after overhauling incident management</div>
+              <div class="tl-ach"><em>35 → 53</em> engineers — grew the team and acted as direct manager for 5 hired project managers</div>
+              <div class="tl-ach"><em>7s → &lt;3s</em> load time on key pages — optimised via CDN, caching, backend requests, and Vue 2 → Nuxt 3 migration</div>
+              <div class="tl-ach"><em>2 weeks → 1 day</em> page launch time — initiated and delivered a no-code landing page builder</div>
             </div>
             <a href="experience-dm.html" class="tl-link" target="_blank" onclick="gtag('event','click_exp_dm_detail')">
               Projects in detail
@@ -322,8 +361,8 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
           <div class="tl-years">2021 — 2023</div>
           <div>
             <div class="tl-role">Project Manager</div>
-            <div class="tl-company">IDA Project · Digital Agency · Moscow</div>
-            <p class="tl-desc">Led delivery of 7 full-cycle web projects for real estate clients — from new platform builds to long-term support. Managed cross-functional teams up to 23 people, acted as the primary stakeholder contact, improved agency profitability by 30%, and collaborated with product managers on discovery and A/B testing.</p>
+            <div class="tl-company">IDA Project · Digital Agency</div>
+            <p class="tl-desc">Led delivery of 7 full-cycle web projects for real estate clients — from new platform builds to long-term support. Managed 1–3 engineering teams (up to 23 people, with backend and frontend scope), acted as the primary stakeholder contact, and collaborated with product managers on discovery and A/B testing.</p>
             <div class="tl-achievements">
               <div class="tl-ach"><em>7 projects</em> delivered end-to-end in outsourcing and outstaffing models</div>
               <div class="tl-ach"><em>+30%</em> agency profitability through billing revision</div>
@@ -340,10 +379,10 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
           <div class="tl-compact-year">2020 — 2021</div>
           <div>
             <div class="tl-compact-head">
-              <span class="tl-compact-role">QA Engineer → PM</span>
-              <span class="tl-compact-company">IDA Project · Moscow</span>
+              <span class="tl-compact-role">QA Engineer</span>
+              <span class="tl-compact-company">Digital Agency</span>
             </div>
-            <p class="tl-compact-note">Started in IT as a manual QA engineer, moved into project management within 7 months. My QA background still shows in my release quality instincts — I understand how bugs happen and when to push harder on quality gates before going live.</p>
+            <p class="tl-compact-note">Performed manual testing of web applications — UI/UX, cross-browser compatibility, and responsiveness. Validated new features before release; conducted regression, smoke, and integration testing. Documented defects and maintained test documentation including test cases and checklists.</p>
           </div>
         </div>
 
@@ -352,9 +391,9 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
           <div>
             <div class="tl-compact-head">
               <span class="tl-compact-role">Lawyer</span>
-              <span class="tl-compact-company">Tenzor Consulting · Moscow</span>
+              <span class="tl-compact-company">Consulting Company</span>
             </div>
-            <p class="tl-compact-note">Practiced law for four years before moving into tech. This background sharpened my structured thinking and risk awareness — especially useful when projects touch business rules, contracts, or user agreements.</p>
+            <p class="tl-compact-note">Four years in legal practice before moving into tech. Built a habit of structured thinking and attention to detail. Working closely with clients in high-stakes situations shaped how I communicate, manage expectations, and navigate complexity.</p>
           </div>
         </div>
 
@@ -363,22 +402,20 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
   </div>
 </section>
 
-<!-- VALUE PROP — full-bleed section with own padding -->
+<!-- 6 cards only -->
 <section id="about" class="cards-section">
   <div class="ct-inner">
     <p class="sec-lbl rv">WHY WORK WITH ME</p>
-    <h2 class="rv" style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.1;">What I bring to the table</h2>
+    <h2 class="rv" style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.1;">My strengths</h2>
     <div class="cards-wrap">
       <div class="cards-outer" id="cards-outer">
         <div class="cards-track" id="ctrack">
           <div class="w-card"><div class="c-head">Multi-team coordination</div><p class="c-body">Coordinated up to 6 distributed teams at once — balancing workload, dependencies, and priorities without losing alignment or creating chaos for anyone.</p></div>
-          <div class="w-card"><div class="c-head">Technical fluency</div><p class="c-body">Started as a QA engineer. Comfortable discussing APIs, CI/CD, release pipelines, and microservices. I understand what engineering teams deal with — and that changes how I plan.</p></div>
-          <div class="w-card"><div class="c-head">People development</div><p class="c-body">Hired and onboarded 5 project managers as their direct manager. I know how to bring people in, set them up for success, and grow a team's capacity deliberately.</p></div>
-          <div class="w-card"><div class="c-head">Stakeholder management</div><p class="c-body">Main point of contact for CPOs, CTOs, CMOs, marketing, legal, and external vendors. I give stakeholders clarity without overwhelming the team with every detail.</p></div>
-          <div class="w-card"><div class="c-head">Process builder</div><p class="c-body">I design process when it's missing — release calendars, incident frameworks, backlog prioritization systems, capacity planning tools. Built when needed, not borrowed blindly.</p></div>
-          <div class="w-card"><div class="c-head">Delivery under pressure</div><p class="c-body">Cut a 6-month timeline to 2.5 months through scope negotiation, additional resources, and careful parallel workstream design. I own the outcome and bring options proactively.</p></div>
-          <div class="w-card"><div class="c-head">Risk-first mindset</div><p class="c-body">I look for single points of failure before they become incidents. Built team-wide knowledge-sharing to eliminate bus-factor risks in critical system areas.</p></div>
-          <div class="w-card"><div class="c-head">Fast onboarding</div><p class="c-body">Took over a project from a leaving PM on day 2 — running dailies, managing client comms, holding full context within a week. I ramp up fast, without noise.</p></div>
+          <div class="w-card"><div class="c-head">Technical fluency</div><p class="c-body">Started as a QA engineer. Comfortable discussing APIs, CI/CD, release pipelines, and microservices. I understand what engineering teams deal with.</p></div>
+          <div class="w-card"><div class="c-head">People development</div><p class="c-body">Hired and onboarded 5 project managers as their direct manager. I know how to bring people in and set them up for success.</p></div>
+          <div class="w-card"><div class="c-head">Stakeholder management</div><p class="c-body">Worked closely with product managers and C-level, coordinated with marketing, adjacent teams, and external vendors — translating needs into clear priorities and keeping everyone aligned.</p></div>
+          <div class="w-card"><div class="c-head">Operational strength</div><p class="c-body">Strong on the operational side — I've managed projects with frequent releases, multiple concurrent stakeholders, and shifting priorities. Structure keeps things moving even when the environment is noisy.</p></div>
+          <div class="w-card"><div class="c-head">Release management</div><p class="c-body">Facilitated delivery across multiple teams within LeSS with quarterly planning. Streamlined twice-weekly releases for a high-load website — with a release calendar, clear guidelines, new roles, and expanded staging environments.</p></div>
         </div>
       </div>
       <div class="cards-ctrl">
@@ -397,7 +434,7 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
         <h2 class="ft-h2">Let's connect</h2>
         <img src="footer_avatar.png" alt="" class="ft-avatar">
       </div>
-      <p class="ft-sub">Open to full-time remote positions in project management.</p>
+      <p class="ft-sub">Thanks for stopping by. If you'd like to stay in touch — feel free to reach out. Always happy to connect!</p>
       <div class="ft-btns">
         <a href="CV_PM_Sitdikova_Svetlana.pdf" class="btn-cv-ft" target="_blank" rel="noopener" onclick="gtag('event','click_download_cv_footer')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -408,11 +445,15 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
       </div>
     </div>
     <div class="ft-right rv">
+      <p class="ft-location">The Hague, Netherlands · UTC+2</p>
       <div class="email-row">
         <a href="mailto:svetlanasitdikova.nl@gmail.com" class="ft-email" onclick="gtag('event','click_email_footer')">svetlanasitdikova.nl@gmail.com</a>
-        <button class="copy-btn" onclick="copyEmail(this);gtag('event','click_copy_email_footer');" title="Copy email">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          <span class="copy-tip">Copied!</span>
+        <button class="copy-btn" id="ftCopyBtn" onclick="copyFooterEmail();gtag('event','click_copy_email_footer');" title="Copy email">
+          <span class="copy-btn-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </span>
+          <span class="copy-success">Copied!</span>
         </button>
       </div>
     </div>
@@ -429,33 +470,44 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 <script>
 var EMAIL='svetlanasitdikova.nl@gmail.com';
 
-/* ---- TIMELINE ---- */
-function updateDots(){var items=document.querySelectorAll('[data-index]'),dots=document.querySelectorAll('.tl-dot'),segs=['seg0','seg1','seg2'].map(function(id){return document.getElementById(id);}),active=0,mid=window.scrollY+window.innerHeight*.42;items.forEach(function(item,i){if(window.scrollY+item.getBoundingClientRect().top<=mid)active=i;});dots.forEach(function(d,i){d.classList.toggle('active',i===active);});segs.forEach(function(s,i){if(s)s.classList.toggle('filled',i<active);});}
+/* ── TIMELINE ── */
+function updateDots(){
+  var items=document.querySelectorAll('[data-index]'),dots=document.querySelectorAll('.tl-dot'),
+      segs=['seg0','seg1','seg2'].map(function(id){return document.getElementById(id);}),
+      active=0,mid=window.scrollY+window.innerHeight*.42;
+  items.forEach(function(item,i){if(window.scrollY+item.getBoundingClientRect().top<=mid)active=i;});
+  dots.forEach(function(d,i){d.classList.toggle('active',i===active);});
+  segs.forEach(function(s,i){if(s)s.classList.toggle('filled',i<active);});
+}
 function scrollTL(i){var items=document.querySelectorAll('[data-index]');if(items[i])items[i].scrollIntoView({behavior:'smooth',block:'start'});}
 
-/* ---- CARDS SLIDER (drag + button) ---- */
-var CTOTAL=8,CPER=3,coffset=0;
-// On mobile use 1 card per view
+/* ── CARDS SLIDER — 6 cards, preserve offset on scroll ── */
+var CTOTAL=6,coffset=0;
 function getCPER(){return window.innerWidth<=960?1:3;}
+function getGap(){return window.innerWidth<=960?0:14;}
 function initCDots(){
-  CPER=getCPER();
+  var CPER=getCPER();
   var el=document.getElementById('cdots');el.innerHTML='';
   var pages=Math.ceil(CTOTAL/CPER);
   for(var i=0;i<pages;i++){
     var d=document.createElement('button');
-    d.className='c-dot'+(i===0?' active':'');
+    d.className='c-dot'+(i===0&&coffset===0?' active':'');
     d.setAttribute('aria-label','Page '+(i+1));
-    (function(idx){d.onclick=function(){coffset=idx*CPER;applyC();};})(i);
+    (function(idx,cper){d.onclick=function(){coffset=idx*cper;applyC();};})(i,CPER);
     el.appendChild(d);
   }
-  coffset=0;applyC();
+  applyC();
 }
-function slideC(dir){CPER=getCPER();coffset=Math.max(0,Math.min(coffset+dir*CPER,CTOTAL-CPER));applyC();}
+function slideC(dir){
+  var CPER=getCPER();
+  coffset=Math.max(0,Math.min(coffset+dir*CPER,CTOTAL-CPER));
+  applyC();
+}
 function applyC(){
-  CPER=getCPER();
-  var track=document.getElementById('ctrack'),card=track.querySelector('.w-card');
+  var CPER=getCPER(),gap=getGap(),track=document.getElementById('ctrack'),card=track.querySelector('.w-card');
   if(!card)return;
-  var gap=14,w=card.offsetWidth+gap;
+  var w=card.offsetWidth+gap;
+  coffset=Math.max(0,Math.min(coffset,CTOTAL-CPER));
   track.style.transform='translateX(-'+coffset*w+'px)';
   document.getElementById('cprev').disabled=coffset===0;
   document.getElementById('cnext').disabled=coffset>=CTOTAL-CPER;
@@ -464,36 +516,95 @@ function applyC(){
 }
 window.addEventListener('resize',function(){initCDots();});
 
-/* Drag to scroll */
+/* Drag/swipe — prevent vertical scroll during horizontal drag, preserve offset */
 (function(){
   var outer=document.getElementById('cards-outer'),track=document.getElementById('ctrack');
-  var startX=0,startOff=0,dragging=false;
-  function pxOffset(){var card=track.querySelector('.w-card');return card?(card.offsetWidth+14)*coffset:0;}
-  outer.addEventListener('mousedown',function(e){dragging=true;startX=e.clientX;startOff=pxOffset();track.classList.add('dragging');e.preventDefault();});
-  window.addEventListener('mousemove',function(e){if(!dragging)return;var dx=e.clientX-startX;track.style.transform='translateX('+(-(startOff-dx))+'px)';});
-  window.addEventListener('mouseup',function(e){if(!dragging)return;dragging=false;track.classList.remove('dragging');var dx=e.clientX-startX,card=track.querySelector('.w-card'),w=card?card.offsetWidth+14:1;var threshold=w*0.3;if(dx<-threshold){slideC(1);}else if(dx>threshold){slideC(-1);}else{applyC();}});
-  outer.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;startOff=pxOffset();track.classList.add('dragging');},{passive:true});
-  outer.addEventListener('touchmove',function(e){var dx=e.touches[0].clientX-startX;track.style.transform='translateX('+(-(startOff-dx))+'px)';},{passive:true});
-  outer.addEventListener('touchend',function(e){track.classList.remove('dragging');var dx=e.changedTouches[0].clientX-startX,card=track.querySelector('.w-card'),w=card?card.offsetWidth+14:1;var threshold=w*0.25;if(dx<-threshold){slideC(1);}else if(dx>threshold){slideC(-1);}else{applyC();}});
+  var startX=0,startY=0,startOff=0,dragging=false,isHoriz=null;
+  function pxOffset(){var card=track.querySelector('.w-card');return card?(card.offsetWidth+getGap())*coffset:0;}
+
+  outer.addEventListener('mousedown',function(e){
+    dragging=true;startX=e.clientX;startOff=pxOffset();
+    track.classList.add('dragging');e.preventDefault();
+  });
+  window.addEventListener('mousemove',function(e){
+    if(!dragging)return;
+    var dx=e.clientX-startX;
+    track.style.transform='translateX('+(-(startOff-dx))+'px)';
+  });
+  window.addEventListener('mouseup',function(e){
+    if(!dragging)return;dragging=false;track.classList.remove('dragging');
+    var dx=e.clientX-startX,card=track.querySelector('.w-card'),w=card?card.offsetWidth+14:1;
+    if(dx<-w*0.25)slideC(1);else if(dx>w*0.25)slideC(-1);else applyC();
+  });
+
+  outer.addEventListener('touchstart',function(e){
+    startX=e.touches[0].clientX;startY=e.touches[0].clientY;
+    startOff=pxOffset();isHoriz=null;
+  },{passive:true});
+  outer.addEventListener('touchmove',function(e){
+    var dx=e.touches[0].clientX-startX,dy=e.touches[0].clientY-startY;
+    if(isHoriz===null)isHoriz=Math.abs(dx)>Math.abs(dy);
+    if(!isHoriz)return; /* allow vertical scroll */
+    e.preventDefault(); /* block vertical during horizontal swipe */
+    track.classList.add('dragging');
+    track.style.transform='translateX('+(-(startOff-dx))+'px)';
+  },{passive:false});
+  outer.addEventListener('touchend',function(e){
+    track.classList.remove('dragging');isHoriz=null;
+    var dx=e.changedTouches[0].clientX-startX,card=track.querySelector('.w-card'),w=card?card.offsetWidth+14:1;
+    if(dx<-w*0.25)slideC(1);else if(dx>w*0.25)slideC(-1);else applyC();
+  });
 })();
 
-/* ---- EMAIL COPY ---- */
-function copyNavEmail(btn){navigator.clipboard.writeText(EMAIL).then(function(){var tip=btn.querySelector('.nav-copy-tip');tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},2000);});}
-function copyMobEmail(btn){navigator.clipboard.writeText(EMAIL).then(function(){var orig=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy email';},2000);});}
-function copyEmail(btn){navigator.clipboard.writeText(EMAIL).then(function(){var tip=btn.querySelector('.copy-tip');tip.classList.add('show');setTimeout(function(){tip.classList.remove('show');},2000);});}
+/* ── EMAIL COPY ── */
+function copyNavEmail(){
+  navigator.clipboard.writeText(EMAIL).then(function(){
+    var btn=document.getElementById('navCopyBtn');
+    btn.classList.add('copied');
+    setTimeout(function(){btn.classList.remove('copied');},2000);
+  });
+}
+function copyFooterEmail(){
+  navigator.clipboard.writeText(EMAIL).then(function(){
+    var btn=document.getElementById('ftCopyBtn');
+    btn.classList.add('copied');
+    setTimeout(function(){btn.classList.remove('copied');},2000);
+  });
+}
+function copyMobEmail(btn){
+  navigator.clipboard.writeText(EMAIL).then(function(){
+    var orig=btn.innerHTML;
+    btn.textContent='Copied!';
+    setTimeout(function(){btn.innerHTML=orig;},2000);
+  });
+}
 
-/* ---- NAV / MOB ---- */
-function toggleMob(){document.getElementById('mob-menu').classList.toggle('open');}
-function closeMob(){document.getElementById('mob-menu').classList.remove('open');}
+/* ── MOB MENU ── */
+function toggleMob(){
+  var m=document.getElementById('mob-menu'),o=document.getElementById('mob-overlay');
+  var open=m.classList.toggle('open');
+  o.classList.toggle('open',open);
+}
+function closeMob(){
+  document.getElementById('mob-menu').classList.remove('open');
+  document.getElementById('mob-overlay').classList.remove('open');
+}
+/* Close on scroll */
+window.addEventListener('scroll',function(){if(document.getElementById('mob-menu').classList.contains('open'))closeMob();},{passive:true});
 
-/* ---- SCROLL REVEAL ---- */
-var rvObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('show');});},{threshold:0.06,rootMargin:'0px 0px -28px 0px'});
+/* ── SCROLL REVEAL ── */
+var rvObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('show');});
+},{threshold:0.06,rootMargin:'0px 0px -28px 0px'});
 document.querySelectorAll('.rv').forEach(function(el){rvObs.observe(el);});
 
-/* ---- PROGRESS BAR ---- */
+/* ── PROGRESS BAR ── */
 function updProg(){var d=document.documentElement,pct=(d.scrollHeight-d.clientHeight)>0?window.scrollY/(d.scrollHeight-d.clientHeight)*100:0,bar=document.getElementById('prog');if(bar)bar.style.width=pct+'%';}
 
-window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);updateDots();updProg();},{passive:true});
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10);
+  updateDots();updProg();
+},{passive:true});
 
 initCDots();updateDots();updProg();
 </script>
