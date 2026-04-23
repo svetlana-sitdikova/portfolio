@@ -37,7 +37,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .copy-nav-btn:hover{background:var(--yellow);color:var(--black);}
 .copy-nav-btn .cn-label{position:relative;z-index:1;}
 .copy-nav-btn .cn-icon{position:relative;z-index:1;}
-.copy-nav-btn .cn-success{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--black);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:0;transition:opacity .18s;border-radius:7px;}
+.copy-nav-btn .cn-success{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--black);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:0;transition:opacity .18s;border-radius:7px;z-index:2;}
 .copy-nav-btn.copied .cn-success{opacity:1;}
 .exp-hero{position:relative;overflow:hidden;background:var(--black);padding:56px 0 48px;}
 .exp-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:var(--yellow);border-radius:50%;opacity:.12;filter:blur(80px);pointer-events:none;}
@@ -47,10 +47,10 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .exp-company{font-size:15px;color:var(--white);opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .exp-period{display:block;font-size:15px;color:var(--white);opacity:.7;margin-top:6px;}
 .exp-overview{max-width:1200px;margin:0 auto;padding:40px 48px 0;}
-.exp-overview-inner{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;}
+.exp-overview-inner{display:grid;grid-template-columns:1fr 322px;gap:48px;align-items:start;}
 .exp-overview p{font-size:17px;color:var(--gray);line-height:1.75;max-width:700px;}
 .exp-overview p+p{margin-top:14px;}
-.exp-overview-bottom-gap{height:40px;}
+.exp-overview-bottom-gap{height:20px;}
 .stack-box{background:var(--gray-light);border-radius:14px;padding:20px 18px;}
 .stack-box-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
 .stack-rows{display:flex;flex-direction:column;gap:10px;}
@@ -78,19 +78,19 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .metric-lbl{font-size:14px;color:var(--gray);line-height:1.4;}
 .resp-title{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
 .resp-list{display:flex;flex-direction:column;gap:12px;max-width:700px;}
-.resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:16px;color:var(--gray);line-height:1.6;}
+.resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:17px;color:var(--gray);line-height:1.6;}
 .resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:9px;justify-self:center;}
 /* Gallery sidebar */
 .proj-layout{display:grid;grid-template-columns:1fr 240px;gap:48px;align-items:start;}
-.proj-side{display:flex;flex-direction:column;gap:12px;padding-top:28px;}
+.proj-side{display:flex;flex-direction:column;gap:12px;padding-top:122px;}
 .g-thumb{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--gray-light);transition:opacity .2s,transform .15s;}
 .g-thumb:hover{opacity:.85;transform:scale(1.02);}
 .g-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .g-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:8px;}
 #lightbox{display:none;position:fixed;inset:0;background:rgba(11,11,12,.94);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
 #lightbox.open{display:flex;}
-.lb-img-wrap{max-width:90vw;max-height:80vh;display:flex;align-items:center;justify-content:center;}
-.lb-img-wrap img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:8px;}
+.lb-img-wrap{max-width:95vw;max-height:90vh;display:flex;align-items:center;justify-content:center;}
+.lb-img-wrap img{max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;}
 .lb-ph{width:min(600px,80vw);height:min(400px,60vh);background:#1A1A1C;border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
 .lb-close{position:fixed;top:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:20px;}
 .lb-close:hover{background:var(--yellow);color:var(--black);}
@@ -160,7 +160,9 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   <div class="exp-overview-inner">
     <div>
       <p>IDA Project is a 200-person digital agency specializing in real estate technology — providing outsourcing and outstaffing services with end-to-end delivery from business analysis and UX research through development and optimization.</p>
-      <p>Over nearly 2 years, I managed 1–3 engineering teams (up to 23 people), acted as the primary client contact across all projects, delivered full-cycle web products, and maintained an 8.7/10 client satisfaction rating. I also worked closely with product managers on backlog management, UX research, and A/B testing.</p>
+      <p>Over nearly 2 years, I managed 1–3 engineering teams (up to 23 people, with both backend and frontend scope) across 7 full-cycle web projects for real estate clients. I acted as the primary point of contact for clients throughout all phases — from discovery and requirements gathering to release and ongoing support.</p>
+      <p>My work spanned both outsourcing and outstaffing models. In outsourcing I was responsible for the entire delivery: planning, team coordination, quality, and client communication. In outstaffing I was embedded into the client's processes, working closely with their product managers, coordinating engineers, and managing delivery within their internal structure.</p>
+      <p>Across projects I maintained an 8.7/10 client satisfaction score, revised billing practices to increase profitability by 30%, and collaborated closely with product managers on backlog management, UX research, and A/B testing.</p>
     </div>
     <div class="stack-box">
       <p class="stack-box-title">Common Stack</p>
@@ -235,8 +237,6 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
       </div>
       <div class="proj-side">
         <div class="g-thumb" onclick="openLB(1,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
-        <div class="g-thumb" onclick="openLB(1,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
-        <div class="g-thumb" onclick="openLB(1,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
       </div>
     </div>
   </div>
@@ -337,7 +337,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 var EMAIL='svetlanasitdikova.nl@gmail.com';
 var galleries=[
   ['pm-p1-1.png','pm-p1-2.png','pm-p1-3.png'],
-  ['pm-p2-1.png','pm-p2-2.png','pm-p2-3.png'],
+  ['pm-p2-1.png'],
   ['pm-p3-1.png','pm-p3-2.png','pm-p3-3.png'],
   ['pm-p4-1.png','pm-p4-2.png','pm-p4-3.png'],
   ['pm-p5-1.png','pm-p5-2.png','pm-p5-3.png']
