@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Svetlana Sitdikova — Project Manager</title>
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://svetlana-sitdikova.github.io/resume/">
+<meta property="og:title" content="Svetlana Sitdikova — Project Manager">
+<meta property="og:description" content="Project Manager with 5 years in IT. Delivery across complex web platforms, multi-team programs, and high-load systems. Based in The Hague, NL.">
+<meta property="og:image" content="https://svetlana-sitdikova.github.io/resume/logo_avatar.png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="400">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Svetlana Sitdikova — Project Manager">
+<meta name="twitter:description" content="Project Manager with 5 years in IT. Delivery across complex web platforms, multi-team programs, and high-load systems.">
+<meta name="twitter:image" content="https://svetlana-sitdikova.github.io/resume/logo_avatar.png">
 <!-- noindex: accessible only via direct link -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="favicon.png">
@@ -182,6 +195,29 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 .ft-copy{font-size:12px;color:rgba(255,255,255,.25);}
 .top-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4);cursor:pointer;padding:8px 16px;border-radius:8px;font-family:var(--sans);transition:all .2s;margin-left:auto;}
 .top-btn:hover{border-color:var(--yellow);color:var(--yellow);}
+
+/* ── TOOLS & LANGUAGES ── */
+.tools-section{padding:64px 0;background:var(--white);border-top:1px solid var(--gray-border);}
+.tools-inner{max-width:var(--ct);margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+.tools-col{}
+.tools-title{font-family:var(--serif);font-size:clamp(24px,3vw,32px);font-weight:400;line-height:1.1;margin-bottom:32px;}
+/* Tool tags */
+.tool-group{margin-bottom:24px;}
+.tool-group-lbl{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.tool-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.tool-tag{font-size:14px;font-weight:400;color:var(--black);background:var(--gray-light);border-radius:8px;padding:6px 14px;line-height:1.4;}
+/* Language bars */
+.lang-list{display:flex;flex-direction:column;gap:20px;}
+.lang-item{}
+.lang-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+.lang-name{font-size:17px;font-weight:500;}
+.lang-level{font-size:14px;color:var(--gray);}
+.lang-bar{height:4px;background:var(--gray-border);border-radius:2px;overflow:hidden;}
+.lang-fill{height:100%;border-radius:2px;background:var(--yellow);}
+
+@media(max-width:960px){
+  .tools-inner{grid-template-columns:1fr;gap:40px;padding:0 20px;}
+}
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
@@ -424,6 +460,94 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
         <div class="c-dots" id="cdots"></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="tools-section">
+  <div class="tools-inner">
+
+    <!-- TOOLS -->
+    <div class="tools-col rv">
+      <h2 class="tools-title">Tools & skills</h2>
+
+      <div class="tool-group">
+        <div class="tool-group-lbl">Project management</div>
+        <div class="tool-tags">
+          <span class="tool-tag">Jira</span>
+          <span class="tool-tag">Confluence</span>
+          <span class="tool-tag">Productboard</span>
+          <span class="tool-tag">Smartsheet</span>
+          <span class="tool-tag">ActiveCollab</span>
+          <span class="tool-tag">Notion</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-lbl">Collaboration & communication</div>
+        <div class="tool-tags">
+          <span class="tool-tag">Google Workspace</span>
+          <span class="tool-tag">Slack</span>
+          <span class="tool-tag">Miro</span>
+          <span class="tool-tag">Zoom</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-lbl">Design & documentation</div>
+        <div class="tool-tags">
+          <span class="tool-tag">Figma</span>
+          <span class="tool-tag">Draw.io</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-lbl">Methodologies</div>
+        <div class="tool-tags">
+          <span class="tool-tag">Scrum</span>
+          <span class="tool-tag">Kanban</span>
+          <span class="tool-tag">LeSS</span>
+          <span class="tool-tag">SAFe</span>
+          <span class="tool-tag">Waterfall</span>
+          <span class="tool-tag">Hybrid</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-lbl">Technical fluency</div>
+        <div class="tool-tags">
+          <span class="tool-tag">REST API</span>
+          <span class="tool-tag">Kafka</span>
+          <span class="tool-tag">CI/CD</span>
+          <span class="tool-tag">Docker</span>
+          <span class="tool-tag">GitLab</span>
+          <span class="tool-tag">Sentry</span>
+          <span class="tool-tag">Grafana</span>
+          <span class="tool-tag">BrowserStack</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="tools-col rv d1">
+      <h2 class="tools-title">Languages</h2>
+      <div class="lang-list">
+        <div class="lang-item">
+          <div class="lang-top">
+            <span class="lang-name">Russian</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-top">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Upper-Intermediate · B2</span>
+          </div>
+          <div class="lang-bar"><div class="lang-fill" style="width:72%"></div></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
