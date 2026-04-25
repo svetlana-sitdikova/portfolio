@@ -52,24 +52,25 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .copy-nav-btn .cn-success{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--black);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:0;transition:opacity .18s;border-radius:7px;z-index:2;}
 .copy-nav-btn.copied .cn-success{opacity:1;}
 
-/* HERO */
+/* HERO — with large watermark */
 .exp-hero{position:relative;overflow:hidden;background:var(--black);padding:56px 0 48px;}
 .exp-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:var(--yellow);border-radius:50%;opacity:.12;filter:blur(80px);pointer-events:none;}
+/* watermark — huge semi-transparent role text */
+.exp-hero::after{content:attr(data-watermark);position:absolute;bottom:-20px;right:48px;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(100px,14vw,180px);font-weight:400;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;}
 .exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:1;}
 .exp-role-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;}
-/* company on one line, fully white */
 .exp-title{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:12px;}
 .exp-company{font-size:15px;color:var(--white);letter-spacing:.03em;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .exp-period{display:block;font-size:15px;color:var(--white);opacity:.7;margin-top:6px;}
 
-/* OVERVIEW — same size as project desc */
+/* OVERVIEW */
 .exp-overview{max-width:1200px;margin:0 auto;padding:40px 48px 0;}
 .exp-overview-inner{display:grid;grid-template-columns:1fr 322px;gap:48px;align-items:start;}
 .exp-overview p{font-size:17px;color:var(--gray);line-height:1.75;max-width:700px;}
 .exp-overview p+p{margin-top:14px;}
 .exp-overview-bottom-gap{height:20px;}
 
-/* Stack box — shown only in overview */
+/* Stack box */
 .stack-box{background:var(--gray-light);border-radius:14px;padding:20px 18px;}
 .stack-box-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
 .stack-rows{display:flex;flex-direction:column;gap:10px;}
@@ -88,33 +89,48 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 
 /* CONTENT */
 .exp-content{max-width:1200px;margin:0 auto;padding:0 48px;}
-.proj-block{padding:60px 0;border-bottom:1px solid var(--gray-border);}
+.proj-block{padding:60px 0;border-bottom:1px solid var(--gray-border);position:relative;}
 .proj-block:last-child{border-bottom:none;}
-.proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
-.proj-title{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:400;line-height:1.1;margin-bottom:14px;}
+
+/* decorative large project number */
+.proj-num-wrap{position:relative;margin-bottom:8px;}
+.proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);position:relative;z-index:1;}
+.proj-num-bg{position:absolute;top:-28px;left:-12px;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(80px,10vw,120px);font-weight:400;color:rgba(11,11,12,.04);line-height:1;pointer-events:none;user-select:none;z-index:0;}
+
+.proj-title{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:400;line-height:1.1;margin-bottom:14px;position:relative;z-index:1;}
 .proj-url{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gray);text-decoration:none;margin-bottom:18px;border-bottom:1px solid var(--gray-border);padding-bottom:1px;transition:color .2s;}
 .proj-url:hover{color:var(--black);}
 .proj-desc{font-size:17px;color:var(--gray);line-height:1.75;margin-bottom:24px;}
 
-/* METRICS — uniform height, larger fonts */
+/* METRICS */
 .metrics-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px;}
 .metric-item{background:var(--gray-light);border-radius:12px;padding:18px 20px;flex:1;min-width:140px;max-width:220px;display:flex;flex-direction:column;gap:12px;min-height:80px;justify-content:center;}
 .metric-num{font-family:var(--serif);font-size:20px;font-weight:400;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .metric-lbl{font-size:14px;color:var(--gray);line-height:1.4;}
 
-/* RESPONSIBILITIES */
+/* RESPONSIBILITIES — first item bold */
 .resp-title{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
 .resp-list{display:flex;flex-direction:column;gap:12px;max-width:700px;}
 .resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:17px;color:var(--gray);line-height:1.6;}
+.resp-item:first-child{color:var(--black);font-weight:500;}
+.resp-item:first-child .resp-dot{background:var(--black);}
 .resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:9px;justify-self:center;}
 
-/* GALLERY — vertical stack right column, aligned to description start */
+/* GALLERY — hide placeholder thumbs, show only real images */
 .proj-layout{display:grid;grid-template-columns:1fr 240px;gap:48px;align-items:start;}
-.proj-side{display:flex;flex-direction:column;gap:12px;padding-top:122px;} /* align first thumb with proj-desc: proj-num + title + url heights */
-.g-thumb{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--gray-light);transition:opacity .2s,transform .15s;}
+.proj-side{display:flex;flex-direction:column;gap:12px;padding-top:122px;}
+.g-thumb{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--gray-light);transition:opacity .2s,transform .15s;display:none;} /* hidden by default */
+.g-thumb.loaded{display:block;} /* shown only when image loads */
 .g-thumb:hover{opacity:.85;transform:scale(1.02);}
 .g-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-.g-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:8px;}
+/* placeholder hidden — no .g-thumb-ph shown */
+.g-thumb-ph{display:none;}
+
+/* SIDE PROGRESS DOTS — project indicator */
+.side-progress{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:50;}
+.side-dot{width:6px;height:6px;border-radius:50%;background:var(--gray-border);transition:all .3s;cursor:pointer;}
+.side-dot.active{background:var(--black);transform:scale(1.5);}
+.side-dot:hover{background:var(--yellow);}
 
 /* LIGHTBOX */
 #lightbox{display:none;position:fixed;inset:0;background:rgba(11,11,12,.94);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
@@ -148,6 +164,8 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   .tab-btn{font-size:11px;padding:6px 12px;}
   #mob-prog-bar{display:block;}
   /* proj layout: stack vertically, gallery below content */
+  .side-progress{display:none;}
+  .proj-num-bg{display:none;}
   .proj-layout{grid-template-columns:1fr;gap:24px;}
   .proj-side{flex-direction:column;gap:10px;padding-top:0;}
   .g-thumb{width:100%;aspect-ratio:16/9;}
@@ -181,7 +199,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   </div>
 </nav>
 
-<div class="exp-hero">
+<div class="exp-hero" data-watermark="DM">
   <div class="exp-hero-inner">
     <div class="exp-role-tag">Delivery Manager</div>
     <h1 class="exp-title">Samolet Digital Ecosystem</h1>
@@ -220,12 +238,14 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 </div>
 <div id="mob-prog-bar"><div id="mob-prog-fill"></div></div>
 
+<div class="side-progress" id="side-progress"></div>
+
 <div class="exp-content">
 
   <div class="proj-block" id="proj1">
     <div class="proj-layout">
       <div class="proj-main">
-        <p class="proj-num">Project 01</p>
+        <div class="proj-num-wrap"><span class="proj-num">Project 01</span><span class="proj-num-bg">01</span></div>
         <h2 class="proj-title">Samolet Ecosystem Multi-Team Program</h2>
         <a href="https://samolet.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_samolet')">samolet.ru ↗</a>
         <p class="proj-desc">Delivery across the full Samolet digital ecosystem: high-load website (5M+ MAU), customer account with online property purchases, and internal B2B tools. My role was to make 53 engineers, designers, and PMs aligned, unblocked, and shipping — while the team and product were both growing rapidly in a multi-vendor environment with an outstaff team.</p>
@@ -255,7 +275,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   <div class="proj-block" id="proj2">
     <div class="proj-layout">
       <div class="proj-main">
-        <p class="proj-num">Project 02</p>
+        <div class="proj-num-wrap"><span class="proj-num">Project 02</span><span class="proj-num-bg">02</span></div>
         <h2 class="proj-title">No-Code Landing Page Builder</h2>
         <p class="proj-desc">An internal no-code platform enabling the marketing team to independently create and publish website landing pages without developer involvement. I identified this bottleneck, proposed the solution, got stakeholder buy-in, assembled the team from scratch, and delivered the product — reducing page launch time from 2–3 weeks to 1 day.</p>
         <div class="metrics-row">
@@ -279,7 +299,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   <div class="proj-block" id="proj3">
     <div class="proj-layout">
       <div class="proj-main">
-        <p class="proj-num">Project 03</p>
+        <div class="proj-num-wrap"><span class="proj-num">Project 03</span><span class="proj-num-bg">03</span></div>
         <h2 class="proj-title">Online Real Estate Transaction Flow</h2>
         <p class="proj-desc">A complex multi-step flow enabling users to purchase an apartment entirely online: personal questionnaire, document generation, digital signing, file uploads, and payment — with deep CRM integration. The original plan was 6 months. When the CPO pushed back, I rebuilt the plan and delivered an MVP in 2.5 months.</p>
         <div class="metrics-row">
@@ -341,7 +361,38 @@ function renderLB(){
 }
 document.addEventListener('keydown',function(e){if(document.getElementById('lightbox').classList.contains('open')){if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);}});
 
+/* ── GALLERY: show only loaded images ── */
+function initGallery(){
+  document.querySelectorAll('.g-thumb').forEach(function(thumb){
+    var img=thumb.querySelector('img');
+    if(!img){return;}
+    function tryLoad(){
+      if(img.complete&&img.naturalWidth>0){thumb.classList.add('loaded');}
+      else{img.onload=function(){thumb.classList.add('loaded');};img.onerror=function(){/* stay hidden */};}
+    }
+    tryLoad();
+  });
+}
+
+/* ── SIDE PROGRESS DOTS ── */
 var projIds=['proj1','proj2','proj3'];
+function initSideDots(){
+  var container=document.getElementById('side-progress');
+  if(!container)return;
+  container.innerHTML='';
+  projIds.forEach(function(id,i){
+    var d=document.createElement('button');
+    d.className='side-dot';
+    d.setAttribute('aria-label','Project '+(i+1));
+    d.onclick=function(){goToProj(id);};
+    container.appendChild(d);
+  });
+}
+function updateSideDots(){
+  var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight,offset=topH+tabH+32,active=0;
+  projIds.forEach(function(id,i){var el=document.getElementById(id);if(el&&window.scrollY+offset>=el.offsetTop)active=i;});
+  document.querySelectorAll('.side-dot').forEach(function(d,i){d.classList.toggle('active',i===active);});
+}
 function goToProj(id){
   var el=document.getElementById(id);if(!el)return;
   var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight;
@@ -353,7 +404,6 @@ function updateTabs(){
   projIds.forEach(function(id,i){var el=document.getElementById(id);if(el&&window.scrollY+offset>=el.offsetTop)active=i;});
   var btns=document.querySelectorAll('.tab-btn');
   btns.forEach(function(btn,i){btn.classList.toggle('active',i===active);});
-  /* scroll active tab into view on mobile */
   var activeBtn=btns[active];
   if(activeBtn){
     var inner=document.getElementById('tabs-inner');
@@ -361,7 +411,7 @@ function updateTabs(){
     if(btnLeft<scrollLeft)inner.scrollTo({left:btnLeft-16,behavior:'smooth'});
     else if(btnRight>scrollRight)inner.scrollTo({left:btnRight-inner.offsetWidth+16,behavior:'smooth'});
   }
-  /* progress bar */
+  updateSideDots();
   var content=document.querySelector('.exp-content'),bottomNav=document.querySelector('.bottom-nav');
   if(content&&bottomNav){
     var start=content.offsetTop,end=bottomNav.offsetTop,pct=Math.min(100,Math.max(0,(window.scrollY+topH+tabH-start)/(end-start)*100));
@@ -377,7 +427,7 @@ function copyNavEmail(){
   });
 }
 window.addEventListener('scroll',updateTabs,{passive:true});
-updateTabs();
+initSideDots();initGallery();updateTabs();
 </script>
 </body>
 </html>

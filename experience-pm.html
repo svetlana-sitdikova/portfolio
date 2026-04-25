@@ -50,6 +50,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .copy-nav-btn.copied .cn-success{opacity:1;}
 .exp-hero{position:relative;overflow:hidden;background:var(--black);padding:56px 0 48px;}
 .exp-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:var(--yellow);border-radius:50%;opacity:.12;filter:blur(80px);pointer-events:none;}
+.exp-hero::after{content:attr(data-watermark);position:absolute;bottom:-20px;right:48px;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(100px,14vw,180px);font-weight:400;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;}
 .exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:1;}
 .exp-role-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;}
 .exp-title{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:12px;}
@@ -74,9 +75,11 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 #mob-prog-bar{display:none;height:3px;background:var(--gray-border);width:100%;position:sticky;top:calc(60px + 52px);z-index:99;}
 #mob-prog-fill{height:100%;background:var(--yellow);width:0%;transition:width .1s linear;border-radius:0 2px 2px 0;}
 .exp-content{max-width:1200px;margin:0 auto;padding:0 48px;}
-.proj-block{padding:60px 0;border-bottom:1px solid var(--gray-border);}
+.proj-block{padding:60px 0;border-bottom:1px solid var(--gray-border);position:relative;}
 .proj-block:last-child{border-bottom:none;}
-.proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.proj-num-wrap{position:relative;margin-bottom:8px;}
+.proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);position:relative;z-index:1;}
+.proj-num-bg{position:absolute;top:-28px;left:-12px;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(80px,10vw,120px);font-weight:400;color:rgba(11,11,12,.04);line-height:1;pointer-events:none;user-select:none;z-index:0;}
 .proj-title{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:400;line-height:1.1;margin-bottom:14px;}
 .proj-url{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gray);text-decoration:none;margin-bottom:18px;border-bottom:1px solid var(--gray-border);padding-bottom:1px;transition:color .2s;}
 .proj-url:hover{color:var(--black);}
@@ -88,14 +91,21 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .resp-title{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
 .resp-list{display:flex;flex-direction:column;gap:12px;max-width:700px;}
 .resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:17px;color:var(--gray);line-height:1.6;}
+.resp-item:first-child{color:var(--black);font-weight:500;}
+.resp-item:first-child .resp-dot{background:var(--black);}
 .resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:9px;justify-self:center;}
 /* Gallery sidebar */
 .proj-layout{display:grid;grid-template-columns:1fr 240px;gap:48px;align-items:start;}
 .proj-side{display:flex;flex-direction:column;gap:12px;padding-top:122px;}
-.g-thumb{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--gray-light);transition:opacity .2s,transform .15s;}
+.g-thumb{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--gray-light);transition:opacity .2s,transform .15s;display:none;}
+.g-thumb.loaded{display:block;}
 .g-thumb:hover{opacity:.85;transform:scale(1.02);}
 .g-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-.g-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:8px;}
+.g-thumb-ph{display:none;}
+.side-progress{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:50;}
+.side-dot{width:6px;height:6px;border-radius:50%;background:var(--gray-border);transition:all .3s;cursor:pointer;border:none;}
+.side-dot.active{background:var(--black);transform:scale(1.5);}
+.side-dot:hover{background:var(--yellow);}
 #lightbox{display:none;position:fixed;inset:0;background:rgba(11,11,12,.94);z-index:9999;align-items:center;justify-content:center;flex-direction:column;}
 #lightbox.open{display:flex;}
 .lb-img-wrap{max-width:95vw;max-height:90vh;display:flex;align-items:center;justify-content:center;}
@@ -123,6 +133,8 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   .tabs-inner{padding:10px 16px 0;height:auto;flex-wrap:nowrap;}
   .tab-btn{font-size:11px;padding:6px 12px;}
   #mob-prog-bar{display:block;}
+  .side-progress{display:none;}
+  .proj-num-bg{display:none;}
   .proj-layout{grid-template-columns:1fr;gap:24px;}
   .proj-side{flex-direction:column;gap:10px;padding-top:0;}
   .g-thumb{width:100%;aspect-ratio:16/9;}
@@ -156,7 +168,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   </div>
 </nav>
 
-<div class="exp-hero">
+<div class="exp-hero" data-watermark="PM">
   <div class="exp-hero-inner">
     <div class="exp-role-tag">Project Manager</div>
     <h1 class="exp-title">IDA Project Digital Agency</h1>
@@ -199,12 +211,14 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 </div>
 <div id="mob-prog-bar"><div id="mob-prog-fill"></div></div>
 
+<div class="side-progress" id="side-progress"></div>
+
 <div class="exp-content">
 
   <div class="proj-block" id="proj1">
     <div class="proj-layout">
       <div class="proj-main">
-        <p class="proj-num">Project 01</p>
+        <div class="proj-num-wrap"><span class="proj-num">Project 01</span><span class="proj-num-bg">01</span></div>
         <h2 class="proj-title">Samolet Plus Secondary Real Estate Marketplace</h2>
         <a href="https://samoletplus.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_samoletplus')">samoletplus.ru ↗</a>
         <p class="proj-desc">A nationwide marketplace for secondary real estate listings submitted by independent agents across Russian cities, aggregated from agents and deeply integrated with an external CRM as the primary data source. I joined this project when deadlines had already been missed and the previous PM had left — took full ownership and brought it to production.</p>
@@ -234,7 +248,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   <div class="proj-block" id="proj2">
     <div class="proj-layout">
       <div class="proj-main">
-        <p class="proj-num">Project 02</p>
+        <div class="proj-num-wrap"><span class="proj-num">Project 02</span><span class="proj-num-bg">02</span></div>
         <h2 class="proj-title">Samolet Plus Auth & SMS Notification Service</h2>
         <p class="proj-desc">An internal cross-product service built to unify identity management and SMS notifications across multiple digital platforms. Built on Keycloak, handling authentication, authorization, and centralized OTP delivery. A cross-team dependency project: multiple platforms depended on it shipping correctly.</p>
         <p class="resp-title">What I did</p>
@@ -253,7 +267,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   <div class="proj-block" id="proj3">
     <div class="proj-layout">
       <div class="proj-main">
-        <p class="proj-num">Project 03</p>
+        <div class="proj-num-wrap"><span class="proj-num">Project 03</span><span class="proj-num-bg">03</span></div>
         <h2 class="proj-title">A101 Real Estate Digital Platform</h2>
         <a href="https://a101.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_a101')">a101.ru ↗</a>
         <p class="proj-desc">A digital customer-facing real estate marketplace enabling users to browse, book, and purchase residential properties online. The platform integrates with CRM and other third-party services. Work covered long-term platform support and enhancement.</p>
@@ -281,7 +295,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   <div class="proj-block" id="proj4">
     <div class="proj-layout">
       <div class="proj-main">
-        <p class="proj-num">Project 04</p>
+        <div class="proj-num-wrap"><span class="proj-num">Project 04</span><span class="proj-num-bg">04</span></div>
         <h2 class="proj-title">A101 Interactive Commercial Real Estate Map</h2>
         <a href="https://a101.ru/commercial/map/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_a101_map')">a101.ru/commercial/map ↗</a>
         <p class="proj-desc">A fully custom interactive map platform for browsing and selecting commercial spaces (retail, office, restaurant units) in A101's developments — properties that were still under construction at the time. The entire map was built from scratch: designers hand-drew every layer from architectural and urban development plans, which were then sliced into image tiles on the backend, with unit outlines and infrastructure points (entrances, parking, metro) overlaid programmatically.</p>
@@ -304,7 +318,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   <div class="proj-block" id="proj5">
     <div class="proj-layout">
       <div class="proj-main">
-        <p class="proj-num">Project 05</p>
+        <div class="proj-num-wrap"><span class="proj-num">Project 05</span><span class="proj-num-bg">05</span></div>
         <h2 class="proj-title">Beregovoy Kvartal Premium Residential Website</h2>
         <a href="https://beregovoy-kvartal.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_beregovoy')">beregovoy-kvartal.ru ↗</a>
         <p class="proj-desc">A marketing website for a premium residential complex, focused on lead generation and showcasing property offerings.</p>
@@ -365,7 +379,37 @@ function renderLB(){
 }
 document.addEventListener('keydown',function(e){if(document.getElementById('lightbox').classList.contains('open')){if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);}});
 
+/* gallery load detection */
+function initGallery(){
+  document.querySelectorAll('.g-thumb').forEach(function(thumb){
+    var img=thumb.querySelector('img');
+    if(!img){return;}
+    function tryLoad(){
+      if(img.complete&&img.naturalWidth>0){thumb.classList.add('loaded');}
+      else{img.onload=function(){thumb.classList.add('loaded');};img.onerror=function(){};}
+    }
+    tryLoad();
+  });
+}
 var projIds=['proj1','proj2','proj3','proj4','proj5'];
+/* side progress dots */
+function initSideDots(){
+  var container=document.getElementById('side-progress');
+  if(!container)return;
+  container.innerHTML='';
+  projIds.forEach(function(id,i){
+    var d=document.createElement('button');
+    d.className='side-dot';
+    d.setAttribute('aria-label','Project '+(i+1));
+    d.onclick=function(){goToProj(id);};
+    container.appendChild(d);
+  });
+}
+function updateSideDots(){
+  var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight,offset=topH+tabH+32,active=0;
+  projIds.forEach(function(id,i){var el=document.getElementById(id);if(el&&window.scrollY+offset>=el.offsetTop)active=i;});
+  document.querySelectorAll('.side-dot').forEach(function(d,i){d.classList.toggle('active',i===active);});
+}
 function goToProj(id){
   var el=document.getElementById(id);if(!el)return;
   var topH=document.querySelector('.top-nav').offsetHeight,tabH=document.getElementById('tabs-sticky').offsetHeight;
@@ -376,7 +420,6 @@ function updateTabs(){
   projIds.forEach(function(id,i){var el=document.getElementById(id);if(el&&window.scrollY+offset>=el.offsetTop)active=i;});
   var btns=document.querySelectorAll('.tab-btn');
   btns.forEach(function(btn,i){btn.classList.toggle('active',i===active);});
-  /* scroll active tab into view on mobile */
   var activeBtn=btns[active];
   if(activeBtn){
     var inner=document.getElementById('tabs-inner');
@@ -384,6 +427,7 @@ function updateTabs(){
     if(btnLeft<scrollLeft)inner.scrollTo({left:btnLeft-16,behavior:'smooth'});
     else if(btnRight>scrollRight)inner.scrollTo({left:btnRight-inner.offsetWidth+16,behavior:'smooth'});
   }
+  updateSideDots();
   var content=document.querySelector('.exp-content'),bottomNav=document.querySelector('.bottom-nav');
   if(content&&bottomNav){
     var start=content.offsetTop,end=bottomNav.offsetTop,pct=Math.min(100,Math.max(0,(window.scrollY+topH+tabH-start)/(end-start)*100));
@@ -398,7 +442,7 @@ function copyNavEmail(){
   });
 }
 window.addEventListener('scroll',updateTabs,{passive:true});
-updateTabs();
+initSideDots();initGallery();updateTabs();
 </script>
 </body>
 </html>
