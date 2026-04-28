@@ -109,8 +109,8 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 /* ── STATS ── */
 .stats-band{padding:40px 0 20px;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--ct);margin:0 auto;padding:0 48px;}
-.stat-card{background:var(--gray-light);border-radius:14px;padding:32px 28px 28px;display:flex;flex-direction:column;gap:10px;transition:background .2s;}
-.stat-card:hover{background:#ebebea;}
+.stat-card{background:var(--gray-light);border-radius:14px;padding:32px 28px 28px;display:flex;flex-direction:column;gap:10px;transition:background .2s,transform .2s,box-shadow .2s;}
+.stat-card:hover{background:#ebebea;transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.10);}
 .stat-num{font-family:var(--serif);font-size:clamp(40px,4.5vw,56px);font-weight:400;line-height:1;color:var(--black);}
 .stat-lbl{font-size:13px;color:var(--gray);line-height:1.4;}
 
@@ -148,7 +148,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .tl-compact-note{font-size:15px;color:var(--gray);line-height:1.55;max-width:520px;}
 
 /* ── STRENGTHS GRID — static 3×2, no slider ── */
-.cards-section{padding:64px 0;background:var(--gray-light);}
+.cards-section{padding:64px 0;}
 .cards-section .ct-inner{max-width:var(--ct);margin:0 auto;padding:0 48px;}
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;}
 .w-card{background:var(--black);border-radius:14px;padding:28px 28px 32px;transition:background .25s,transform .2s,box-shadow .2s;}
