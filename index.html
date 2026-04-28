@@ -150,15 +150,13 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 /* ── STRENGTHS GRID — static 3×2, no slider ── */
 .cards-section{padding:64px 0;background:var(--white);}
 .cards-section .ct-inner{max-width:var(--ct);margin:0 auto;padding:0 48px;}
-.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px;border-top:1px solid var(--gray-border);}
-.w-card{background:none;border-radius:0;padding:28px 32px 28px 0;border:none;border-bottom:1px solid var(--gray-border);display:flex;gap:20px;align-items:flex-start;transition:none;}
-.w-card:nth-child(odd){padding-right:48px;border-right:1px solid var(--gray-border);}
-.w-card:nth-child(even){padding-left:48px;padding-right:0;}
-.w-card:hover{box-shadow:none;transform:none;}
-/* yellow accent bar */
-.w-card-bar{width:3px;height:100%;min-height:20px;background:var(--yellow);border-radius:2px;flex-shrink:0;margin-top:4px;}
-.w-card .c-head{font-size:17px;font-weight:600;margin-bottom:6px;color:var(--black);line-height:1.3;}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+.w-card{background:var(--white);border-radius:14px;padding:28px 28px 32px;border:1.5px solid var(--gray-border);transition:border-color .2s,box-shadow .2s,transform .2s;}
+.w-card:hover{border-color:var(--yellow);box-shadow:0 4px 20px rgba(0,0,0,.06);transform:translateY(-2px);}
+.w-card .c-head{font-size:18px;font-weight:500;margin-bottom:10px;color:var(--black);line-height:1.3;}
 .w-card .c-body{font-size:15px;color:var(--gray);line-height:1.6;}
+.cards-section .sec-lbl{color:var(--gray);}
+.cards-section h2{color:var(--black);}
 
 /* ── FOOTER ── */
 footer{background:var(--black);color:var(--white);padding:48px 0 0;}
@@ -246,8 +244,6 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 
   /* Cards grid: 1 column on mobile */
   .cards-grid{grid-template-columns:1fr;}
-  .w-card:nth-child(odd){padding-right:0;border-right:none;}
-  .w-card:nth-child(even){padding-left:0;}
   .cards-section .ct-inner{padding:0 20px;}
   #about .sec-lbl ~ h2{font-size:clamp(32px,4vw,48px) !important;}
 
@@ -456,12 +452,12 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
     <p class="sec-lbl rv">WHY WORK WITH ME</p>
     <h2 class="rv" style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.1;">My strengths</h2>
     <div class="cards-grid">
-      <div class="w-card rv"><div class="w-card-bar"></div><div><div class="c-head">Multi-team coordination</div><p class="c-body">Coordinated up to 6 distributed teams at once — balancing workload, dependencies, and priorities without losing alignment or creating chaos for anyone.</p></div></div>
-      <div class="w-card rv d1"><div class="w-card-bar"></div><div><div class="c-head">Technical fluency</div><p class="c-body">Started as a QA engineer. Comfortable discussing APIs, CI/CD, release pipelines, and microservices. I understand what engineering teams deal with.</p></div></div>
-      <div class="w-card rv"><div class="w-card-bar"></div><div><div class="c-head">People development</div><p class="c-body">Hired and onboarded 5 project managers as their direct manager. I know how to bring people in and set them up for success.</p></div></div>
-      <div class="w-card rv d1"><div class="w-card-bar"></div><div><div class="c-head">Stakeholder management</div><p class="c-body">Worked closely with product managers and C-level, coordinated with marketing, adjacent teams, and external vendors — translating needs into clear priorities and keeping everyone aligned.</p></div></div>
-      <div class="w-card rv"><div class="w-card-bar"></div><div><div class="c-head">Operational strength</div><p class="c-body">Strong on the operational side — I've managed projects with frequent releases, multiple concurrent stakeholders, and shifting priorities. Structure keeps things moving even when the environment is noisy.</p></div></div>
-      <div class="w-card rv d1"><div class="w-card-bar"></div><div><div class="c-head">Release management</div><p class="c-body">Facilitated delivery across multiple teams within LeSS with quarterly planning. Streamlined twice-weekly releases for a high-load website — with a release calendar, clear guidelines, new roles, and expanded staging environments.</p></div></div>
+      <div class="w-card rv"><div class="c-head">Multi-team coordination</div><p class="c-body">Coordinated up to 6 distributed teams at once — balancing workload, dependencies, and priorities without losing alignment or creating chaos for anyone.</p></div>
+      <div class="w-card rv d1"><div class="c-head">Technical fluency</div><p class="c-body">Started as a QA engineer. Comfortable discussing APIs, CI/CD, release pipelines, and microservices. I understand what engineering teams deal with.</p></div>
+      <div class="w-card rv d2"><div class="c-head">People development</div><p class="c-body">Hired and onboarded 5 project managers as their direct manager. I know how to bring people in and set them up for success.</p></div>
+      <div class="w-card rv"><div class="c-head">Stakeholder management</div><p class="c-body">Worked closely with product managers and C-level, coordinated with marketing, adjacent teams, and external vendors — translating needs into clear priorities and keeping everyone aligned.</p></div>
+      <div class="w-card rv d1"><div class="c-head">Operational strength</div><p class="c-body">Strong on the operational side — I've managed projects with frequent releases, multiple concurrent stakeholders, and shifting priorities. Structure keeps things moving even when the environment is noisy.</p></div>
+      <div class="w-card rv d2"><div class="c-head">Release management</div><p class="c-body">Facilitated delivery across multiple teams within LeSS with quarterly planning. Streamlined twice-weekly releases for a high-load website — with a release calendar, clear guidelines, new roles, and expanded staging environments.</p></div>
     </div>
   </div>
 </section>
