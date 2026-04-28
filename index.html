@@ -40,8 +40,8 @@ if(window.location.pathname.endsWith('/index.html')){
   --gray-light:#F4F4F2;--gray-border:#E5E5E5;
   --sans:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--ct:1200px;
 }
-html{scroll-behavior:smooth;overflow-x:hidden;}
-body{font-family:var(--sans);background:var(--white);color:var(--black);font-size:17px;line-height:1.7;overflow-x:hidden;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--white);color:var(--black);font-size:17px;line-height:1.7;overflow-x:clip;} /* clip doesn't break position:sticky unlike hidden */
 #prog{position:fixed;top:0;left:0;height:3px;background:var(--yellow);width:0%;z-index:9999;border-radius:0 2px 2px 0;transition:width .08s linear;}
 @keyframes wave{0%,100%{transform:rotate(0deg)}15%{transform:rotate(22deg)}30%{transform:rotate(-10deg)}45%{transform:rotate(20deg)}60%{transform:rotate(-5deg)}75%{transform:rotate(14deg)}}
 .wave{display:inline-block;animation:wave 2.6s ease-in-out infinite;transform-origin:70% 70%;}
