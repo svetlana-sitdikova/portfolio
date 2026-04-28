@@ -50,7 +50,8 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .copy-nav-btn.copied .cn-success{opacity:1;}
 .exp-hero{position:relative;overflow:hidden;background:var(--black);padding:56px 0 48px;}
 .exp-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:var(--yellow);border-radius:50%;opacity:.12;filter:blur(80px);pointer-events:none;}
-.exp-hero::after{content:attr(data-watermark);position:absolute;bottom:-20px;right:48px;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(100px,14vw,180px);font-weight:400;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;}
+.exp-hero::after{display:none;}
+.side-progress{display:none!important;}
 .exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:1;}
 .exp-role-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;}
 .exp-title{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:12px;}
@@ -72,7 +73,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .tabs-inner::-webkit-scrollbar{display:none;}
 .tab-btn{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gray);padding:7px 14px;border-radius:7px;transition:all .18s;border:none;background:none;cursor:pointer;font-family:var(--sans);white-space:nowrap;flex-shrink:0;}
 .tab-btn:hover,.tab-btn.active{background:var(--yellow);color:var(--black);}
-#mob-prog-bar{display:none;height:3px;background:var(--gray-border);width:100%;position:sticky;top:calc(60px + 52px);z-index:99;}
+#mob-prog-bar{display:none;height:3px;background:var(--gray-border);width:100%;position:sticky;top:60px;z-index:150;}
 #mob-prog-fill{height:100%;background:var(--yellow);width:0%;transition:width .1s linear;border-radius:0 2px 2px 0;}
 .exp-content{max-width:1200px;margin:0 auto;padding:0 48px;}
 .proj-block{padding:60px 0;border-bottom:1px solid var(--gray-border);position:relative;}
@@ -172,7 +173,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   <div class="exp-hero-inner">
     <div class="exp-role-tag">Project Manager</div>
     <h1 class="exp-title">IDA Project Digital Agency</h1>
-    <p class="exp-company">200-person agency specializing in real estate tech · Hybrid</p>
+    <p class="exp-company">Agency specializing in real estate tech · Hybrid</p>
     <span class="exp-period">Jun 2021 — Apr 2023</span>
   </div>
 </div>
