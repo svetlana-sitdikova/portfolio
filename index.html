@@ -21,8 +21,8 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="favicon.png">
 <!-- Google Analytics — replace GA_MEASUREMENT_ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TGJFRDKZEW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TGJFRDKZEW');</script>
 <!-- Clean URL: remove index.html from browser address bar -->
 <script>
 if(window.location.pathname.endsWith('/index.html')){
@@ -31,7 +31,7 @@ if(window.location.pathname.endsWith('/index.html')){
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -75,16 +75,16 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .mob-menu.open{display:flex;}
 .mob-menu a,.mob-menu button.mob-email{font-size:16px;font-weight:500;text-decoration:none;color:var(--black);padding:12px 16px;border-radius:10px;transition:all .2s;display:flex;align-items:center;gap:10px;background:none;border:none;font-family:var(--sans);cursor:pointer;width:100%;text-align:left;}
 .mob-menu a:hover,.mob-menu button.mob-email:hover{background:var(--yellow);}
-.mob-overlay{display:none;position:fixed;inset:0;top:64px;z-index:98;}
+.mob-overlay{display:none;position:fixed;inset:0;top:64px;z-index:98;background:rgba(0,0,0,0.35);}
 .mob-overlay.open{display:block;}
 
 .ct{max-width:var(--ct);margin:0 auto;padding:0 48px;}
 .sec-lbl{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:16px;}
 
 /* ── HERO ── */
-#hero{display:grid;grid-template-columns:62fr 38fr;align-items:center;gap:48px;padding:48px 48px 64px;max-width:var(--ct);margin:0 auto;}
+#hero{display:grid;grid-template-columns:62fr 38fr;align-items:center;gap:36px;padding:40px 48px 40px;max-width:var(--ct);margin:0 auto;}
 #hero>*{position:relative;z-index:1;}
-.hero-left{display:flex;flex-direction:column;gap:22px;}
+.hero-left{display:flex;flex-direction:column;gap:16px;}
 .hero-label{font-size:15px;font-weight:500;letter-spacing:.04em;color:var(--gray);}
 .hero-name{font-family:var(--serif);font-size:clamp(46px,6.5vw,80px);font-weight:400;line-height:1.0;letter-spacing:-.02em;}
 .hero-bio{font-size:17px;color:var(--gray);line-height:1.7;max-width:560px;}
@@ -97,7 +97,8 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .soc-icon:hover{border-color:var(--yellow);background:var(--yellow);}
 .hero-right{display:flex;justify-content:center;align-items:flex-end;}
 .photo-wrap{width:82%;}
-.photo-img{width:100%;aspect-ratio:3/4;display:block;overflow:hidden;border-radius:16px;}
+.photo-img{width:100%;aspect-ratio:3/4;display:block;overflow:hidden;border-radius:16px;position:relative;}
+.photo-img::after{content:'';position:absolute;inset:0;border-radius:16px;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");opacity:.045;mix-blend-mode:overlay;pointer-events:none;z-index:2;}
 .photo-img img{width:100%;height:100%;object-fit:cover;display:block;}
 
 /* ── TICKER ── */
@@ -108,32 +109,34 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── STATS ── */
-.stats-band{padding:40px 0 20px;}
+.stats-band{padding:28px 0 20px;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--ct);margin:0 auto;padding:0 48px;}
-.stat-card{background:var(--gray-light);border-radius:14px;padding:32px 28px 28px;display:flex;flex-direction:column;gap:10px;transition:background .2s,transform .2s,box-shadow .2s;}
-.stat-card:hover{background:#ebebea;transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.10);}
+.stat-card{background:var(--gray-light);border-radius:10px;padding:22px 20px 20px;display:flex;flex-direction:column;gap:6px;transition:background .2s,transform .2s,box-shadow .2s;}
+.stat-card:hover{background:#ebebea;}
 .stat-num{font-family:var(--serif);font-size:clamp(40px,4.5vw,56px);font-weight:400;line-height:1;color:var(--black);}
 .stat-lbl{font-size:16px;color:var(--gray);line-height:1.4;}
 
-.section{padding:48px 0;} /* reduced top padding for EXPERIENCE section */
+.section{padding:30px 0;} /* consistent vertical rhythm across all sections */
 
 /* ── TIMELINE ── */
-.exp-wrap{display:grid;grid-template-columns:48px 1fr;margin-top:24px;} /* halved margin-top = less gap under heading */
+.exp-wrap{display:grid;grid-template-columns:48px 1fr;margin-top:16px;} /* halved margin-top = less gap under heading */
 .tl-nav{position:sticky;top:80px;height:fit-content;display:flex;flex-direction:column;align-items:center;padding-top:52px;} /* align first dot with tl-years: tl-item padding-top(36px) + years padding-top(4px) + half font leading ≈ 52px */
 .tl-track{position:relative;display:flex;flex-direction:column;align-items:center;}
 .tl-line{width:1px;background:var(--gray-border);position:absolute;top:6px;bottom:6px;left:50%;transform:translateX(-50%);z-index:0;}
-.tl-dot{width:11px;height:11px;border-radius:50%;background:var(--white);border:2px solid #C0C0C0;position:relative;z-index:1;cursor:pointer;transition:all .3s;flex-shrink:0;}
+.tl-dot{width:11px;height:11px;border-radius:50%;background:var(--white);border:2px solid #C0C0C0;position:relative;z-index:1;cursor:pointer;transition:background .4s ease,border-color .4s ease,transform .4s ease;flex-shrink:0;}
 .tl-dot.active{background:var(--yellow);border-color:var(--yellow);transform:scale(1.4);}
-.tl-seg{height:148px;width:1px;background:var(--gray-border);transition:background .3s;}
-.tl-seg.filled{background:var(--yellow);}
+.tl-seg{height:148px;width:2px;background:var(--gray-border);position:relative;overflow:hidden;}
+.tl-seg::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:var(--yellow);transform:scaleY(0);transform-origin:top center;transition:transform .5s cubic-bezier(.4,0,.2,1);}
+.tl-seg.filled::after{transform:scaleY(1);}
+.tl-seg.partial::after{transform:scaleY(var(--fill,0));transition:transform .1s linear;}
 .timeline{display:flex;flex-direction:column;}
-.tl-item{display:grid;grid-template-columns:196px 1fr;gap:36px;padding:36px 0 36px 24px;border-bottom:1px solid var(--gray-border);}
+.tl-item{display:grid;grid-template-columns:196px 1fr;gap:36px;padding:26px 0 26px 24px;border-bottom:1px solid var(--gray-border);}
 .tl-item:first-child{border-top:none;}
 .tl-years{font-family:var(--serif);font-size:28px;color:var(--gray);font-weight:400;line-height:1.1;padding-top:4px;}
 .tl-role{font-size:21px;font-weight:500;line-height:1.2;margin-bottom:4px;}
-.tl-company{font-size:13px;color:var(--gray);margin-bottom:12px;letter-spacing:.07em;text-transform:uppercase;}
-.tl-desc{font-size:16px;color:var(--gray);line-height:1.65;margin-bottom:14px;max-width:600px;}
-.tl-achievements{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;max-width:600px;}
+.tl-company{font-size:14px;color:var(--gray);margin-bottom:12px;letter-spacing:.04em;}
+.tl-desc{font-size:16px;color:var(--gray);line-height:1.65;margin-bottom:10px;max-width:600px;}
+.tl-achievements{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;max-width:600px;}
 .tl-ach{font-size:16px;line-height:1.5;color:var(--gray);}
 .tl-ach em{font-style:normal;font-weight:500;color:var(--black);}
 /* Projects in detail button — lighter weight for Safari rendering */
@@ -141,17 +144,17 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .tl-link:hover{background:var(--black);color:var(--white);}
 .tl-link svg{width:14px;height:14px;transition:transform .2s;}
 .tl-link:hover svg{transform:translateX(3px);}
-.tl-item-compact{display:grid;grid-template-columns:196px 1fr;gap:36px;padding:22px 0 22px 24px;border-bottom:1px solid var(--gray-border);}
+.tl-item-compact{display:grid;grid-template-columns:196px 1fr;gap:36px;padding:16px 0 16px 24px;border-bottom:1px solid var(--gray-border);}
 .tl-compact-year{font-family:var(--serif);font-size:22px;color:var(--gray);font-weight:400;line-height:1.2;padding-top:3px;}
 .tl-compact-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
 .tl-compact-role{font-size:16px;font-weight:500;line-height:1.3;}
-.tl-compact-company{font-size:12px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;}
+.tl-compact-company{font-size:13px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;}
 .tl-compact-note{font-size:15px;color:var(--gray);line-height:1.55;max-width:520px;}
 
 /* ── STRENGTHS GRID — static 3×2, no slider ── */
-.cards-section{padding:43px 0 64px;}
+.cards-section{padding:12px 0 32px;}
 .cards-section .ct-inner{max-width:var(--ct);margin:0 auto;padding:0 48px;}
-.cards-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:14px;margin-top:48px;}
+.cards-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:14px;margin-top:20px;}
 /* Row 1: 3 / 3 / 4 */
 .cards-grid .w-card:nth-child(1){grid-column:span 3;}
 .cards-grid .w-card:nth-child(2){grid-column:span 3;}
@@ -160,14 +163,50 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07);}
 .cards-grid .w-card:nth-child(4){grid-column:span 4;}
 .cards-grid .w-card:nth-child(5){grid-column:span 3;}
 .cards-grid .w-card:nth-child(6){grid-column:span 3;}
-.w-card{background:var(--black);border-radius:14px;padding:28px 28px 32px;transition:background .25s,transform .2s,box-shadow .2s;}
-.w-card:hover{background:#1f1f21;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.18);}
+.w-card{background:var(--black);border-radius:10px;padding:20px 20px 24px;transition:background .25s,transform .2s,box-shadow .2s;}
+.w-card:hover{background:#1f1f21;box-shadow:0 4px 20px rgba(0,0,0,.22);}
 .w-card .c-head{font-size:18px;font-weight:500;margin-bottom:10px;color:var(--white);line-height:1.3;}
 .w-card .c-body{font-size:15px;color:rgba(255,255,255,.82);line-height:1.6;}
 
+/* ── PROJECT CARDS ── */
+.proj-cards-section{padding:12px 0 32px;}
+.proj-cards-section .ct-inner{max-width:var(--ct);margin:0 auto;padding:0 48px;}
+.proj-group{margin-top:0;}
+.proj-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
+.proj-card{background:var(--gray-light);border-radius:10px;padding:16px 18px 14px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;transition:background .2s,transform .18s,box-shadow .2s;cursor:pointer;border:1.5px solid transparent;position:relative;}
+.proj-card:hover{background:#ebebea;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.09);}
+.proj-card-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:2px;}.proj-card-badge{font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gray);background:var(--white);border:1px solid var(--gray-border);border-radius:5px;padding:2px 7px;white-space:nowrap;line-height:1.5;}
+.proj-card:hover .proj-card-badge{background:rgba(255,255,255,.7);}
+.proj-card-title{font-family:var(--serif);font-size:20px;font-weight:400;line-height:1.2;color:var(--black);}
+.proj-card-desc{font-size:15px;color:var(--gray);line-height:1.6;flex:1;}
+.proj-card-footer{display:flex;justify-content:flex-end;margin-top:2px;}
+.proj-card-cta{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gray);display:inline-flex;align-items:center;gap:5px;transition:color .2s;}
+.proj-card-cta svg{width:11px;height:11px;transition:transform .2s;}
+.proj-card:hover .proj-card-cta{color:var(--black);}
+.proj-card:hover .proj-card-cta svg{transform:translateX(3px);}
+
+/* ── INLINE PROJECT CARDS (inside timeline) ── */
+.tl-proj-label{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin:14px 0 8px;}
+.tl-proj-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;max-width:75%;align-items:stretch;}
+.tl-proj-card{background:var(--white);border:1px solid var(--gray-border);border-radius:6px;padding:14px 16px;display:flex;align-items:center;gap:18px;text-decoration:none;color:inherit;transition:background .2s;}
+.tl-proj-card:hover{background:var(--gray-light);}
+.tl-proj-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;}
+.tl-proj-badges{display:flex;gap:6px;flex-wrap:wrap;}
+.tl-proj-badge{font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gray);background:var(--white);border:1px solid var(--gray-border);border-radius:5px;padding:2px 7px;white-space:nowrap;line-height:1.5;}
+.tl-proj-card:hover .tl-proj-badge{background:var(--white);}
+.tl-proj-title{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--black);line-height:1.2;min-height:44px;}
+.tl-proj-desc{font-size:14px;color:var(--gray);line-height:1.55;}
+.tl-proj-arrow{font-size:20px;color:var(--gray);flex-shrink:0;transition:color .2s,transform .2s;line-height:1;}
+.tl-proj-card:hover .tl-proj-arrow{color:var(--black);transform:translateX(2px);}
+.tl-see-all{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;padding:14px 0;border-radius:6px;background:var(--black);border:1px solid var(--black);cursor:pointer;font-family:var(--sans);transition:all .2s;max-width:75%;}
+.tl-see-all:hover{background:var(--yellow);border-color:var(--yellow);color:var(--black);}
+.tl-see-all svg{width:12px;height:12px;transition:transform .2s;}
+.tl-see-all:hover svg{transform:translateX(3px);}
+@media(max-width:960px){.tl-proj-row{grid-template-columns:1fr;max-width:100%;}.tl-see-all{max-width:100%;}}
+
 /* ── FOOTER ── */
-footer{background:var(--black);color:var(--white);padding:48px 0 0;}
-.ft-inner{max-width:var(--ct);margin:0 auto;padding:0 48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:64px;border-bottom:1px solid #1E1E20;}
+footer{background:var(--black);color:var(--white);padding:24px 0 0;}
+.ft-inner{max-width:var(--ct);margin:0 auto;padding:0 48px 30px;display:grid;grid-template-columns:1fr 1fr;gap:64px;border-bottom:1px solid #1E1E20;}
 .ft-title-row{display:flex;align-items:flex-end;gap:16px;margin-bottom:20px;} /* image bottom aligns with text baseline */
 .ft-h2{font-family:var(--serif);font-size:44px;font-weight:400;line-height:1;}
 .ft-avatar{height:112px;width:auto;display:block;filter:drop-shadow(0 4px 16px rgba(0,0,0,.4));}
@@ -196,17 +235,20 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 .top-btn:hover{border-color:var(--yellow);color:var(--yellow);}
 
 /* ── TOOLS & LANGUAGES ── inline, part of main flow */
-.tl-footer{max-width:var(--ct);margin:0 auto;padding:16px 48px 48px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;}
+.tl-footer{max-width:var(--ct);margin:0 auto;padding:12px 48px 36px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;}
 .tl-footer-lbl{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:16px;}
 .tool-tags{display:flex;flex-wrap:wrap;gap:8px;}
 .tool-tag{font-size:13px;color:var(--gray);background:var(--gray-light);border-radius:6px;padding:5px 12px;line-height:1.4;transition:background .18s,color .18s;opacity:0;transform:translateX(-8px);transition:opacity .22s ease,transform .22s ease,background .18s,color .18s;}
 .tool-tag.tag-visible{opacity:1;transform:translateX(0);}
 .tool-tag:hover{background:var(--yellow);color:var(--black);}
-.lang-col{display:flex;flex-direction:column;gap:14px;min-width:220px;}
-.lang-row{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.lang-col{display:flex;flex-direction:column;min-width:220px;}
+.lang-col .tl-footer-lbl{margin-bottom:16px;}
+.lang-row{display:flex;align-items:center;justify-content:space-between;gap:24px;height:28px;}
+.lang-row+.lang-row{margin-top:8px;}
 .lang-name{font-size:14px;font-weight:500;white-space:nowrap;}
 .lang-badge{font-size:12px;color:var(--gray);white-space:nowrap;}
 
+.hero-bio-mob,.hero-actions-mob{display:none;}
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   nav{padding:0;}.nav-inner{padding:0 20px;}
@@ -214,30 +256,31 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
   /* hamburger always right-aligned */
   .hamburger{display:flex;margin-left:auto;}
 
-  /* HERO — photo right of name/label */
+  /* HERO — photo top-right, name beside it, bio+buttons full width below */
   #hero{
     display:grid;
     grid-template-columns:1fr 100px;
+    grid-template-rows:auto auto;
     gap:0 16px;
-    padding:24px 20px 40px;
+    padding:24px 20px 36px;
     align-items:start;
     max-width:100vw;
     box-sizing:border-box;
   }
-  /* hero-left spans full left column, including actions */
-  .hero-left{grid-column:1;grid-row:1;gap:14px;min-width:0;}
-  /* bio: full width of its column — not constrained */
-  .hero-bio{max-width:100%;}
-  /* photo: right column, top-aligned */
-  .hero-right{grid-column:2;grid-row:1;align-items:flex-start;justify-content:flex-end;align-self:start;}
+  /* label + name: left column, row 1 */
+  .hero-left{grid-column:1 / 2;grid-row:1;gap:14px;min-width:0;}
+  /* hide bio and actions in their original position */
+  .hero-bio,.hero-actions{display:none;}
+  /* photo: right column, row 1 */
+  .hero-right{grid-column:2 / 3;grid-row:1;align-items:flex-start;justify-content:flex-end;align-self:start;}
   .photo-wrap{width:100px;}
+  /* bio + actions full width below, row 2 */
+  .hero-bio-mob{display:block;grid-column:1 / 3;grid-row:2;margin-top:18px;font-size:17px;color:var(--gray);line-height:1.7;}
+  .hero-actions-mob{display:flex;grid-column:1 / 3;grid-row:3;margin-top:14px;align-items:center;gap:14px;flex-wrap:wrap;}
 
-  .stats-grid{grid-template-columns:repeat(2,1fr);padding:0 20px;gap:12px;border-radius:0;}
-  .stat-card{padding:22px 20px 20px;}
-  .stat-card:first-child{border-radius:14px 0 0 0;}
-  .stat-card:nth-child(2){border-radius:0 14px 0 0;}
-  .stat-card:nth-child(3){border-radius:0 0 0 14px;}
-  .stat-card:last-child{border-radius:0 0 14px 0;}
+  /* stat cards: all rounded */
+  .stats-grid{grid-template-columns:repeat(2,1fr);padding:0 20px;gap:12px;}
+  .stat-card{padding:22px 20px 20px;border-radius:14px !important;}
 
   /* Experience section */
   #experience.section{padding-top:24px;}
@@ -250,24 +293,33 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
   .tl-item-compact{grid-template-columns:1fr;gap:4px;padding-left:0;}
   .tl-compact-head{flex-direction:column;gap:2px;}
 
-  /* Cards grid: 1 column on mobile */
-  .cards-grid{grid-template-columns:1fr;}
+  /* Cards grid: 1 column on mobile, equal width (reset nth-child spans) */
+  .cards-grid{grid-template-columns:1fr;display:flex;flex-direction:column;}
+  .cards-grid .w-card:nth-child(1),
+  .cards-grid .w-card:nth-child(2),
+  .cards-grid .w-card:nth-child(3),
+  .cards-grid .w-card:nth-child(4),
+  .cards-grid .w-card:nth-child(5),
+  .cards-grid .w-card:nth-child(6){grid-column:unset;width:100%;}
   .cards-section .ct-inner{padding:0 20px;}
   #about .sec-lbl ~ h2{font-size:clamp(32px,4vw,48px) !important;}
 
   /* Tools */
-  .tl-footer{grid-template-columns:1fr;gap:28px;padding:32px 20px 48px;}
+  .tl-footer{grid-template-columns:1fr;gap:21px;padding:24px 20px 36px;}
   .lang-col{min-width:unset;}
   /* prevent any horizontal overflow on mobile */
-  .tl-footer,.ct,.ct-inner,.cards-grid,.exp-wrap{max-width:100%;overflow-x:hidden;}
+  .tl-footer,.ct,.ct-inner,.cards-grid,.exp-wrap{max-width:100%;overflow-x:clip;}
   .tl-ach em{word-break:break-word;}
   .ft-email{font-size:clamp(16px,4.5vw,24px);word-break:break-all;}
 
+  .proj-cards-grid{grid-template-columns:1fr;}
+  .proj-cards-section .ct-inner{padding:0 20px;}
+
   /* Footer mobile — avatar 3× (96px) */
-  .ft-inner{grid-template-columns:1fr;gap:36px;padding:0 20px 48px;}
+  .ft-inner{grid-template-columns:1fr;gap:36px;padding:0 20px 36px;}
   .ft-h2{font-size:32px;}
   .ft-avatar{height:96px;}
-  .ft-bottom{padding:20px;}.ct{padding:0 20px;}.section{padding:40px 0;}
+  .ft-bottom{padding:15px;}.ct{padding:0 20px;}.section{padding:30px 0;}
 }
 
 </style>
@@ -280,6 +332,7 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
     <a href="." class="nav-logo" onclick="gtag('event','click_nav_logo')"><img src="logo_avatar.png" alt="Svetlana"></a>
     <div class="nav-links">
       <a href="#experience" onclick="gtag('event','click_nav_experience')">Experience</a>
+      <a href="#projects" onclick="gtag('event','click_nav_projects')">Projects</a>
       <a href="#about" onclick="gtag('event','click_nav_about')">About</a>
       <a href="#contacts" onclick="gtag('event','click_nav_contact')">Contact</a>
     </div>
@@ -299,6 +352,7 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 
 <div class="mob-menu" id="mob-menu">
   <a href="#experience" onclick="closeMob();gtag('event','click_mob_experience')">Experience</a>
+  <a href="#projects" onclick="closeMob();gtag('event','click_mob_projects')">Projects</a>
   <a href="#about" onclick="closeMob();gtag('event','click_mob_about')">About</a>
   <a href="#contacts" onclick="closeMob();gtag('event','click_mob_contact')">Contact</a>
   <button class="mob-email" onclick="copyMobEmail(this);gtag('event','click_mob_copy_email');">
@@ -310,7 +364,7 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 <section id="home">
   <div id="hero">
     <div class="hero-left">
-      <p class="hero-label rv">Project Manager · Delivery Manager</p>
+      <p class="hero-label rv">Project & Delivery Manager</p>
       <h1 class="hero-name rv d1">Hi! I'm<br>Svetlana <span class="wave">👋</span></h1>
       <p class="hero-bio rv d2">I manage delivery across complex systems with external integrations and multi-team environments — keeping processes clear, releases predictable, and stakeholders aligned.</p>
       <div class="hero-actions rv d3">
@@ -327,6 +381,17 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
     <div class="hero-right rv">
       <div class="photo-wrap"><div class="photo-img"><img src="portrait.png" alt="Svetlana"></div></div>
     </div>
+    <p class="hero-bio-mob">I manage delivery across complex systems with external integrations and multi-team environments — keeping processes clear, releases predictable, and stakeholders aligned.</p>
+    <div class="hero-actions-mob">
+      <a href="CV_PM_Sitdikova_Svetlana.pdf" class="btn-cv" target="_blank" rel="noopener" onclick="gtag('event','click_download_cv')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV
+      </a>
+      <div class="soc-icons">
+        <a href="https://www.linkedin.com/in/svetlana-sitdikova" class="soc-icon" title="LinkedIn" target="_blank" rel="noopener" onclick="gtag('event','click_linkedin_hero')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://t.me/Svetllana_s" class="soc-icon" title="Telegram" target="_blank" rel="noopener" onclick="gtag('event','click_telegram_hero')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -339,19 +404,19 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
 <div class="stats-band">
   <div class="stats-grid rv">
     <div class="stat-card">
-      <div class="stat-num">5</div>
+      <div class="stat-num" data-count="5">5</div>
       <div class="stat-lbl">Years in IT project management</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">53</div>
+      <div class="stat-num" data-count="53">53</div>
       <div class="stat-lbl">Engineers in the largest team</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">10+</div>
+      <div class="stat-num" data-count="10" data-suffix="+">10+</div>
       <div class="stat-lbl">Full-cycle projects delivered end to end</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">5M</div>
+      <div class="stat-num" data-count="5" data-suffix="M">5M</div>
       <div class="stat-lbl">MAU on the platform<br>I managed delivery for</div>
     </div>
   </div>
@@ -377,7 +442,7 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
       <div class="timeline">
 
         <div class="tl-item rv" data-index="0">
-          <div class="tl-years">2023 — 2025</div>
+          <div class="tl-years">2023 — 2026</div>
           <div>
             <div class="tl-role">Delivery Manager</div>
             <div class="tl-company">Samolet · Real Estate Developer</div>
@@ -387,8 +452,27 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
               <div class="tl-ach"><em>7s → &lt;3s</em> load time on key pages — optimised via CDN, caching, backend requests, and Vue 2 → Nuxt 3 migration</div>
               <div class="tl-ach"><em>2 weeks → 1 day</em> page launch time — initiated and delivered a no-code landing page builder</div>
             </div>
-            <a href="experience-dm.html" class="tl-link" target="_blank" onclick="gtag('event','click_exp_dm_detail')">
-              Projects in detail
+            <p class="tl-proj-label">Projects</p>
+            <div class="tl-proj-row">
+              <a href="delivery-manager.html#proj1" class="tl-proj-card" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_dm1')">
+                <div class="tl-proj-body">
+                  <div class="tl-proj-badges"><span class="tl-proj-badge">B2C</span><span class="tl-proj-badge">B2B</span><span class="tl-proj-badge">Internal</span></div>
+                  <div class="tl-proj-title">Real Estate Sales & Customer Ecosystem</div>
+                  <div class="tl-proj-desc">6 teams, 5M MAU website + customer account + B2B tools.</div>
+                </div>
+                <span class="tl-proj-arrow">›</span>
+              </a>
+              <a href="delivery-manager.html#proj2" class="tl-proj-card" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_dm2')">
+                <div class="tl-proj-body">
+                  <div class="tl-proj-badges"><span class="tl-proj-badge">Internal tool</span></div>
+                  <div class="tl-proj-title">No-Code Landing Page Builder</div>
+                  <div class="tl-proj-desc">Cut marketing page launch from 2–3 weeks to 1 day.</div>
+                </div>
+                <span class="tl-proj-arrow">›</span>
+              </a>
+            </div>
+            <a href="delivery-manager.html" class="tl-see-all" target="_blank" rel="noopener" onclick="gtag('event','click_exp_dm_detail')">
+              All projects
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg>
             </a>
           </div>
@@ -405,8 +489,27 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
               <div class="tl-ach"><em>+30%</em> agency profitability through billing revision</div>
               <div class="tl-ach"><em>8.7 / 10</em> average client satisfaction in monthly surveys</div>
             </div>
-            <a href="experience-pm.html" class="tl-link" target="_blank" onclick="gtag('event','click_exp_pm_detail')">
-              Projects in detail
+            <p class="tl-proj-label">Projects</p>
+            <div class="tl-proj-row">
+              <a href="project-manager.html#proj1" class="tl-proj-card" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_pm1')">
+                <div class="tl-proj-body">
+                  <div class="tl-proj-badges"><span class="tl-proj-badge">B2C</span><span class="tl-proj-badge">Marketplace</span></div>
+                  <div class="tl-proj-title">Secondary Real Estate Marketplace</div>
+                  <div class="tl-proj-desc">Joined mid-crisis, brought 20-person team to production.</div>
+                </div>
+                <span class="tl-proj-arrow">›</span>
+              </a>
+              <a href="project-manager.html#proj2" class="tl-proj-card" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_pm2')">
+                <div class="tl-proj-body">
+                  <div class="tl-proj-badges"><span class="tl-proj-badge">Internal</span><span class="tl-proj-badge">Cross-product</span></div>
+                  <div class="tl-proj-title">Auth & SMS Notification Service</div>
+                  <div class="tl-proj-desc">Unified identity + notifications across platforms on Keycloak.</div>
+                </div>
+                <span class="tl-proj-arrow">›</span>
+              </a>
+            </div>
+            <a href="project-manager.html" class="tl-see-all" target="_blank" rel="noopener" onclick="gtag('event','click_exp_pm_detail')">
+              All projects
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg>
             </a>
           </div>
@@ -442,7 +545,7 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
     <!-- Tools & Languages — compact strip between Career path and My strengths -->
     <div class="tl-footer rv">
       <div>
-        <p class="tl-footer-lbl">Tools & stack</p>
+        <p class="tl-footer-lbl">Tools</p>
         <div class="tool-tags">
           <span class="tool-tag">Jira</span><span class="tool-tag">Confluence</span><span class="tool-tag">Notion</span><span class="tool-tag">Productboard</span><span class="tool-tag">Smartsheet</span><span class="tool-tag">ActiveCollab</span><span class="tool-tag">Miro</span><span class="tool-tag">Figma</span><span class="tool-tag">Draw.io</span><span class="tool-tag">Google Workspace</span><span class="tool-tag">REST API</span><span class="tool-tag">Kafka</span><span class="tool-tag">CI/CD</span><span class="tool-tag">GitLab</span><span class="tool-tag">BrowserStack</span>
         </div>
@@ -454,6 +557,114 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
       </div>
     </div>
 
+<!-- Project Cards Section -->
+<section id="projects" class="proj-cards-section">
+  <div class="ct-inner">
+    <p class="sec-lbl rv">SELECTED WORK</p>
+    <h2 class="rv" style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.1;">Projects</h2>
+
+    <div class="proj-group rv" style="margin-top:0;">
+      <div class="proj-cards-grid">
+
+        <a href="delivery-manager.html#proj1" class="proj-card rv" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_dm1')">
+          <div class="proj-card-badges">
+            <span class="proj-card-badge">B2C</span>
+            <span class="proj-card-badge">B2B</span>
+            <span class="proj-card-badge">Internal tool</span>
+          </div>
+          <div class="proj-card-title">Real Estate Sales & Customer Ecosystem</div>
+          <p class="proj-card-desc">Coordinated 6 distributed teams shipping a 5M MAU real estate website, customer account platform, and internal B2B tools simultaneously.</p>
+          <div class="proj-card-footer">
+            <span class="proj-card-cta">In detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+          </div>
+        </a>
+
+        <a href="delivery-manager.html#proj2" class="proj-card rv d1" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_dm2')">
+          <div class="proj-card-badges">
+            <span class="proj-card-badge">Internal tool</span>
+          </div>
+          <div class="proj-card-title">No-Code Landing Page Builder</div>
+          <p class="proj-card-desc">Identified the bottleneck, proposed and delivered an internal no-code platform that cut marketing page launch time from 2–3 weeks to 1 day.</p>
+          <div class="proj-card-footer">
+            <span class="proj-card-cta">In detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+          </div>
+        </a>
+
+        <a href="delivery-manager.html#proj3" class="proj-card rv d2" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_dm3')">
+          <div class="proj-card-badges">
+            <span class="proj-card-badge">B2C</span>
+            <span class="proj-card-badge">E-commerce</span>
+          </div>
+          <div class="proj-card-title">Online Real Estate Transaction Flow</div>
+          <p class="proj-card-desc">Online apartment purchase flow — questionnaire, document signing, and payment — delivered as MVP in 2.5 months instead of the planned 6.</p>
+          <div class="proj-card-footer">
+            <span class="proj-card-cta">In detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+          </div>
+        </a>
+
+        <a href="project-manager.html#proj1" class="proj-card rv" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_pm1')">
+          <div class="proj-card-badges">
+            <span class="proj-card-badge">B2C</span>
+            <span class="proj-card-badge">Marketplace</span>
+          </div>
+          <div class="proj-card-title">Secondary Real Estate Marketplace</div>
+          <p class="proj-card-desc">Nationwide secondary real estate marketplace with CRM integration — joined mid-crisis and brought a 20-person team to production.</p>
+          <div class="proj-card-footer">
+            <span class="proj-card-cta">In detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+          </div>
+        </a>
+
+        <a href="project-manager.html#proj2" class="proj-card rv d1" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_pm2')">
+          <div class="proj-card-badges">
+            <span class="proj-card-badge">Internal tool</span>
+            <span class="proj-card-badge">Cross-product</span>
+          </div>
+          <div class="proj-card-title">Auth & SMS Notification Service</div>
+          <p class="proj-card-desc">Internal cross-product service unifying identity management and SMS notifications across multiple platforms, built on Keycloak.</p>
+          <div class="proj-card-footer">
+            <span class="proj-card-cta">In detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+          </div>
+        </a>
+
+        <a href="project-manager.html#proj3" class="proj-card rv d2" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_pm3')">
+          <div class="proj-card-badges">
+            <span class="proj-card-badge">B2C</span>
+            <span class="proj-card-badge">E-commerce</span>
+          </div>
+          <div class="proj-card-title">Real Estate Digital Platform</div>
+          <p class="proj-card-desc">Long-term delivery and enhancement of a customer-facing property marketplace — and a billing revision that lifted agency profitability by 30%.</p>
+          <div class="proj-card-footer">
+            <span class="proj-card-cta">In detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+          </div>
+        </a>
+
+        <a href="project-manager.html#proj4" class="proj-card rv" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_pm4')">
+          <div class="proj-card-badges">
+            <span class="proj-card-badge">B2C</span>
+          </div>
+          <div class="proj-card-title">Interactive Commercial Real Estate Map</div>
+          <p class="proj-card-desc">A fully custom tile-based interactive map for browsing commercial units in new developments, built from hand-drawn architectural plans.</p>
+          <div class="proj-card-footer">
+            <span class="proj-card-cta">In detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+          </div>
+        </a>
+
+        <a href="project-manager.html#proj5" class="proj-card rv d1" target="_blank" rel="noopener" onclick="gtag('event','click_proj_card_pm5')">
+          <div class="proj-card-badges">
+            <span class="proj-card-badge">B2C</span>
+          </div>
+          <div class="proj-card-title">Premium Residential Website</div>
+          <p class="proj-card-desc">Full-cycle delivery of a premium residential marketing site — apartment catalog, mortgage tools, personal account, and CRM integrations.</p>
+          <div class="proj-card-footer">
+            <span class="proj-card-cta">In detail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 6 cards, static 3×2 grid -->
 <section id="about" class="cards-section">
   <div class="ct-inner">
@@ -463,7 +674,7 @@ footer{background:var(--black);color:var(--white);padding:48px 0 0;}
       <div class="w-card rv"><div class="c-head">Multi-team coordination</div><p class="c-body">Coordinated up to 6 distributed teams at once — balancing workload, dependencies, and priorities without losing alignment or creating chaos for anyone.</p></div>
       <div class="w-card rv d1"><div class="c-head">Technical fluency</div><p class="c-body">Started as a QA engineer. Comfortable discussing APIs, CI/CD, release pipelines, and microservices. I understand what engineering teams deal with.</p></div>
       <div class="w-card rv d2"><div class="c-head">People development</div><p class="c-body">Hired and onboarded 5 project managers as their direct manager. I know how to bring people in and set them up for success.</p></div>
-      <div class="w-card rv"><div class="c-head">Release management</div><p class="c-body">Facilitated delivery across multiple teams within LeSS with quarterly planning. Streamlined twice-weekly releases for a high-load website — with a release calendar, clear guidelines, new roles, and expanded staging environments.</p></div>
+      <div class="w-card rv"><div class="c-head">Release management</div><p class="c-body">Facilitated delivery across multiple teams within LeSS and SAFe. Streamlined twice-weekly releases for a high-load website — with a release calendar, clear guidelines, new roles, and expanded staging environments.</p></div>
       <div class="w-card rv d1"><div class="c-head">Operational strength</div><p class="c-body">Strong on the operational side — I've managed projects with frequent releases, multiple concurrent stakeholders, and shifting priorities. Structure keeps things moving even when the environment is noisy.</p></div>
       <div class="w-card rv d2"><div class="c-head">Stakeholder management</div><p class="c-body">Worked closely with product managers and C-level, coordinated with marketing, adjacent teams, and external vendors — translating needs into clear priorities and keeping everyone aligned.</p></div>
     </div>
@@ -520,7 +731,21 @@ function updateDots(){
       active=0,mid=window.scrollY+window.innerHeight*.42;
   items.forEach(function(item,i){if(window.scrollY+item.getBoundingClientRect().top<=mid)active=i;});
   dots.forEach(function(d,i){d.classList.toggle('active',i===active);});
-  segs.forEach(function(s,i){if(s)s.classList.toggle('filled',i<active);});
+  segs.forEach(function(s,i){
+    if(!s)return;
+    if(i<active){
+      s.classList.add('filled');s.classList.remove('partial');
+    } else if(i===active&&active<items.length-1){
+      // partial fill: how far between item[active] and item[active+1]
+      var top=window.scrollY+items[active].getBoundingClientRect().top;
+      var bot=window.scrollY+items[active+1].getBoundingClientRect().top;
+      var pct=Math.min(1,Math.max(0,(window.scrollY+window.innerHeight*.42-top)/(bot-top)));
+      s.classList.remove('filled');s.classList.add('partial');
+      s.style.setProperty('--fill',pct);
+    } else {
+      s.classList.remove('filled','partial');s.style.removeProperty('--fill');
+    }
+  });
 }
 function scrollTL(i){var items=document.querySelectorAll('[data-index]');if(items[i])items[i].scrollIntoView({behavior:'smooth',block:'start'});}
 
@@ -595,6 +820,38 @@ updateDots();updProg();
   var toolWrap=document.querySelector('.tool-tags');
   if(toolWrap)tagObs.observe(toolWrap);
 })();
+
+/* ── COUNT-UP ── */
+(function(){
+  function easeOut(t){return 1-Math.pow(1-t,3);}
+  function animateCount(el){
+    var target=parseInt(el.dataset.count,10);
+    var suffix=el.dataset.suffix||'';
+    var duration=900;
+    var start=performance.now();
+    function step(now){
+      var p=Math.min((now-start)/duration,1);
+      var val=Math.round(easeOut(p)*target);
+      el.textContent=val+suffix;
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=target+suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  var countObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        animateCount(e.target);
+        countObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.stat-num[data-count]').forEach(function(el){
+    el.textContent='0'+(el.dataset.suffix||'');
+    countObs.observe(el);
+  });
+})();
+
 </script>
 </body>
 </html>

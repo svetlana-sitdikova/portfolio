@@ -8,15 +8,15 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://svetlana-sitdikova.github.io/resume/experience-dm">
 <meta property="og:title" content="Delivery Manager — Svetlana Sitdikova">
-<meta property="og:description" content="Coordinated 6 teams (53 people) across Samolet's digital ecosystem — 5M MAU website, customer account, and internal tools.">
+<meta property="og:description" content="Coordinated 6 teams (53 people) across digital ecosystem — 5M MAU website, customer account, and internal tools.">
 <meta property="og:image" content="https://svetlana-sitdikova.github.io/resume/logo_avatar.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Delivery Manager — Svetlana Sitdikova">
 <meta name="twitter:image" content="https://svetlana-sitdikova.github.io/resume/logo_avatar.png">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="favicon.png">
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TGJFRDKZEW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TGJFRDKZEW');</script>
 <!-- Clean URL: remove .html from address bar -->
 <script>
 if(window.location.pathname.endsWith('.html')){
@@ -29,8 +29,8 @@ if(window.location.pathname.endsWith('.html')){
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--yellow:#EDD55A;--white:#FFFFFF;--black:#0B0B0C;--gray:#5a5a5a;--gray-light:#F4F4F2;--gray-border:#E5E5E5;--sans:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--white);color:var(--black);font-size:17px;line-height:1.7;overflow-x:hidden;}
+html{}
+body{font-family:var(--sans);background:var(--white);color:var(--black);font-size:17px;line-height:1.7;overflow-x:clip;}
 #prog{position:fixed;top:0;left:0;height:3px;background:var(--yellow);width:0%;z-index:9999;border-radius:0 2px 2px 0;transition:width .08s linear;}
 
 /* NAV */
@@ -52,18 +52,24 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .copy-nav-btn .cn-success{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--black);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:0;transition:opacity .18s;border-radius:7px;z-index:2;}
 .copy-nav-btn.copied .cn-success{opacity:1;}
 
-/* HERO — with large watermark */
-.exp-hero{position:relative;overflow:hidden;background:var(--black);padding:56px 0 48px;}
-.exp-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:var(--yellow);border-radius:50%;opacity:.12;filter:blur(80px);pointer-events:none;}
-/* watermark removed */
+/* HERO */
+.exp-hero{position:relative;overflow:hidden;background:var(--black);padding:39px 0 33px;}
+.exp-hero::before{display:none;}
 .exp-hero::after{display:none;}
-/* side-progress removed */
 .side-progress{display:none!important;}
-.exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:1;}
-.exp-role-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;}
-.exp-title{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:12px;}
-.exp-company{font-size:15px;color:var(--white);letter-spacing:.03em;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.exp-period{display:block;font-size:15px;color:var(--white);opacity:.7;margin-top:6px;}
+.exp-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px;position:relative;z-index:1;display:grid;grid-template-columns:1fr 322px;gap:48px;align-items:end;}
+.exp-hero-left{display:flex;flex-direction:column;justify-content:space-between;min-height:160px;}
+.exp-role-tag{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:0;}
+.exp-role-tag .role-name{font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--yellow);}
+.exp-role-tag .role-period{font-size:11px;font-weight:400;letter-spacing:.04em;color:rgba(255,255,255,0.35);padding-left:10px;border-left:1px solid rgba(255,255,255,0.15);}
+.exp-title{font-family:var(--serif);font-size:clamp(30px,4.5vw,48px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:10px;}
+.exp-company{font-size:14px;color:var(--white);letter-spacing:.02em;opacity:.5;white-space:normal;}
+.exp-period{display:none;}
+.exp-hero-right{display:flex;flex-direction:column;gap:14px;border-left:1px solid rgba(255,255,255,0.08);padding-left:18px;padding-bottom:4px;}
+.exp-hero-right-label{display:none;}
+.exp-metric{display:flex;flex-direction:column;gap:2px;}
+.exp-metric-num{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--white);line-height:1;}
+.exp-metric-lbl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,0.6);}
 
 /* OVERVIEW */
 .exp-overview{max-width:1200px;margin:0 auto;padding:40px 48px 0;}
@@ -73,12 +79,22 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .exp-overview-bottom-gap{height:20px;}
 
 /* Stack box */
-.stack-box{background:var(--gray-light);border-radius:14px;padding:20px 18px;}
-.stack-box-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.stack-box{background:var(--gray-light);border-radius:10px;padding:20px 18px;}
+.stack-box-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
+/* mobile accordion stack */
+.stack-mob{display:none;margin:0 20px;border-radius:12px;overflow:hidden;border:1px solid var(--gray-border);}
+.stack-mob-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--gray-light);border:none;padding:14px 16px;cursor:pointer;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);}
+.stack-mob-toggle svg{width:14px;height:14px;flex-shrink:0;transition:transform .25s;}
+.stack-mob.open .stack-mob-toggle svg{transform:rotate(180deg);}
+.stack-mob-body{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--gray-light);}
+.stack-mob.open .stack-mob-body{max-height:400px;}
+.stack-mob-inner{padding:0 16px 16px;display:flex;flex-direction:column;gap:10px;}
 .stack-rows{display:flex;flex-direction:column;gap:10px;}
 .stack-row{display:flex;flex-direction:column;gap:3px;}
-.stack-cat{font-size:11px;font-weight:600;color:var(--black);letter-spacing:.06em;text-transform:uppercase;}
+.stack-cat{font-size:12px;font-weight:400;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;}
 .stack-vals{font-size:13px;color:var(--gray);line-height:1.45;}
+.stack-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px;}
+.stack-chip{display:inline-block;font-size:13px;font-weight:400;color:var(--gray);background:var(--white);border:1px solid var(--gray-border);border-radius:6px;padding:2px 8px;line-height:1.5;white-space:nowrap;}
 
 /* TABS */
 .tabs-sticky{position:sticky;top:60px;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,0.88);border-bottom:1px solid var(--gray-border);}
@@ -91,35 +107,34 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 
 /* CONTENT */
 .exp-content{max-width:1200px;margin:0 auto;padding:0 48px;}
-.proj-block{padding:60px 0;border-bottom:1px solid var(--gray-border);position:relative;}
+.proj-block{padding:44px 0;border-bottom:1px solid var(--gray-border);position:relative;}
 .proj-block:last-child{border-bottom:none;}
-
-/* decorative large project number */
-.proj-num-wrap{position:relative;margin-bottom:8px;}
-.proj-num{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);position:relative;z-index:1;}
-.proj-num-bg{position:absolute;top:-28px;left:-12px;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(80px,10vw,120px);font-weight:400;color:rgba(11,11,12,.04);line-height:1;pointer-events:none;user-select:none;z-index:0;}
+.proj-num-wrap{position:relative;margin-bottom:10px;display:flex;align-items:center;gap:12px;}
+.proj-num{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);position:relative;z-index:1;}
+.proj-num-bg{display:none;}
+.proj-num-divider{width:1px;height:12px;background:var(--gray-border);flex-shrink:0;}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.proj-tag{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gray);background:var(--gray-light);border-radius:5px;padding:2px 8px;line-height:1.5;white-space:nowrap;}
 
 .proj-title{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:400;line-height:1.1;margin-bottom:14px;position:relative;z-index:1;}
 .proj-url{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gray);text-decoration:none;margin-bottom:18px;border-bottom:1px solid var(--gray-border);padding-bottom:1px;transition:color .2s;}
 .proj-url:hover{color:var(--black);}
-.proj-desc{font-size:17px;color:var(--gray);line-height:1.75;margin-bottom:24px;}
+.proj-desc{font-size:17px;color:var(--gray);line-height:1.75;margin-bottom:24px;max-width:860px;}
 
 /* METRICS */
-.metrics-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px;}
-.metric-item{background:var(--gray-light);border-radius:12px;padding:18px 20px;flex:1;min-width:140px;max-width:220px;display:flex;flex-direction:column;gap:12px;min-height:80px;justify-content:center;}
-.metric-num{font-family:var(--serif);font-size:20px;font-weight:400;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.metric-lbl{font-size:14px;color:var(--gray);line-height:1.4;}
+.metrics-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
+.metric-item{background:var(--gray-light);border-radius:10px;padding:14px 16px;flex:1;min-width:140px;max-width:220px;display:flex;flex-direction:column;gap:4px;min-height:70px;justify-content:flex-start;}
+.metric-num{font-family:var(--serif);font-size:20px;font-weight:400;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.metric-lbl{font-size:13px;color:var(--gray);line-height:1.3;}
 
-/* RESPONSIBILITIES — first item bold */
+/* RESPONSIBILITIES */
 .resp-title{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:14px;}
-.resp-list{display:flex;flex-direction:column;gap:12px;max-width:700px;}
-.resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:17px;color:var(--gray);line-height:1.6;}
-.resp-item:first-child{color:var(--black);font-weight:500;}
-.resp-item:first-child .resp-dot{background:var(--black);}
-.resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:9px;justify-self:center;}
+.resp-list{display:flex;flex-direction:column;gap:10px;max-width:860px;}
+.resp-item{display:grid;grid-template-columns:8px 1fr;gap:12px;align-items:start;font-size:16px;color:var(--gray);line-height:1.65;}
+.resp-dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);margin-top:8px;justify-self:center;}
 
 /* GALLERY — hide placeholder thumbs, show only real images */
-.proj-layout{display:grid;grid-template-columns:1fr 240px;gap:48px;align-items:start;}
+.proj-layout{display:block;}
 .proj-side{display:flex;flex-direction:column;gap:12px;padding-top:122px;}
 .g-thumb{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--gray-light);transition:opacity .2s,transform .15s;display:none;} /* hidden by default */
 .g-thumb.loaded{display:block;} /* shown only when image loads */
@@ -152,20 +167,64 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 .bt-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--black);padding:12px 24px;border-radius:10px;border:1.5px solid var(--gray-border);transition:all .2s;background:none;cursor:pointer;font-family:var(--sans);}
 .bt-btn:hover{background:var(--yellow);border-color:var(--yellow);}
 
+/* ECOSYSTEM CHIPS + TOOLTIP */
+.eco-label{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--black);margin-bottom:12px;}
+.eco-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;max-width:860px;}
+.eco-chip{position:relative;display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:400;color:var(--black);background:var(--gray-light);border:1px solid var(--gray-border);border-radius:8px;padding:7px 13px;cursor:default;transition:background .15s,border-color .15s;user-select:none;}
+.eco-chip:hover{background:var(--yellow);border-color:var(--yellow);}
+.eco-chip-tag{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gray);background:var(--white);border:1px solid var(--gray-border);border-radius:4px;padding:1px 6px;line-height:1.5;transition:background .15s,border-color .15s,color .15s;}
+.eco-chip:hover .eco-chip-tag{background:rgba(255,255,255,0.55);border-color:rgba(0,0,0,.07);color:var(--black);}
+.eco-chip-info{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--gray-border);background:var(--white);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;font-weight:500;color:var(--gray);line-height:1;transition:background .15s,border-color .15s,color .15s;font-style:normal;padding-top:1px;padding-left:0px;margin-left:-1px;}
+.eco-chip:hover .eco-chip-info{background:rgba(255,255,255,0.55);border-color:rgba(0,0,0,.1);color:var(--black);}
+/* Tooltip popup */
+.eco-tooltip{position:fixed;z-index:9000;width:300px;background:var(--black);border-radius:12px;padding:18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.22);pointer-events:none;opacity:0;transition:opacity .15s ease;display:flex;flex-direction:column;gap:8px;}
+.eco-tooltip.visible{opacity:1;pointer-events:auto;}
+.eco-tooltip-tag{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--yellow);}
+.eco-tooltip-name{font-size:14px;font-weight:500;color:var(--white);line-height:1.3;}
+.eco-tooltip-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;}
+.eco-tooltip-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;color:var(--yellow);text-decoration:none;margin-top:4px;transition:opacity .15s;}
+.eco-tooltip-link:hover{opacity:.7;}
+.eco-tooltip-link svg{width:11px;height:11px;flex-shrink:0;}
+.eco-tooltip.visible::before{content:'';position:absolute;left:0;top:-10px;width:100%;height:10px;}
+
+/* MOBILE BOTTOM SHEET */
+.eco-sheet-overlay{display:none;position:fixed;inset:0;z-index:8900;background:rgba(11,11,12,.4);opacity:0;transition:opacity .25s;}
+.eco-sheet-overlay.open{opacity:1;}
+.eco-sheet{position:fixed;bottom:0;left:0;right:0;z-index:8950;background:var(--white);border-radius:20px 20px 0 0;padding:20px 20px 36px;box-shadow:0 -8px 40px rgba(0,0,0,.12);transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1,.6,1);display:flex;flex-direction:column;gap:10px;}
+.eco-sheet-handle{width:36px;height:4px;border-radius:2px;background:var(--gray-border);margin:0 auto 10px;cursor:grab;padding:10px 24px;box-sizing:content-box;background-clip:content-box;}
+.eco-sheet-tag{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--gray);}
+.eco-sheet-name{font-size:18px;font-family:var(--serif);font-weight:400;color:var(--black);line-height:1.2;}
+.eco-sheet-desc{font-size:14px;color:var(--gray);line-height:1.65;}
+.eco-sheet-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--black);text-decoration:none;border-bottom:1px solid var(--gray-border);padding-bottom:1px;margin-top:4px;width:fit-content;}
+.eco-sheet-link svg{width:11px;height:11px;flex-shrink:0;}
+
+/* ── SCROLL TO TOP BUTTON ── */
+.scroll-top-btn{position:fixed;bottom:28px;right:28px;z-index:500;width:44px;height:44px;border-radius:50%;background:rgba(90,90,90,.55);color:var(--white);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.12);opacity:0;transform:translateY(12px);transition:opacity .25s,transform .25s,background .18s;pointer-events:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+.scroll-top-btn.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+.scroll-top-btn:hover{background:rgba(90,90,90,.85);}
+.scroll-top-btn svg{width:18px;height:18px;}
+
 @media(max-width:768px){
   .top-nav{padding:0;}.top-nav-inner{padding:0 16px;gap:4px;}
-  .copy-nav-btn .cn-label{display:none;} /* icon only on mobile, but show "Email" */
+  .copy-nav-btn .cn-label{display:none;}
   .copy-nav-btn::after{content:'Email';font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;position:relative;z-index:1;}
+  .exp-hero{padding:20px 0 17px;}
   .exp-hero-inner,.exp-overview,.exp-content{padding-left:20px;padding-right:20px;}
+  .exp-hero-inner{grid-template-columns:1fr;gap:24px;}
+  .exp-hero-right{border-left:none;border-top:1px solid rgba(255,255,255,0.08);padding-left:0;padding-top:16px;flex-direction:row;gap:20px;}
+  .exp-hero-right-label{display:none;}
+  .exp-metric{flex-direction:row;align-items:baseline;gap:6px;}
+  .exp-metric-num{font-size:18px;}
   .exp-overview{padding-top:24px;}
   .exp-overview-inner{grid-template-columns:1fr;gap:28px;}
-  .stack-box{display:none;} /* hide stack on mobile */
+  .stack-box{display:none;}
+  .stack-mob{display:block;margin-bottom:20px;}
+  .stack-mob-toggle{font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--black);}
   .exp-company{white-space:normal;}
   .exp-title{font-size:28px;}
   .tabs-inner{padding:10px 16px 0;height:auto;flex-wrap:nowrap;}
   .tab-btn{font-size:11px;padding:6px 12px;}
   #mob-prog-bar{display:block;}
-  /* proj layout: stack vertically, gallery below content */
   .side-progress{display:none;}
   .proj-num-bg{display:none;}
   .proj-layout{grid-template-columns:1fr;gap:24px;}
@@ -173,12 +232,22 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   .g-thumb{width:100%;aspect-ratio:16/9;}
   .metrics-row{gap:10px;}.metric-item{min-width:calc(50% - 7px);max-width:none;}
   .bottom-nav{padding:32px 20px 48px;flex-direction:column;align-items:stretch;}.bt-btn{justify-content:center;}
+  .bottom-nav-center{order:-1;align-items:center;}
   .proj-block{padding:36px 0;}
+  .eco-chip{cursor:pointer;}
+  .eco-tooltip{display:none!important;}
+  .eco-sheet-overlay.open{display:block;}
+  .eco-sheet{transform:translateY(100%);}
+  .eco-sheet.open{transform:translateY(0);}
+  .scroll-top-btn{bottom:20px;right:16px;}
 }
 </style>
 </head>
 <body>
 <div id="prog"></div>
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+</button>
 
 <nav class="top-nav">
   <div class="top-nav-inner">
@@ -201,29 +270,42 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
   </div>
 </nav>
 
-<div class="exp-hero" data-watermark="DM">
+<div class="exp-hero">
   <div class="exp-hero-inner">
-    <div class="exp-role-tag">Delivery Manager</div>
-    <h1 class="exp-title">Samolet Digital Ecosystem</h1>
-    <p class="exp-company">Russia's largest residential real estate developer · Remote</p>
-    <span class="exp-period">May 2023 — Jul 2025</span>
+    <div class="exp-hero-left">
+      <div class="exp-role-tag">
+        <span class="role-name">Delivery Manager</span>
+        <span class="role-period">2023 — 2026</span>
+      </div>
+      <div>
+        <p class="exp-company">Russia's largest residential real estate developer · Remote</p>
+        <h1 class="exp-title">Samolet Digital Ecosystem</h1>
+      </div>
+    </div>
+    <div class="exp-hero-right">
+      <div class="exp-metric"><span class="exp-metric-num">6</span><span class="exp-metric-lbl">Teams coordinated</span></div>
+      <div class="exp-metric"><span class="exp-metric-num">5M</span><span class="exp-metric-lbl">MAU flagship site</span></div>
+    </div>
+  </div>
+</div>
+    </div>
   </div>
 </div>
 
 <div class="exp-overview">
   <div class="exp-overview-inner">
     <div>
-      <p>Samolet is one of Russia's largest residential real estate developers, with a fully custom digital ecosystem: a high-load public website (5M+ MAU), a customer account platform for online apartment purchases, several property microsite brands, and internal B2B and CMS tools — all deeply integrated with CRM, payment providers, and third-party services.</p>
+      <p>One of Russia’s largest residential real estate developers, with a fully custom digital ecosystem: a high-load public website (5M+ MAU), a customer account platform for online apartment purchases, several property microsite brands, and internal B2B and CMS tools — all deeply integrated with CRM, payment providers, and third-party services.</p>
+      <p>The main challenge was the flagship product — the apartment sales website — a legacy monolith with deep dependencies and significant technical debt, worked on simultaneously by multiple teams. That made cross-team transparency in releases and planning not just important, but critical.</p>
       <p>I joined as Delivery Manager to coordinate 6 distributed development teams and bring structure to a fast-growing, multi-vendor environment. Over 2+ years, I scaled the engineering org from 35 to 53 people, built release and incident management from the ground up, launched a no-code marketing tool, and led a performance initiative that cut page load from 7s to under 3s.</p>
     </div>
     <div class="stack-box">
       <p class="stack-box-title">Stack</p>
       <div class="stack-rows">
-        <div class="stack-row"><span class="stack-cat">Tools</span><span class="stack-vals">Confluence, Jira, Google Workspace, Figma, Draw.io, Productboard</span></div>
-        <div class="stack-row"><span class="stack-cat">Backend</span><span class="stack-vals">Python, REST API, Kafka, Swagger, PostgreSQL, Redis</span></div>
-        <div class="stack-row"><span class="stack-cat">Frontend</span><span class="stack-vals">Vue.js, Nuxt.js</span></div>
-        <div class="stack-row"><span class="stack-cat">Infra</span><span class="stack-vals">Docker, Kubernetes, GitLab CI/CD, Nginx</span></div>
-        <div class="stack-row"><span class="stack-cat">Monitoring</span><span class="stack-vals">ELK Stack, Grafana, Prometheus, Sentry</span></div>
+        <div class="stack-row"><span class="stack-cat">Backend</span><div class="stack-chips"><span class="stack-chip">Python (monolith)</span><span class="stack-chip">REST API</span><span class="stack-chip">Kafka</span><span class="stack-chip">Swagger</span><span class="stack-chip">PostgreSQL</span><span class="stack-chip">Redis</span></div></div>
+        <div class="stack-row"><span class="stack-cat">Frontend</span><div class="stack-chips"><span class="stack-chip">Vue.js</span><span class="stack-chip">Nuxt.js</span></div></div>
+        <div class="stack-row"><span class="stack-cat">Infrastructure</span><div class="stack-chips"><span class="stack-chip">Docker</span><span class="stack-chip">Kubernetes</span><span class="stack-chip">GitLab CI/CD</span><span class="stack-chip">Nginx</span></div></div>
+        <div class="stack-row"><span class="stack-cat">Monitoring</span><div class="stack-chips"><span class="stack-chip">ELK Stack</span><span class="stack-chip">Grafana</span><span class="stack-chip">Prometheus</span><span class="stack-chip">Sentry</span></div></div>
       </div>
     </div>
   </div>
@@ -231,9 +313,24 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 
 <div class="exp-overview-bottom-gap"></div>
 
+<div class="stack-mob" id="stackMob">
+  <button class="stack-mob-toggle" onclick="toggleStackMob()">
+    Stack
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+  </button>
+  <div class="stack-mob-body">
+    <div class="stack-mob-inner">
+      <div class="stack-row"><span class="stack-cat">Backend</span><div class="stack-chips"><span class="stack-chip">Python (monolith)</span><span class="stack-chip">REST API</span><span class="stack-chip">Kafka</span><span class="stack-chip">Swagger</span><span class="stack-chip">PostgreSQL</span><span class="stack-chip">Redis</span></div></div>
+      <div class="stack-row"><span class="stack-cat">Frontend</span><div class="stack-chips"><span class="stack-chip">Vue.js</span><span class="stack-chip">Nuxt.js</span></div></div>
+      <div class="stack-row"><span class="stack-cat">Infrastructure</span><div class="stack-chips"><span class="stack-chip">Docker</span><span class="stack-chip">Kubernetes</span><span class="stack-chip">GitLab CI/CD</span><span class="stack-chip">Nginx</span></div></div>
+      <div class="stack-row"><span class="stack-cat">Monitoring</span><div class="stack-chips"><span class="stack-chip">ELK Stack</span><span class="stack-chip">Grafana</span><span class="stack-chip">Prometheus</span><span class="stack-chip">Sentry</span></div></div>
+    </div>
+  </div>
+</div>
+
 <div class="tabs-sticky" id="tabs-sticky">
   <div class="tabs-inner" id="tabs-inner">
-    <button class="tab-btn active" onclick="goToProj('proj1')">Samolet Ecosystem</button>
+    <button class="tab-btn active" onclick="goToProj('proj1')">Sales & Customer Ecosystem</button>
     <button class="tab-btn" onclick="goToProj('proj2')">No-Code Page Builder</button>
     <button class="tab-btn" onclick="goToProj('proj3')">Online Transaction Flow</button>
   </div>
@@ -245,12 +342,76 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 <div class="exp-content">
 
   <div class="proj-block" id="proj1">
-    <div class="proj-layout">
-      <div class="proj-main">
-        <div class="proj-num-wrap"><span class="proj-num">Project 01</span><span class="proj-num-bg">01</span></div>
-        <h2 class="proj-title">Samolet Ecosystem Multi-Team Program</h2>
+    
+        <div class="proj-num-wrap"><span class="proj-num">Project 01</span><div class="proj-num-divider"></div><div class="proj-tags"><span class="proj-tag">B2C</span><span class="proj-tag">B2B</span><span class="proj-tag">Internal</span></div></div>
+        <h2 class="proj-title">Real Estate Sales & Customer Ecosystem</h2>
         <a href="https://samolet.ru/" class="proj-url" target="_blank" rel="noopener" onclick="gtag('event','click_link_samolet')">samolet.ru ↗</a>
-        <p class="proj-desc">Delivery across the full Samolet digital ecosystem: high-load website (5M+ MAU), customer account with online property purchases, and internal B2B tools. My role was to make 53 engineers, designers, and PMs aligned, unblocked, and shipping — while the team and product were both growing rapidly in a multi-vendor environment with an outstaff team.</p>
+        <p class="proj-desc">Delivery across the full digital ecosystem: high-load website (5M+ MAU), customer account with online property purchases, and internal B2B tools. My role was to make 53 engineers, designers, and PMs aligned, unblocked, and shipping — while the team and product were both growing rapidly in a multi-vendor environment with an outstaff team.</p>
+
+        <p class="eco-label">Products in the ecosystem</p>
+        <div class="eco-chips">
+          <span class="eco-chip"
+            data-tag="B2C"
+            data-name="Main developer website"
+            data-desc="A large real estate platform with ~5M monthly active users, showcasing residential projects, property listings, and supporting content for buyers. It acts as a central entry point for discovering properties, exploring neighborhoods, and starting the purchase journey."
+            data-url="https://samolet.ru/"
+            data-urltext="samolet.ru">
+            Main developer website<i class="eco-chip-info">i</i>
+          </span>
+          <span class="eco-chip"
+            data-tag="B2C"
+            data-name="Client personal account"
+            data-desc="A customer-facing dashboard where users can view purchased or reserved apartments, access documents, and track payment history — embedded within the main platform.">
+            Client personal account<i class="eco-chip-info">i</i>
+          </span>
+          <span class="eco-chip"
+            data-tag="B2B"
+            data-name="Agent panel"
+            data-desc="A B2B platform for real estate agents to manage listings, track deals, and interact with the developer's inventory. Supports partner workflows including lead management, bookings, and sales operations.">
+            Agent panel<i class="eco-chip-info">i</i>
+          </span>
+          <span class="eco-chip"
+            data-tag="Internal"
+            data-name="Office manager panel"
+            data-desc="An internal system used by developer staff to manage projects, sales processes, and client data. Centralizes administrative workflows — from scheduling client meetings to syncing interactions with the CRM across the real estate lifecycle.">
+            Office manager panel<i class="eco-chip-info">i</i>
+          </span>
+          <span class="eco-chip"
+            data-tag="B2C"
+            data-name="Premium residential website"
+            data-desc="A dedicated marketing website for a specific premium residential complex, focused on branding, storytelling, and high-end positioning."
+            data-url="https://nova.moscow/"
+            data-urltext="nova.moscow">
+            Premium residential website<i class="eco-chip-info">i</i>
+          </span>
+          <span class="eco-chip"
+            data-tag="B2C"
+            data-name="Regional websites"
+            data-desc="Standalone landing sites tailored to specific regions and developments, adapted to local audiences and market specifics."
+            data-url="https://korsakov-future.ru/"
+            data-urltext="korsakov-future.ru"
+            data-url2="https://murmansk-future.ru/">
+            Regional websites<i class="eco-chip-info">i</i>
+          </span>
+          <span class="eco-chip"
+            data-tag="B2C"
+            data-name="Auction platform"
+            data-desc="A digital auction platform for commercial real estate, enabling users to place bids on properties in a structured, time-bound bidding process.">
+            Auction platform<i class="eco-chip-info">i</i>
+          </span>
+        </div>
+
+        <!-- shared tooltip -->
+        <div class="eco-tooltip" id="ecoTooltip">
+          <span class="eco-tooltip-tag" id="ettag"></span>
+          <span class="eco-tooltip-name" id="etname"></span>
+          <span class="eco-tooltip-desc" id="etdesc"></span>
+          <a class="eco-tooltip-link" id="etlink" href="#" target="_blank" rel="noopener" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span id="etlinktext"></span>
+          </a>
+        </div>
+
         <div class="metrics-row">
           <div class="metric-item"><div class="metric-num">6 teams</div><div class="metric-lbl">coordinated simultaneously</div></div>
           <div class="metric-item"><div class="metric-num">35 → 53</div><div class="metric-lbl">team members during my tenure</div></div>
@@ -265,19 +426,11 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
           <div class="resp-item"><div class="resp-dot"></div><span>Led site performance improvement from ~7s to &lt;3s via CDN, caching, and Vue 2 → Nuxt 3 migration</span></div>
           <div class="resp-item"><div class="resp-dot"></div><span>Streamlined design processes: standardized review criteria, introduced a design lead role, implemented designer-driven test design before engineering handoff</span></div>
         </div>
-      </div>
-      <div class="proj-side">
-        <div class="g-thumb" onclick="openLB(0,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
-        <div class="g-thumb" onclick="openLB(0,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
-        <div class="g-thumb" onclick="openLB(0,2)"><div class="g-thumb-ph">Screenshot 3</div></div>
-      </div>
-    </div>
   </div>
 
   <div class="proj-block" id="proj2">
-    <div class="proj-layout">
-      <div class="proj-main">
-        <div class="proj-num-wrap"><span class="proj-num">Project 02</span><span class="proj-num-bg">02</span></div>
+    
+        <div class="proj-num-wrap"><span class="proj-num">Project 02</span><div class="proj-num-divider"></div><div class="proj-tags"><span class="proj-tag">Internal tool</span></div></div>
         <h2 class="proj-title">No-Code Landing Page Builder</h2>
         <p class="proj-desc">An internal no-code platform enabling the marketing team to independently create and publish website landing pages without developer involvement. I identified this bottleneck, proposed the solution, got stakeholder buy-in, assembled the team from scratch, and delivered the product — reducing page launch time from 2–3 weeks to 1 day.</p>
         <div class="metrics-row">
@@ -290,18 +443,11 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
           <div class="resp-item"><div class="resp-dot"></div><span>Managed full delivery cycle: requirements gathering, estimation, sprint execution, release, post-launch support</span></div>
           <div class="resp-item"><div class="resp-dot"></div><span>Ran this project in parallel with Delivery Manager responsibilities across six other teams — required tight context-switching and personal prioritization</span></div>
         </div>
-      </div>
-      <div class="proj-side">
-        <div class="g-thumb" onclick="openLB(1,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
-        <div class="g-thumb" onclick="openLB(1,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
-      </div>
-    </div>
   </div>
 
   <div class="proj-block" id="proj3">
-    <div class="proj-layout">
-      <div class="proj-main">
-        <div class="proj-num-wrap"><span class="proj-num">Project 03</span><span class="proj-num-bg">03</span></div>
+    
+        <div class="proj-num-wrap"><span class="proj-num">Project 03</span><div class="proj-num-divider"></div><div class="proj-tags"><span class="proj-tag">B2C</span><span class="proj-tag">E-commerce</span></div></div>
         <h2 class="proj-title">Online Real Estate Transaction Flow</h2>
         <p class="proj-desc">A complex multi-step flow enabling users to purchase an apartment entirely online: personal questionnaire, document generation, digital signing, file uploads, and payment — with deep CRM integration. The original plan was 6 months. When the CPO pushed back, I rebuilt the plan and delivered an MVP in 2.5 months.</p>
         <div class="metrics-row">
@@ -316,12 +462,6 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
           <div class="resp-item"><div class="resp-dot"></div><span>Managed the external CRM integration: embedded the CRM team into our workflow and coordinated their work directly</span></div>
           <div class="resp-item"><div class="resp-dot"></div><span>Hired a PM toward project end and executed a smooth handover with full context transfer</span></div>
         </div>
-      </div>
-      <div class="proj-side">
-        <div class="g-thumb" onclick="openLB(2,0)"><div class="g-thumb-ph">Screenshot 1</div></div>
-        <div class="g-thumb" onclick="openLB(2,1)"><div class="g-thumb-ph">Screenshot 2</div></div>
-      </div>
-    </div>
   </div>
 
 </div>
@@ -331,7 +471,28 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="19,12 5,12"/><polyline points="12,5 5,12 12,19"/></svg>
     Back to main
   </a>
-  <a href="experience-pm.html" class="bt-btn" onclick="gtag('event','click_to_pm_page')">Project Manager experience →</a>
+  <div class="bottom-nav-center" style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+    <span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#c8c8c8;font-weight:400;">Currently viewing</span>
+    <span style="font-size:13px;font-weight:500;color:#a0a0a0;">Delivery Manager</span>
+  </div>
+  <a href="project-manager.html" class="bt-btn" onclick="gtag('event','click_to_pm_page')">Project Manager experience →</a>
+</div>
+
+<!-- Mobile bottom sheet -->
+<div class="eco-sheet-overlay" id="ecoOverlay"></div>
+<div class="eco-sheet" id="ecoSheet">
+  <div class="eco-sheet-handle"></div>
+  <span class="eco-sheet-tag" id="shtag"></span>
+  <span class="eco-sheet-name" id="shname"></span>
+  <span class="eco-sheet-desc" id="shdesc"></span>
+  <a class="eco-sheet-link" id="shlink" href="#" target="_blank" rel="noopener" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    <span id="shlinktext"></span>
+  </a>
+  <a class="eco-sheet-link" id="shlink2" href="#" target="_blank" rel="noopener" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    <span id="shlink2text"></span>
+  </a>
 </div>
 
 <div id="lightbox">
@@ -343,6 +504,7 @@ body{font-family:var(--sans);background:var(--white);color:var(--black);font-siz
 </div>
 
 <script>
+function toggleStackMob(){var el=document.getElementById('stackMob');el.classList.toggle('open');}
 var EMAIL='svetlanasitdikova.nl@gmail.com';
 var galleries=[
   ['proj1-1.png','proj1-2.png','proj1-3.png'],
@@ -428,8 +590,168 @@ function copyNavEmail(){
     setTimeout(function(){btn.classList.remove('copied');},2000);
   });
 }
+/* ── ECOSYSTEM CHIP TOOLTIP ── */
+(function(){
+  var tt=document.getElementById('ecoTooltip');
+  var etag=document.getElementById('ettag');
+  var ename=document.getElementById('etname');
+  var edesc=document.getElementById('etdesc');
+  var elink=document.getElementById('etlink');
+  var elinktext=document.getElementById('etlinktext');
+  var hideTimer=null;
+
+  function positionTooltip(chip){
+    var r=chip.getBoundingClientRect();
+    var tw=300,margin=4;
+    var th=tt.offsetHeight||180;
+    var left=r.left;
+    if(left+tw>window.innerWidth-12) left=window.innerWidth-tw-12;
+    if(left<12) left=12;
+    var top=r.bottom+margin;
+    tt.style.left=left+'px';
+    tt.style.top=top+'px';
+  }
+
+  document.querySelectorAll('.eco-chip').forEach(function(chip){
+    chip.addEventListener('mouseenter',function(){
+      clearTimeout(hideTimer);
+      etag.textContent=chip.dataset.tag||'';
+      ename.textContent=chip.dataset.name||'';
+      edesc.textContent=chip.dataset.desc||'';
+      var url=chip.dataset.url;
+      if(url){
+        elink.href=url;
+        elinktext.textContent=chip.dataset.urltext||url;
+        elink.style.display='inline-flex';
+        // second link for regional
+        var url2=chip.dataset.url2;
+        var existing=tt.querySelector('.eco-tooltip-link2');
+        if(existing)existing.remove();
+        if(url2){
+          var a2=document.createElement('a');
+          a2.className='eco-tooltip-link eco-tooltip-link2';
+          a2.href=url2;a2.target='_blank';a2.rel='noopener';
+          a2.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span>murmansk-future.ru</span>';
+          a2.style.cssText='display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;color:var(--yellow);text-decoration:none;margin-top:2px;';
+          elink.parentNode.insertBefore(a2,elink.nextSibling);
+        }
+      } else {
+        elink.style.display='none';
+        var ex=tt.querySelector('.eco-tooltip-link2');if(ex)ex.remove();
+      }
+      tt.classList.add('visible');
+      // position after browser has rendered content
+      requestAnimationFrame(function(){ positionTooltip(chip); });
+    });
+    chip.addEventListener('mouseleave',function(){
+      hideTimer=setTimeout(function(){tt.classList.remove('visible');},220);
+    });
+  });
+
+  tt.addEventListener('mouseenter',function(){clearTimeout(hideTimer);});
+  tt.addEventListener('mouseleave',function(){hideTimer=setTimeout(function(){tt.classList.remove('visible');},220);});
+})();
+
+/* ── MOBILE BOTTOM SHEET ── */
+function openSheet(chip){
+  document.getElementById('shtag').textContent=chip.dataset.tag||'';
+  document.getElementById('shname').textContent=chip.dataset.name||'';
+  document.getElementById('shdesc').textContent=chip.dataset.desc||'';
+  var lnk=document.getElementById('shlink');
+  var lnk2=document.getElementById('shlink2');
+  if(chip.dataset.url){
+    lnk.href=chip.dataset.url;
+    document.getElementById('shlinktext').textContent=chip.dataset.urltext||chip.dataset.url;
+    lnk.style.display='inline-flex';
+  } else { lnk.style.display='none'; }
+  if(chip.dataset.url2){
+    lnk2.href=chip.dataset.url2;
+    document.getElementById('shlink2text').textContent='murmansk-future.ru';
+    lnk2.style.display='inline-flex';
+  } else { lnk2.style.display='none'; }
+  var ov=document.getElementById('ecoOverlay');
+  var sh=document.getElementById('ecoSheet');
+  ov.style.display='block';
+  document.body.style.overflow='hidden';
+  requestAnimationFrame(function(){
+    ov.classList.add('open');
+    sh.classList.add('open');
+  });
+}
+function closeSheet(){
+  var ov=document.getElementById('ecoOverlay');
+  var sh=document.getElementById('ecoSheet');
+  ov.classList.remove('open');
+  sh.classList.remove('open');
+  document.body.style.overflow='';
+  setTimeout(function(){ov.style.display='none';},280);
+}
+
+document.querySelectorAll('.eco-chip').forEach(function(chip){
+  chip.addEventListener('click',function(){
+    if(window.innerWidth<=768) openSheet(chip);
+  });
+});
+document.getElementById('ecoOverlay').addEventListener('click',closeSheet);
+document.getElementById('ecoOverlay').addEventListener('touchmove',function(e){e.preventDefault();},{passive:false});
+
+/* ── SWIPE DOWN TO CLOSE BOTTOM SHEET ── */
+(function(){
+  var sh=document.getElementById('ecoSheet');
+  var handle=sh.querySelector('.eco-sheet-handle');
+  var startY=0,curY=0,dragging=false;
+
+  function onStart(e){
+    startY=e.touches?e.touches[0].clientY:e.clientY;
+    curY=startY;
+    dragging=true;
+    sh.style.transition='none';
+  }
+  function onMove(e){
+    if(!dragging)return;
+    curY=e.touches?e.touches[0].clientY:e.clientY;
+    var dy=Math.max(0,curY-startY);
+    sh.style.transform='translateY('+dy+'px)';
+  }
+  function onEnd(){
+    if(!dragging)return;
+    dragging=false;
+    sh.style.transition='';
+    var dy=curY-startY;
+    if(dy>60){
+      sh.style.transform='';
+      closeSheet();
+    } else {
+      sh.style.transform='';
+    }
+  }
+
+  handle.addEventListener('touchstart',onStart,{passive:true});
+  handle.addEventListener('touchmove',onMove,{passive:true});
+  handle.addEventListener('touchend',onEnd);
+})();
+
 window.addEventListener('scroll',updateTabs,{passive:true});
+(function(){
+  var btn=document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>400);},{passive:true});
+})();
 initSideDots();initGallery();updateTabs();
+
+/* ── ANCHOR SCROLL ON LOAD ── */
+(function(){
+  var hash=window.location.hash;
+  if(!hash)return;
+  var target=document.querySelector(hash);
+  if(!target)return;
+  setTimeout(function(){
+    var topNav=document.querySelector('.top-nav');
+    var tabsEl=document.getElementById('tabs-sticky');
+    var offset=(topNav?topNav.offsetHeight:60)+(tabsEl?tabsEl.offsetHeight:52)+16;
+    var top=target.getBoundingClientRect().top+window.scrollY-offset;
+    window.scrollTo({top:top,behavior:'instant'});
+  },120);
+})();
 </script>
 </body>
 </html>
